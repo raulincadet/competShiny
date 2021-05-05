@@ -53,12 +53,12 @@ df<-df%>%
 ###############################################################
 
 ggplot(df, aes(x = Cases_rate, y = PIBcapita, color = Region))+
- geom_point(size=3)+
+ geom_point(size=3,shape=1)+
   geom_smooth(method='loess')+
   theme_classic()
 
 
 ggplot(df, aes(x = Cases_rate, y = PIBcapita, color = IncomeGroup))+
-  geom_point(size=3)+
+  geom_point(size=3,shape=1)+
   #geom_smooth(method='loess')+
   theme_classic()
