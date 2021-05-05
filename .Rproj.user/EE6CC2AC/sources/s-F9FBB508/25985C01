@@ -1,0 +1,32 @@
+{
+    "id": "25985C01",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1620231498243.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "expression": "pib_capita",
+        "caption": "pib_capita",
+        "totalObservations": 264,
+        "displayedObservations": 264,
+        "variables": 65,
+        "cacheKey": "29A84F84",
+        "object": "pib_capita",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=pib_capita&cache_key=29A84F84&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2649033278696,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1620231498243,
+    "read_only": false,
+    "read_only_alternatives": []
+}
