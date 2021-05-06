@@ -12,6 +12,8 @@ pib_capita<-read_csv("pib_percapita.csv") # Source: World Development Indicators
 population<-read_csv("population.csv")    # Source: WDI - https://data.worldbank.org/indicator/SP.POP.TOTL
 tourists<-read_csv("tourismarrival.csv") # Tourists arrival - Source: WDI - https://data.worldbank.org/indicator/ST.INT.ARVL
 country_groups<-read_csv("countriesGroups.csv")
+str(covid_who)
+str(tourists)
 ################################################
 ###########    Cleanning Data       #############
 #################################################
@@ -31,7 +33,9 @@ tourists19<-tourists%>%  # Tourists arrival in 2019
   mutate(Tourists=`2019`)%>%
   select(`Country Name`,`Country Code`,Tourists)
 
+####################################################
 ############## Merging tibbles #####################
+
 df<-inner_join(inner_join(inner_join(inner_join(covid,pib_capita19,by="Country Name"),
                       population19,by="Country Name"),
            tourists19,by="Country Name"),
@@ -53,12 +57,35 @@ df<-df%>%
 ###############################################################
 
 ggplot(df, aes(x = Cases_rate, y = PIBcapita, color = Region))+
- geom_point(size=3,shape=1)+
-  geom_smooth(method='loess')+
-  theme_classic()
+ geom_point(size=4,shape=1)+
+  #geom_smooth(method='loess')+
+  xlab("Rate of cases")+ylab("USD")+
+  theme_light()
 
 
 ggplot(df, aes(x = Cases_rate, y = PIBcapita, color = IncomeGroup))+
-  geom_point(size=3,shape=1)+
+  geom_point(size=4,shape=1)+
+  geom_smooth(method = "lm")+
+  xlab("Rate of cases")+ylab("USD")+
+  theme_light()
+
+#############################################################
+
+ggplot(df, aes(x = Cases_rate, y = Tourists, color = Region))+
+  geom_point(size=4,shape=1)+
   #geom_smooth(method='loess')+
-  theme_classic()
+  xlab("Rate of cases")+ylab("Rate of tourists")+
+  theme_light()
+
+
+ggplot(df, aes(x = Cases_rate, y = Tourists, color = IncomeGroup))+
+  geom_point(size=4,shape=1)+
+  #geom_smooth(method = "lm")+
+  xlab("Rate of cases")+ylab("Rate of tourists")+
+  theme_light()
+
+############################################
+
+
+
+summary(lm(data = df,Cases_rate~PIBcapita+Tourists))

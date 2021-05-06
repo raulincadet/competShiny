@@ -3,7 +3,7 @@
     "path": "~/Raul/GitHub/competShiny/Planning.Rmd",
     "project_path": "Planning.Rmd",
     "type": "r_markdown",
-    "hash": "2951518209",
+    "hash": "3223922239",
     "contents": "",
     "dirty": false,
     "created": 1620220068984.0,
@@ -12,15 +12,15 @@
     "properties": {
         "tempName": "Untitled1",
         "chunk_output_type": "inline",
-        "cursorPosition": "1,8",
-        "scrollLine": "0"
+        "cursorPosition": "24,27",
+        "scrollLine": "14"
     },
     "folds": "",
-    "lastKnownWriteTime": 1620220411,
+    "lastKnownWriteTime": 1620333598,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1620220411682,
+    "last_content_update": 1620333598742,
     "read_only": false,
     "read_only_alternatives": []
 }

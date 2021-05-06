@@ -1751,7 +1751,7 @@ pre code {
 
 <!-- rnb-text-begin -->
 <ol style="list-style-type: decimal">
-<li><p>Thème: COVID-19 et profil des pays.</p></li>
+<li><p>Thème: COVID-19 et profil socio-économiques des pays.</p></li>
 <li><p>Question: Quel est le profil des pays les plus frappés par la COVID-19?</p></li>
 <li><p>Questions secondaires :</p></li>
 </ol>
@@ -1764,23 +1764,23 @@ pre code {
 <li>Graphiques et statistiques :</li>
 </ol>
 <ol style="list-style-type: lower-roman">
-<li>Nuage de points comparant la prévalence de la COVID-19 en 2020 avec le PIB par habitant en 2018.</li>
-<li>Nuage de points comparant la prévalence de la COVID-19 en 2020 avec la prévalence de maladies pulmonaires en 2018.</li>
-<li>Nuage de points comparant la prévalence de la COVID-19 en 2020 avec le taux de touristes en 2018.</li>
+<li>Nuage de points comparant la prévalence de la COVID-19 en 2020 avec le PIB par habitant en 2019.</li>
+<li>Nuage de points comparant la prévalence de la COVID-19 en 2020 avec la prévalence de maladies pulmonaires en 2019.</li>
+<li>Nuage de points comparant la prévalence de la COVID-19 en 2020 avec le taux de touristes en 2019.</li>
 <li>Tableau interactif présentant le profil, par pays et par continent, suivant la sélection de l’utilisateur du dashboard. Le tableau indique la prévalence de la COVID-19, celle d’au moins une maladie pulmonaire (à préciser), le PIB par habitant en 2019 et en 2020, un indicateur relatif au climat (plus faible et plus élevée température).</li>
 <li>Des cartes thématiques du monde, indiquant la prévalence de la COVID-19 et d’autres indicateurs, avec la possibilité d’avtla carte par région du monde, suivant le choix de l’utilisateur du dashboard.</li>
 </ol>
 <ol start="5" style="list-style-type: decimal">
-<li>Liste des variables et les sources des données:</li>
+<li>Liste des variables et les sources des données:
+<ul>
+<li>Nombre de cas de COVID-19</li>
+<li>PIB per capita</li>
+<li>Nombre de touristes</li>
+</ul></li>
 </ol>
 <!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmFyaWFibGVzPC1jKFwiQ2FzIGRlIENPVklEXCIsIFwiUElCIHBhciBoYWJpdGFudFwiLFwiUG9wdWxhdGlvblwiLFwiTm9tYnJlIGRlIHRlc3RzXCIsXCJJREhcIilcbmBgYCJ9 -->
-<pre class="r"><code>Variables&lt;-c(&quot;Cas de COVID&quot;, &quot;PIB par habitant&quot;,&quot;Population&quot;,&quot;Nombre de tests&quot;,&quot;IDH&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoxKSBUaMOobWU6IENPVklELTE5IGV0IHByb2ZpbCBkZXMgcGF5cy4NCg0KMikgUXVlc3Rpb246IFF1ZWwgZXN0IGxlIHByb2ZpbCBkZXMgcGF5cyBsZXMgcGx1cyBmcmFwcMOpcyBwYXIgbGEgQ09WSUQtMTk/DQoNCjMpIFF1ZXN0aW9ucyBzZWNvbmRhaXJlcyA6DQppKSBZLWF1cmFpdC1pbCB1biBsaWVuIGVudHJlIGxlIHRhdXggZGUgY2FzIGRlIENPVklELTE5IGV0IGxlIG5pdmVhdSBkZSBkw6l2ZWxvcHBlbWVudCDDqWNvbm9taXF1ZSBkZXMgcGF5cz8NCmlpKSBZLWF1cmFpdC1pbCB1biBsaWVuIGVudHJlIGxlIHRhdXggZGUgY2FzIGRlIENPVklELTE5IGV0IGxhIHByw6l2YWxlbmNlIGRlIG1hbGFkaWVzIHB1bG1vbmFpcmVzID8NCmlpaSkgWS1hdXJhaXQtaWwgdW4gbGllbiBlbnRyZSBsYSBDT1ZJRC0xOSBldCBsZSByYXRpbyBkdSBub21icmUgZGUgdG91cmlzdGVzIGV0IGxhIHBvcHVsYXRpb24gPw0KDQo0KSBHcmFwaGlxdWVzIGV0IHN0YXRpc3RpcXVlcyA6DQppKSBOdWFnZSBkZSBwb2ludHMgY29tcGFyYW50IGxhIHByw6l2YWxlbmNlIGRlIGxhIENPVklELTE5IGVuIDIwMjAgYXZlYyBsZSBQSUIgcGFyIGhhYml0YW50IGVuIDIwMTguDQppaSkgTnVhZ2UgZGUgcG9pbnRzIGNvbXBhcmFudCBsYSBwcsOpdmFsZW5jZSBkZSBsYSBDT1ZJRC0xOSBlbiAyMDIwIGF2ZWMgbGEgcHLDqXZhbGVuY2UgZGUgbWFsYWRpZXMgcHVsbW9uYWlyZXMgZW4gMjAxOC4NCmlpaSkgTnVhZ2UgZGUgcG9pbnRzIGNvbXBhcmFudCBsYSBwcsOpdmFsZW5jZSBkZSBsYSBDT1ZJRC0xOSBlbiAyMDIwIGF2ZWMgbGUgdGF1eCBkZSB0b3VyaXN0ZXMgZW4gMjAxOC4NCml2KSBUYWJsZWF1IGludGVyYWN0aWYgcHLDqXNlbnRhbnQgbGUgcHJvZmlsLCBwYXIgcGF5cyBldCBwYXIgY29udGluZW50LCBzdWl2YW50IGxhIHPDqWxlY3Rpb24gZGUgbCd1dGlsaXNhdGV1ciBkdSBkYXNoYm9hcmQuIExlIHRhYmxlYXUgaW5kaXF1ZSBsYSBwcsOpdmFsZW5jZSBkZSBsYSBDT1ZJRC0xOSwgY2VsbGUgZCdhdSBtb2lucyB1bmUgbWFsYWRpZSBwdWxtb25haXJlICjDoCBwcsOpY2lzZXIpLCBsZSBQSUIgcGFyIGhhYml0YW50IGVuIDIwMTkgZXQgZW4gMjAyMCwgdW4gaW5kaWNhdGV1ciByZWxhdGlmIGF1IGNsaW1hdCAocGx1cyBmYWlibGUgZXQgcGx1cyDDqWxldsOpZSB0ZW1ww6lyYXR1cmUpLg0KaXYpIERlcyBjYXJ0ZXMgdGjDqW1hdGlxdWVzIGR1IG1vbmRlLCBpbmRpcXVhbnQgbGEgcHLDqXZhbGVuY2UgZGUgbGEgQ09WSUQtMTkgZXQgZCdhdXRyZXMgaW5kaWNhdGV1cnMsIGF2ZWMgbGEgcG9zc2liaWxpdMOpIGQnYXZ0bGEgY2FydGUgcGFyIHLDqWdpb24gZHUgbW9uZGUsIHN1aXZhbnQgbGUgY2hvaXggZGUgbCd1dGlsaXNhdGV1ciBkdSBkYXNoYm9hcmQuDQoNCjUpIExpc3RlIGRlcyB2YXJpYWJsZXMgZXQgbGVzIHNvdXJjZXMgZGVzIGRvbm7DqWVzOg0KDQpgYGB7cn0NClZhcmlhYmxlczwtYygiQ2FzIGRlIENPVklEIiwgIlBJQiBwYXIgaGFiaXRhbnQiLCJQb3B1bGF0aW9uIiwiTm9tYnJlIGRlIHRlc3RzIiwiSURIIikNCmBgYA0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoxKSBUaMOobWU6IENPVklELTE5IGV0IHByb2ZpbCBzb2Npby3DqWNvbm9taXF1ZXMgZGVzIHBheXMuDQoNCjIpIFF1ZXN0aW9uOiBRdWVsIGVzdCBsZSBwcm9maWwgZGVzIHBheXMgbGVzIHBsdXMgZnJhcHDDqXMgcGFyIGxhIENPVklELTE5Pw0KDQozKSBRdWVzdGlvbnMgc2Vjb25kYWlyZXMgOg0KaSkgWS1hdXJhaXQtaWwgdW4gbGllbiBlbnRyZSBsZSB0YXV4IGRlIGNhcyBkZSBDT1ZJRC0xOSBldCBsZSBuaXZlYXUgZGUgZMOpdmVsb3BwZW1lbnQgw6ljb25vbWlxdWUgZGVzIHBheXM/DQppaSkgWS1hdXJhaXQtaWwgdW4gbGllbiBlbnRyZSBsZSB0YXV4IGRlIGNhcyBkZSBDT1ZJRC0xOSBldCBsYSBwcsOpdmFsZW5jZSBkZSBtYWxhZGllcyBwdWxtb25haXJlcyA/DQppaWkpIFktYXVyYWl0LWlsIHVuIGxpZW4gZW50cmUgbGEgQ09WSUQtMTkgZXQgbGUgcmF0aW8gZHUgbm9tYnJlIGRlIHRvdXJpc3RlcyBldCBsYSBwb3B1bGF0aW9uID8NCg0KNCkgR3JhcGhpcXVlcyBldCBzdGF0aXN0aXF1ZXMgOg0KaSkgTnVhZ2UgZGUgcG9pbnRzIGNvbXBhcmFudCBsYSBwcsOpdmFsZW5jZSBkZSBsYSBDT1ZJRC0xOSBlbiAyMDIwIGF2ZWMgbGUgUElCIHBhciBoYWJpdGFudCBlbiAyMDE5Lg0KaWkpIE51YWdlIGRlIHBvaW50cyBjb21wYXJhbnQgbGEgcHLDqXZhbGVuY2UgZGUgbGEgQ09WSUQtMTkgZW4gMjAyMCBhdmVjIGxhIHByw6l2YWxlbmNlIGRlIG1hbGFkaWVzIHB1bG1vbmFpcmVzIGVuIDIwMTkuDQppaWkpIE51YWdlIGRlIHBvaW50cyBjb21wYXJhbnQgbGEgcHLDqXZhbGVuY2UgZGUgbGEgQ09WSUQtMTkgZW4gMjAyMCBhdmVjIGxlIHRhdXggZGUgdG91cmlzdGVzIGVuIDIwMTkuDQppdikgVGFibGVhdSBpbnRlcmFjdGlmIHByw6lzZW50YW50IGxlIHByb2ZpbCwgcGFyIHBheXMgZXQgcGFyIGNvbnRpbmVudCwgc3VpdmFudCBsYSBzw6lsZWN0aW9uIGRlIGwndXRpbGlzYXRldXIgZHUgZGFzaGJvYXJkLiBMZSB0YWJsZWF1IGluZGlxdWUgbGEgcHLDqXZhbGVuY2UgZGUgbGEgQ09WSUQtMTksIGNlbGxlIGQnYXUgbW9pbnMgdW5lIG1hbGFkaWUgcHVsbW9uYWlyZSAow6AgcHLDqWNpc2VyKSwgbGUgUElCIHBhciBoYWJpdGFudCBlbiAyMDE5IGV0IGVuIDIwMjAsIHVuIGluZGljYXRldXIgcmVsYXRpZiBhdSBjbGltYXQgKHBsdXMgZmFpYmxlIGV0IHBsdXMgw6lsZXbDqWUgdGVtcMOpcmF0dXJlKS4NCml2KSBEZXMgY2FydGVzIHRow6ltYXRpcXVlcyBkdSBtb25kZSwgaW5kaXF1YW50IGxhIHByw6l2YWxlbmNlIGRlIGxhIENPVklELTE5IGV0IGQnYXV0cmVzIGluZGljYXRldXJzLCBhdmVjIGxhIHBvc3NpYmlsaXTDqSBkJ2F2dGxhIGNhcnRlIHBhciByw6lnaW9uIGR1IG1vbmRlLCBzdWl2YW50IGxlIGNob2l4IGRlIGwndXRpbGlzYXRldXIgZHUgZGFzaGJvYXJkLg0KDQo1KSBMaXN0ZSBkZXMgdmFyaWFibGVzIGV0IGxlcyBzb3VyY2VzIGRlcyBkb25uw6llczogDQogICAgICAtIE5vbWJyZSBkZSBjYXMgZGUgQ09WSUQtMTkNCiAgICAgIC0gUElCIHBlciBjYXBpdGENCiAgICAgIC0gTm9tYnJlIGRlIHRvdXJpc3Rlcw0KDQo=</div>
 
 
 

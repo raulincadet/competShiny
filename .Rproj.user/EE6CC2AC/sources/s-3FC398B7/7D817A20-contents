@@ -1,8 +1,17 @@
+---
+title: "Is COVID-19 the desease of Rich countries"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
 library(tidyverse)
-covid<-read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
-cases<-covid%>%
-  group_by(location)%>%
-  summarise(cases=tail(total_cases,1),deaths=tail(total_deaths,1),tests=tail(total_tests,1))
+library(plotly)
+library(shiny)
 
 #################################################
 ###########    Importing Data       #############
@@ -12,8 +21,7 @@ pib_capita<-read_csv("pib_percapita.csv") # Source: World Development Indicators
 population<-read_csv("population.csv")    # Source: WDI - https://data.worldbank.org/indicator/SP.POP.TOTL
 tourists<-read_csv("tourismarrival.csv") # Tourists arrival - Source: WDI - https://data.worldbank.org/indicator/ST.INT.ARVL
 country_groups<-read_csv("countriesGroups.csv")
-str(covid_who)
-str(tourists)
+
 ################################################
 ###########    Cleanning Data       #############
 #################################################
@@ -33,9 +41,7 @@ tourists19<-tourists%>%  # Tourists arrival in 2019
   mutate(Tourists=`2019`)%>%
   select(`Country Name`,`Country Code`,Tourists)
 
-####################################################
 ############## Merging tibbles #####################
-
 df<-inner_join(inner_join(inner_join(inner_join(covid,pib_capita19,by="Country Name"),
                       population19,by="Country Name"),
            tourists19,by="Country Name"),
@@ -49,43 +55,60 @@ df<-df%>%
 ########################################################
 ######## Creating new variables #######################
 df<-df%>%
-  mutate(Cases_rate=Cases/Population,Tourists_rate=Tourists/Population)
+  mutate(Cases_rate=Cases/Population,Tourists_rate=Tourists/Population)%>%
+  rename(`PIB per capita (current USD)`=PIBcapita,`Rate of tourists`=Tourists)
+
+```
 
 
-################################################################
-##################### DATA ANALYSIS ###########################
-###############################################################
+Column {.sidebar}
+-----------------------------------------------------------------------
 
-ggplot(df, aes(x = Cases_rate, y = PIBcapita, color = Region))+
- geom_point(size=4,shape=1)+
-  #geom_smooth(method='loess')+
-  xlab("Rate of cases")+ylab("USD")+
-  theme_light()
+To compare COVID-19 cases with a socioeconomic variable, select a variable bellow:
 
+```{r}
 
-ggplot(df, aes(x = Cases_rate, y = PIBcapita, color = IncomeGroup))+
-  geom_point(size=4,shape=1)+
-  geom_smooth(method = "lm")+
-  xlab("Rate of cases")+ylab("USD")+
-  theme_light()
-
-#############################################################
-
-ggplot(df, aes(x = Cases_rate, y = Tourists, color = Region))+
-  geom_point(size=4,shape=1)+
-  #geom_smooth(method='loess')+
-  xlab("Rate of cases")+ylab("Rate of tourists")+
-  theme_light()
+ selectInput("Variables", label = "Variables to compare with COVID-19 cases", 
+    choices =c("Rate of tourists","PIB per capita (current USD)", selected = "PIB per capita (current USD)")
+               )
+```
 
 
-ggplot(df, aes(x = Cases_rate, y = Tourists, color = IncomeGroup))+
-  geom_point(size=4,shape=1)+
-  #geom_smooth(method = "lm")+
-  xlab("Rate of cases")+ylab("Rate of tourists")+
-  theme_light()
+It is interesting in terms of information that can be visualized, when considering country groups, while comparing the rate of COVID-19 cases with socioeconomic variables. Considering country groups allow to verify if the rate of COVID-19 cases in a country can be explained by the group to which it belongs. To select a type of country group, click bellow:
+```{r}
+selectInput("Groups", label = "Groups of countries", 
+    choices =c("IncomeGroup","Region"), selected = "Region")
 
-############################################
+
+```
 
 
 
-summary(lm(data = df,Cases_rate~PIBcapita+Tourists))
+
+Column {data-width=150}
+-----------------------------------------------------------------------
+
+
+
+### Rate of COVID-19 cases, compared to PIB per capita (current USD)
+
+```{r}
+
+renderPlotly(
+
+ plot_ly(data=df,x=~Cases_rate,y=~df[[input$Variables]],color = ~df[[input$Groups]],type = "scatter",marker=list(size=10))%>%
+   #add_markers(size=5)%>%
+   
+   #add_segments(x = 0.05, xend =0.05, y = 0, yend =16000000 ) %>%
+   
+  layout(title = paste("Rate of COVID-19 cases, compared to",colnames(df[,input$Variables])), xaxis = list(title="Rate of COVID-19 cases"),
+         yaxis =list(title=input$Variables) ))
+#)
+#colnames(df[,"Country Code"])
+
+
+```
+
+
+
+
