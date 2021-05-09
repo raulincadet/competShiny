@@ -1,0 +1,32 @@
+{
+    "id": "DE75A9E3",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1620596439206.0,
+    "source_on_save": false,
+    "relative_order": 7,
+    "properties": {
+        "expression": "covid_co",
+        "caption": "covid_co",
+        "totalObservations": 436,
+        "displayedObservations": 436,
+        "variables": 2,
+        "cacheKey": "9B58D598",
+        "object": "covid_co",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=covid_co&cache_key=9B58D598&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 25895934084907064,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1620596439206,
+    "read_only": false,
+    "read_only_alternatives": []
+}

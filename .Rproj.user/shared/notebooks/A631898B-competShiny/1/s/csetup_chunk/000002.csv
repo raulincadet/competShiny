@@ -1,10 +1,135 @@
-"0","########################################################
-######## Creating new variables #######################
-df<-df%>%
-  mutate(Cases_rate=Cases/Population,Tourists_rate=Tourists/Population)%>%
-  rename(`current USD`=PIBcapita)
+"0","library(flexdashboard)"
+"0","library(tidyverse)"
+"0","library(xts)"
+"0","library(plotly)"
+"0","library(shiny)"
+"0",""
+"0","#################################################"
+"0","###########    Importing Data       #############"
+"0","#################################################"
+"0","covid_who<-read_csv(""covid_WHO.csv"")# read_csv(""https://covid19.who.int/WHO-COVID-19-global-table-data.csv"") # Source: World Health Organization - https://covid19.who.int/table"
+"2","
+[36m--[39m [1m[1mColumn specification[1m[22m [36m---------------------------------------------------------[39m
+cols(
+  Name = [31mcol_character()[39m,
+  `WHO Region` = [31mcol_character()[39m,
+  `Cases - cumulative total` = [32mcol_double()[39m,
+  `Cases - cumulative total per 100000 population` = [32mcol_double()[39m,
+  `Cases - newly reported in last 7 days` = [32mcol_double()[39m,
+  `Cases - newly reported in last 7 days per 100000 population` = [32mcol_double()[39m,
+  `Cases - newly reported in last 24 hours` = [32mcol_double()[39m,
+  `Deaths - cumulative total` = [32mcol_double()[39m,
+  `Deaths - cumulative total per 100000 population` = [32mcol_double()[39m,
+  `Deaths - newly reported in last 7 days` = [32mcol_double()[39m,
+  `Deaths - newly reported in last 7 days per 100000 population` = [32mcol_double()[39m,
+  `Deaths - newly reported in last 24 hours` = [32mcol_double()[39m,
+  `Transmission Classification` = [31mcol_character()[39m
+)
+
 "
-"2","Error: Can't rename columns that don't exist.
-[31mx[39m Column `PIBcapita` doesn't exist.
-[90mRun `rlang::last_error()` to see where the error occurred.[39m
+"0","pib_capita<-read_csv(""pib_percapita.csv"") # Source: World Development Indicators - https://data.worldbank.org/indicator/NY.GDP.PCAP.CD"
+"2","
+[36m--[39m [1m[1mColumn specification[1m[22m [36m---------------------------------------------------------[39m
+cols(
+  .default = col_double(),
+  `Country Name` = [31mcol_character()[39m,
+  `Country Code` = [31mcol_character()[39m,
+  `Indicator Name` = [31mcol_character()[39m,
+  `Indicator Code` = [31mcol_character()[39m,
+  `2020` = [33mcol_logical()[39m
+)
+[36mi[39m Use [38;5;251m[48;5;235m[38;5;251m[48;5;235m`spec()`[48;5;235m[38;5;251m[49m[39m for the full column specifications.
+
 "
+"0","population<-read_csv(""population.csv"")    # Source: WDI - https://data.worldbank.org/indicator/SP.POP.TOTL"
+"2","
+[36m--[39m [1m[1mColumn specification[1m[22m [36m---------------------------------------------------------[39m
+cols(
+  .default = col_double(),
+  `Country Name` = [31mcol_character()[39m,
+  `Country Code` = [31mcol_character()[39m,
+  `Indicator Name` = [31mcol_character()[39m,
+  `Indicator Code` = [31mcol_character()[39m,
+  `2020` = [33mcol_logical()[39m
+)
+[36mi[39m Use [38;5;251m[48;5;235m[38;5;251m[48;5;235m`spec()`[48;5;235m[38;5;251m[49m[39m for the full column specifications.
+
+"
+"0","tourists<-read_csv(""tourismarrival.csv"") # Tourists arrival - Source: WDI - https://data.worldbank.org/indicator/ST.INT.ARVL"
+"2","
+[36m--[39m [1m[1mColumn specification[1m[22m [36m---------------------------------------------------------[39m
+cols(
+  .default = col_logical(),
+  `Country Name` = [31mcol_character()[39m,
+  `Country Code` = [31mcol_character()[39m,
+  `Indicator Name` = [31mcol_character()[39m,
+  `Indicator Code` = [31mcol_character()[39m,
+  `1995` = [32mcol_double()[39m,
+  `1996` = [32mcol_double()[39m,
+  `1997` = [32mcol_double()[39m,
+  `1998` = [32mcol_double()[39m,
+  `1999` = [32mcol_double()[39m,
+  `2000` = [32mcol_double()[39m,
+  `2001` = [32mcol_double()[39m,
+  `2002` = [32mcol_double()[39m,
+  `2003` = [32mcol_double()[39m,
+  `2004` = [32mcol_double()[39m,
+  `2005` = [32mcol_double()[39m,
+  `2006` = [32mcol_double()[39m,
+  `2007` = [32mcol_double()[39m,
+  `2008` = [32mcol_double()[39m,
+  `2009` = [32mcol_double()[39m,
+  `2010` = [32mcol_double()[39m
+  # ... with 9 more columns
+)
+[36mi[39m Use [38;5;251m[48;5;235m[38;5;251m[48;5;235m`spec()`[48;5;235m[38;5;251m[49m[39m for the full column specifications.
+
+"
+"0","country_groups<-read_csv(""countriesGroups.csv"")"
+"2","
+[36m--[39m [1m[1mColumn specification[1m[22m [36m---------------------------------------------------------[39m
+cols(
+  `Country Code` = [31mcol_character()[39m,
+  Region = [31mcol_character()[39m,
+  IncomeGroup = [31mcol_character()[39m,
+  SpecialNotes = [31mcol_character()[39m,
+  TableName = [31mcol_character()[39m
+)
+
+"
+"0","################################################"
+"0","###########    Cleanning Data       #############"
+"0","#################################################"
+"0","covid<-covid_who%>% # selecting needed variables and changing their names"
+"0","  select(Name,`Cases - cumulative total`, `Deaths - cumulative total`)%>%"
+"0","  transmute(`Country Name`=Name,Cases=`Cases - cumulative total`, Deaths=`Deaths - cumulative total`)"
+"0",""
+"0","pib_capita19<-pib_capita%>%  # PIB per capita in 2019"
+"0","  mutate(PIBcapita=`2019`)%>%"
+"0","  select(`Country Name`,`Country Code`,PIBcapita)"
+"0",""
+"0","population19<-population%>%  # Population in 2019"
+"0","  mutate(Population=`2019`)%>%"
+"0","  select(`Country Name`,`Country Code`,Population)"
+"0",""
+"0","tourists19<-tourists%>%  # Tourists arrival in 2019"
+"0","  mutate(Tourists=`2019`)%>%"
+"0","  select(`Country Name`,`Country Code`,Tourists)"
+"0",""
+"0","############## Merging tibbles #####################"
+"0","df<-inner_join(inner_join(inner_join(inner_join(covid,pib_capita19,by=""Country Name""),"
+"0","                      population19,by=""Country Name""),"
+"0","           tourists19,by=""Country Name""),"
+"0","           country_groups,by=""Country Code"")"
+"0",""
+"0","######### Eliminating duplicated columns of country codes ##########"
+"0","df<-df%>%"
+"0","  select(`Country Code`,`Country Name`,Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists)"
+"0",""
+"0",""
+"0","########################################################"
+"0","######## Creating new variables #######################"
+"0","df<-df%>%"
+"0","  mutate(Cases_rate=Cases/Population,Tourists_rate=Tourists/Population)%>%"
+"0","  rename(`PIB per capita (current USD)`=PIBcapita,`Rate of tourists`=Tourists)"
+"0",""

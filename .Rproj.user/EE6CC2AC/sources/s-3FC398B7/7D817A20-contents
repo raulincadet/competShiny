@@ -10,6 +10,8 @@ runtime: shiny
 ```{r setup, include=FALSE}
 library(flexdashboard)
 library(tidyverse)
+library(xts)
+library(dygraphs)
 library(plotly)
 library(shiny)
 
@@ -59,6 +61,9 @@ df<-df%>%
   rename(`PIB per capita (current USD)`=PIBcapita,`Rate of tourists`=Tourists)
 
 ```
+
+Socioeconomic {data-vertical_layout=fill}
+=====================================
 
 
 Column {.sidebar}
@@ -111,4 +116,51 @@ renderPlotly(
 
 
 
+
+
+
+
+
+Page 2 {data-vertical_layout=scroll}
+=====================================
+
+
+
+```{r}
+covid_ts<-read_csv("owid-covid-data.csv")  # "https://covid.ourworldindata.org/data/owid-covid-data.csv"
+
+
+
+countries<-covid_ts%>%
+  select(location)%>%
+  count(location)
+```
+
+
+```{r}
+selectInput("countries", label = "Country", 
+    choices =c(countries$location)#, selected = "Haiti"
+               )
+
+```
+
+
+```{r}
+
+renderPlot(
+
+covid_co<-covid_ts%>%
+  filter(location==input$countries)%>%
+  select(date,new_cases)%>%
+  plot(type="l",col="blue",ylab = "New cases",main = paste("COVID-19 new cases' curve in",input$countries))
+  
+
+  
+)
+
+
+     
+
+
+```
 

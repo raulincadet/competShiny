@@ -1,0 +1,2830 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://127.0.0.1:7201/competShiny.Rmd#section-page-2 -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">jquery[3.5.1];shiny-css[1.6.0];shiny-javascript[1.6.0]</script>
+<script src="./Is COVID-19 the desease of Rich countries_files/jquery.min.js.download"></script>
+<link href="./Is COVID-19 the desease of Rich countries_files/shiny.min.css" rel="stylesheet">
+<script src="./Is COVID-19 the desease of Rich countries_files/shiny.min.js.download"></script>  <script src="./Is COVID-19 the desease of Rich countries_files/rmd_loader.js.download"></script>
+  <link href="./Is COVID-19 the desease of Rich countries_files/rmd_loader.css" rel="stylesheet">
+<script src="./Is COVID-19 the desease of Rich countries_files/header-attrs.js.download"></script><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" type="text/css" href="./Is COVID-19 the desease of Rich countries_files/cosmo.min.css"><script src="./Is COVID-19 the desease of Rich countries_files/bootstrap.min.js.download"></script><script src="./Is COVID-19 the desease of Rich countries_files/html5shiv.min.js.download"></script><script src="./Is COVID-19 the desease of Rich countries_files/respond.min.js.download"></script><style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style><script src="./Is COVID-19 the desease of Rich countries_files/jquery.stickytableheaders.min.js.download"></script><link rel="stylesheet" type="text/css" href="./Is COVID-19 the desease of Rich countries_files/selectize.bootstrap3.css"><script src="./Is COVID-19 the desease of Rich countries_files/selectize.min.js.download"></script><script src="./Is COVID-19 the desease of Rich countries_files/selectize-plugin-a11y.min.js.download"></script><script src="./Is COVID-19 the desease of Rich countries_files/htmlwidgets.js.download"></script><script src="./Is COVID-19 the desease of Rich countries_files/plotly.js.download"></script><link rel="stylesheet" type="text/css" href="./Is COVID-19 the desease of Rich countries_files/rmd_perf.css"><script src="./Is COVID-19 the desease of Rich countries_files/rmd_perf.js.download"></script><meta name="rstudio_origin" content="127.0.0.1:24651"><script src="./Is COVID-19 the desease of Rich countries_files/rsiframe.js.download"></script>
+
+
+
+<meta name="generator" content="pandoc">
+
+
+
+<title>Is COVID-19 the desease of Rich countries</title>
+
+<meta property="og:title" content="Is COVID-19 the desease of Rich countries">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="icon" href="data:image/x-icon;" type="image/x-icon">
+
+
+<script type="text/javascript">
+window.FlexDashboardComponents = [];
+</script>
+
+<style type="text/css">
+
+/*
+ Dashboard CSS from Keen IO Dashboards
+ (https://github.com/keen/dashboards)
+*/
+
+body {
+  background: #f2f2f2;
+  padding: 60px 0 0 8px; /* padding-top overridden by theme */
+}
+
+body hr {
+  border-color: #d7d7d7;
+  margin: 10px 0;
+}
+
+.navbar-inverse .navbar-nav > li > a,
+.navbar .navbar-brand {
+  text-decoration: none;
+}
+
+.navbar-logo {
+  margin-top: 1px;
+}
+
+.navbar-logo img {
+  margin-right: 12px;
+}
+
+.navbar-author {
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.navbar .dropdown-menu .fa {
+  min-width: 20px;
+}
+
+.navbar .dropdown-menu {
+  min-width: 150px;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.chart-wrapper,
+.nav-tabs-custom,
+.sbframe-commentary
+{
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+
+.chart-title {
+  border-bottom: 1px solid #d7d7d7;
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 7px 10px 4px;
+}
+
+.chart-wrapper .chart-title:empty {
+  display: none;
+}
+
+.chart-wrapper .chart-stage {
+  overflow: hidden;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.chart-wrapper .chart-notes {
+  background: #fbfbfb;
+  border-top: 1px solid #e2e2e2;
+  color: #808080;
+  font-size: 12px;
+  padding: 8px 10px 5px;
+}
+
+/*
+ CSS for handling flexbox layout
+*/
+
+#dashboard-container {
+  visibility: hidden;
+}
+
+.tab-content>.dashboard-page-wrapper.active {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dashboard-page-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard-row-orientation {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.dashboard-row-flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.dashboard-column-orientation {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.dashboard-column {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chart-wrapper-flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chart-stage-flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+}
+
+.chart-shim {
+  position: absolute;
+  left: 8px; top: 8px; right: 8px; bottom: 8px;
+}
+
+.no-padding .chart-shim {
+  left: 0; top: 0; right: 0; bottom: 0;
+}
+
+.flowing-content-shim {
+  overflow: auto;
+  left: 0; top: 0; right: 0; bottom: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.flowing-content-container {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.chart-stage .table-bordered {
+  border: none;
+}
+
+.chart-stage .table-bordered > tbody > tr > th,
+.chart-stage .table-bordered > tfoot > tr > th,
+.chart-stage .table-bordered > tbody > tr > td,
+.chart-stage .table-bordered > tfoot > tr > td {
+  border: none;
+}
+
+.chart-stage .table-bordered > tbody > tr > td {
+  border-top: 1px solid #dddddd;
+}
+
+.chart-stage .table-bordered > thead > tr > th {
+  border: none;
+  border-bottom: 2px solid #dddddd;
+}
+
+.bootstrap-table table>thead {
+  background-color: #fff;
+}
+
+.bootstrap-table table.data,
+.bootstrap-table table.shiny-table {
+  width: inherit !important;
+}
+
+.bootstrap-table table.data>tbody>tr>th,
+.bootstrap-table table.shiny-table>tbody>tr>th {
+  border-top: none;
+  border-bottom: 2px solid #dddddd;
+  padding: 5px;
+}
+
+.bootstrap-table .data td[align=right] {
+  font-family: inherit;
+}
+
+.chart-wrapper form {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.shiny-input-container label {
+  font-weight: normal;
+}
+
+.chart-stage .html-widget {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-stage .html-widget-static-bound {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-stage .shiny-bound-output {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Omit display of empty paragraphs */
+
+.chart-shim>p:empty {
+  display: none;
+}
+
+.chart-stage>p:empty {
+  display: none;
+}
+
+/* Omit display of special knitr options div*/
+
+.chart-stage .knitr-options {
+  display: none;
+}
+
+/* Automatically resizing images */
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.image-container img {
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Value box */
+
+.value-box {
+  border-radius: 2px;
+  position: relative;
+  display: block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.value-box > .inner {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.value-box .value {
+  font-size: 38px;
+  font-weight: bold;
+  margin: 0 0 3px 0;
+  white-space: nowrap;
+  padding: 0;
+}
+
+.value-box .caption {
+  font-size: 15px;
+}
+.value-box .caption > small {
+  display: block;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.value-box .icon i {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 80px;
+  color: rgba(0, 0, 0, 0.15);
+}
+
+.linked-value:hover {
+  cursor: pointer;
+}
+
+.value-box.linked-value:hover {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* STORYBOARD */
+
+.storyboard-nav button {
+  background: transparent;
+  border: 0;
+  opacity: .3;
+  outline: none;
+  padding: 0;
+}
+
+.storyboard-nav button:hover,
+.storyboard-nav button:hover {
+  opacity: .5;
+}
+
+.storyboard-nav button:disabled,
+.storyboard-nav button:disabled {
+  opacity: .1;
+}
+
+.storyboard-nav .sbnext,
+.storyboard-nav .sbprev {
+  float: left;
+  width: 2%;
+  height: 120px;
+  font-size: 50px;
+}
+
+.storyboard-nav .sbprev {
+  text-align: left;
+  width: 2%;
+}
+
+.storyboard-nav .sbnext {
+  float: right;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.storyboard-nav .sbframelist {
+  margin: 0 auto;
+  width: 94%;
+  height: 120px;
+  overflow: hidden;
+  text-shadow: none;
+  margin-bottom: 8px;
+}
+
+.storyboard-nav .sbframelist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.storyboard-nav .sbframelist ul li {
+  float: left;
+  width: 270px;
+  height: 100%;
+  padding: 10px 10px 10px 10px;
+  margin-right: 8px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  color: #3a3c47;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.storyboard-nav .sbframelist ul li:last-child {
+  margin-right: 0px;
+}
+
+.storyboard-nav .sbframelist ul li.active {
+  color: #fff;
+  background: #B8B8B8;
+}
+
+.sbframe-commentary {
+  width: 300px;
+  background: #fbfbfb;
+  font-size: 14px;
+}
+
+.sbframe-commentary ul {
+  padding-left: 22px;
+}
+
+.sbframe.active {
+  display: flex;
+}
+
+.sbframe:not(.active) {
+  display: none;
+}
+
+/* NAV TABS */
+
+.nav-tabs-custom > .nav-tabs {
+  margin: 0;
+  border-bottom: 1px solid #d7d7d7;
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.nav-tabs-custom > .nav-tabs > li {
+  border-top: 3px solid transparent;
+  margin-bottom: -1px;
+  margin-right: 5px;
+}
+.nav-tabs-custom > .nav-tabs > li > a,
+.nav-tabs-custom > .nav-tabs > li > a:active {
+  color: #666;
+  font-weight: 300;
+  font-size: 14px;
+  border-radius: 0;
+  padding: 3px 10px 5px;
+  text-transform: none;
+}
+
+.nav-tabs-custom > .nav-tabs > li:not(.active) > a {
+  border-bottom-color: transparent;
+}
+
+.nav-tabs-custom > .nav-tabs > li > a.text-muted {
+  color: #999;
+}
+.nav-tabs-custom > .nav-tabs > li > a,
+.nav-tabs-custom > .nav-tabs > li > a:hover {
+  background: transparent;
+  margin: 0;
+}
+.nav-tabs-custom > .nav-tabs > li > a:hover {
+  color: #999;
+}
+.nav-tabs-custom > .nav-tabs > li:not(.active) > a:hover,
+.nav-tabs-custom > .nav-tabs > li:not(.active) > a:focus,
+.nav-tabs-custom > .nav-tabs > li:not(.active) > a:active {
+  border-color: transparent;
+}
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-top-color: #3c8dbc;
+}
+.nav-tabs-custom > .nav-tabs > li.active > a,
+.nav-tabs-custom > .nav-tabs > li.active:hover > a {
+  background-color: #fff;
+  color: #666;
+}
+.nav-tabs-custom > .nav-tabs > li.active > a {
+  border-top-color: transparent;
+  border-left-color: #d7d7d7;
+  border-right-color: #d7d7d7;
+}
+.nav-tabs-custom > .nav-tabs > li:first-of-type {
+  margin-left: 0;
+}
+.nav-tabs-custom > .nav-tabs > li:first-of-type.active > a {
+  border-left-color: transparent;
+}
+.nav-tabs-custom > .nav-tabs.pull-right {
+  float: none !important;
+}
+.nav-tabs-custom > .nav-tabs.pull-right > li {
+  float: right;
+}
+.nav-tabs-custom > .nav-tabs.pull-right > li:first-of-type {
+  margin-right: 0;
+}
+.nav-tabs-custom > .nav-tabs.pull-right > li:first-of-type > a {
+  border-left-width: 1px;
+}
+.nav-tabs-custom > .nav-tabs.pull-right > li:first-of-type.active > a {
+  border-left-color: #d7d7d7;
+  border-right-color: transparent;
+}
+.nav-tabs-custom > .nav-tabs > li.header {
+  line-height: 35px;
+  padding: 0 10px;
+  font-size: 20px;
+  color: #666;
+}
+.nav-tabs-custom > .nav-tabs > li.header > .fa,
+.nav-tabs-custom > .nav-tabs > li.header > .glyphicon,
+.nav-tabs-custom > .nav-tabs > li.header > .ion {
+  margin-right: 5px;
+}
+.nav-tabs-custom > .tab-content {
+  background: #fff;
+  padding: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav-tabs-custom > .tab-content > .chart-wrapper {
+  background: #fff;
+  border: none;
+  margin: 0;
+}
+
+
+.nav-tabs-custom > .tab-content > .active {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav-tabs-custom .dropdown.open > a:active,
+.nav-tabs-custom .dropdown.open > a:focus {
+  background: transparent;
+  color: #999;
+}
+
+
+@media (max-width: 767px) {
+  .value-box {
+    text-align: center;
+    margin-right: 8px;
+  }
+  .value-box .icon {
+    display: none;
+  }
+}
+
+/* Fixed position sidebar */
+
+.section.sidebar {
+  position: fixed;
+  top: 51px; /* overridden by theme */
+  left: 0;
+  bottom: 0;
+  border-right: 1px solid #e2e2e2;
+  background-color: white; /* overridden by theme */
+  padding-left: 10px;
+  padding-right: 10px;
+  visibility: hidden;
+  overflow: auto;
+}
+
+.section.sidebar form p:first-child {
+  margin-top: 10px;
+}
+
+/* Embedded source code */
+
+#flexdashboard-source-code {
+  display: none;
+}
+
+.featherlight-content #flexdashboard-source-code {
+  display: inline-block;
+}
+
+.featherlight-content {
+  width: 80%;
+  max-width: 800px;
+  padding: 0 !important;
+  border-bottom: none !important;
+}
+
+.featherlight:last-of-type {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.featherlight-inner {
+  width: 100%;
+}
+
+.featherlight-content pre {
+  margin: 0;
+  border: 0;
+  background: #fff;
+  font-size: 12px;
+}
+
+.unselectable {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#flexdashboard-source-code code {
+  -ms-user-select: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}
+
+/* DataTables Tweaks */
+
+.dataTables_filter input[type="search"] {
+  -webkit-appearance: searchfield;
+  outline: none;
+}
+
+.dataTables_wrapper.no-footer
+.dataTables_info {
+  padding-top: 0;
+}
+
+
+table.dataTable thead th {
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.dataTables_wrapper.no-footer .dataTables_scrollBody {
+  border-bottom: 1px solid #d7d7d7;
+}
+
+/* Mobile phone only CSS */
+
+.desktop-layout div.section.mobile {
+  display: none;
+}
+
+.mobile-layout div.section.no-mobile {
+  display: none;
+}
+
+.mobile-figure {
+  display: none;
+}
+
+
+
+body {
+  padding-top: 60px;
+}
+
+.section.sidebar {
+  top: 51px;
+  background-color: rgba(39, 128, 227, 0.1);
+}
+
+.value-box {
+  color: #f9f9f9;
+}
+
+.bg-primary {
+  background-color: rgba(39, 128, 227, 0.7);
+}
+
+.storyboard-nav .sbframelist ul li.active {
+  background-color: rgba(39, 128, 227, 0.7);
+}
+
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-top-color: rgba(39, 128, 227, 0.7);
+}
+
+.bg-info {
+  background-color: rgba(153, 84, 187, 0.7);
+}
+
+.bg-warning {
+  background-color: rgba(255, 117, 24, 0.7);
+}
+
+.bg-danger {
+  background-color: rgba(255, 0, 57, 0.7);
+}
+
+.bg-success {
+  background-color: rgba(63, 182, 24, 0.7);
+}
+
+.chart-title {
+  font-weight: 500;
+}
+
+.nav-tabs-custom > .nav-tabs > li > a,
+.nav-tabs-custom > .nav-tabs > li > a:active {
+  font-weight: 500;
+}
+
+@media only screen and (min-width: 768px) {
+html, body {
+  height: 100%;
+}
+
+#dashboard-container {
+  height: 100%;
+}
+}
+</style>
+
+
+
+<script type="text/javascript" src="./Is COVID-19 the desease of Rich countries_files/MathJax.js.download"></script><script src="./Is COVID-19 the desease of Rich countries_files/typedarray.min.js.download"></script><link rel="stylesheet" type="text/css" href="./Is COVID-19 the desease of Rich countries_files/crosstalk.css"><script src="./Is COVID-19 the desease of Rich countries_files/crosstalk.min.js.download"></script><link rel="stylesheet" type="text/css" href="./Is COVID-19 the desease of Rich countries_files/plotly-htmlwidgets.css"><script src="./Is COVID-19 the desease of Rich countries_files/plotly-latest.min.js.download"></script><style id="plotly.js-style-global"></style><style id="plotly.js-style-modebar-af27fa"></style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body><div id="MathJax_Message" style="display: none;"></div>
+  <div style="height: 100%;">
+    <div data-display-if="!output.__reactivedoc__" data-ns-prefix="" style="display: none;">
+      <div id="rmd_loader_wrapper">
+        <div id="rmd_loader" style="">
+          <p>Please wait...</p>
+          <img src="./Is COVID-19 the desease of Rich countries_files/rmd_loader.gif">
+        </div>
+      </div>
+    </div>
+    <div id="__reactivedoc__" class="shiny-html-output shiny-bound-output" aria-live="polite" style="height: 100%;">
+
+
+
+
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container-fluid">
+<div class="navbar-header">
+
+<button id="navbar-button" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+
+<span class="navbar-logo pull-left">
+  
+</span>
+<span class="navbar-brand">
+  Is COVID-19 the desease of Rich countries
+  <span class="navbar-author">
+        </span>
+</span>
+
+</div>
+<div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
+<ul class="nav navbar-nav navbar-left">
+<li class=""><a href="http://127.0.0.1:7201/competShiny.Rmd#section-socioeconomic" data-toggle="tab" aria-expanded="false">Socioeconomic</a></li><li class="active"><a href="http://127.0.0.1:7201/competShiny.Rmd#section-page-2" data-toggle="tab" aria-expanded="true">Page 2</a></li></ul>
+<ul class="nav navbar-nav navbar-right">
+</ul>
+</div><!--/.nav-collapse-->
+</div><!--/.container-->
+</div><!--/.navbar-->
+
+<script type="text/javascript">
+
+
+var FlexDashboard = (function () {
+
+  // initialize options
+  var _options = {};
+
+  var FlexDashboard = function() {
+
+    // default options
+    _options = $.extend(_options, {
+      theme: "cosmo",
+      fillPage: false,
+      orientation: 'columns',
+      storyboard: false,
+      defaultFigWidth: 576,
+      defaultFigHeight: 461,
+      defaultFigWidthMobile: 360,
+      defaultFigHeightMobile: 461,
+      isMobile: false,
+      isPortrait: false,
+      resize_reload: true
+    });
+  };
+
+  function init(options) {
+
+    // extend default options
+    $.extend(true, _options, options);
+
+    // add ids to sections that don't have them (pandoc won't assign ids
+    // to e.g. sections with titles consisting of only chinese characters)
+    var nextId = 1;
+    $('.level1:not([id]),.level2:not([id]),.level3:not([id])').each(function() {
+      $(this).attr('id', 'dashboard-' + nextId++);
+    });
+
+    // find navbar items
+    var navbarItems = $('#flexdashboard-navbar');
+    if (navbarItems.length)
+      navbarItems = JSON.parse(navbarItems.html());
+    addNavbarItems(navbarItems);
+
+    // find the main dashboard container
+    var dashboardContainer = $('#dashboard-container');
+
+    // resolve mobile classes
+    resolveMobileClasses(dashboardContainer);
+
+    // one time global initialization for components
+    componentsInit(dashboardContainer);
+
+    // look for a global sidebar
+    var globalSidebar = dashboardContainer.find(".section.level1.sidebar");
+    if (globalSidebar.length > 0) {
+
+      // global layout for fullscreen displays
+      if (!isMobilePhone()) {
+
+         // hoist it up to the top level
+         globalSidebar.insertBefore(dashboardContainer);
+
+         // lay it out (set width/positions)
+         layoutSidebar(globalSidebar, dashboardContainer);
+
+      // tuck sidebar into first page for mobile phones
+      } else {
+
+        // convert it into a level3 section
+        globalSidebar.removeClass('sidebar');
+        globalSidebar.removeClass('level1');
+        globalSidebar.addClass('level3');
+        var h1 = globalSidebar.children('h1');
+        var h3 = $('<h3></h3>');
+        h3.append(h1.contents());
+        h3.insertBefore(h1);
+        h1.detach();
+
+        // move it into the first page
+        var page = dashboardContainer.find('.section.level1').first();
+        if (page.length > 0)
+          page.prepend(globalSidebar);
+      }
+    }
+
+    // look for pages to layout
+    var pages = $('div.section.level1');
+    if (pages.length > 0) {
+
+        // find the navbar and collapse on clicked
+        var navbar = $('#navbar');
+        navbar.on("click", "a[data-toggle!=dropdown]", null, function () {
+           navbar.collapse('hide');
+        });
+
+        // envelop the dashboard container in a tab content div
+        dashboardContainer.wrapInner('<div class="tab-content"></div>');
+
+        pages.each(function(index) {
+
+          // lay it out
+          layoutDashboardPage($(this));
+
+          // add it to the navbar
+          addToNavbar($(this), index === 0);
+
+        });
+
+    } else {
+
+      // remove the navbar and navbar button if we don't
+      // have any navbuttons
+      if (navbarItems.length === 0) {
+        $('#navbar').remove();
+        $('#navbar-button').remove();
+      }
+
+      // add the storyboard class if requested
+      if (_options.storyboard)
+        dashboardContainer.addClass('storyboard');
+
+      // layout the entire page
+      layoutDashboardPage(dashboardContainer);
+    }
+
+    // if we are in shiny we need to trigger a window resize event to
+    // force correct layout of shiny-bound-output elements
+    if (isShinyDoc())
+      $(window).trigger('resize');
+
+    // make main components visible
+    $('.section.sidebar').css('visibility', 'visible');
+    dashboardContainer.css('visibility', 'visible');
+
+    // handle location hash
+    handleLocationHash();
+
+    // intialize prism highlighting
+    initPrismHighlighting();
+
+    // record mobile and orientation state then register a handler
+    // to refresh if resize_reload is set to true and it changes
+    _options.isMobile = isMobilePhone();
+    _options.isPortrait = isPortrait();
+    if (_options.resize_reload) {
+      $(window).on('resize', function() {
+        if (_options.isMobile !== isMobilePhone() ||
+            _options.isPortrait !== isPortrait()) {
+          window.location.reload();
+        }
+      });
+    } else {
+      // if in desktop mode and resizing to mobile, make sure the heights are 100%
+      // This enforces what `fillpage.css` does for "wider" pages.
+      // Since we are not reloading once the page becomes small, we need to force the height to 100%
+      // This is a new situation introduced when `_options.resize_reload` is `false`
+      if (! _options.isMobile) {
+        // only add if `fillpage.css` was added in the first place
+        if (_options.fillPage) {
+          // fillpage.css
+          $("html,body,#dashboard").css("height", "100%");
+        }
+      }
+    }
+    // trigger layoutcomplete event
+    dashboardContainer.trigger('flexdashboard:layoutcomplete');
+  }
+
+  function resolveMobileClasses(dashboardContainer) {
+     // add top level layout class
+    dashboardContainer.addClass(isMobilePhone() ? 'mobile-layout' :
+                                                  'desktop-layout');
+
+    // look for .mobile sections and add .no-mobile to their peers
+    var mobileSections = $('.section.mobile');
+    mobileSections.each(function() {
+       var id = $(this).attr('id');
+       var nomobileId = id.replace(/-\d+$/, '');
+       $('#' + nomobileId).addClass('no-mobile');
+    });
+  }
+
+  function addNavbarItems(navbarItems) {
+
+    var navbarLeft = $('ul.navbar-left');
+    var navbarRight = $('ul.navbar-right');
+
+    for (var i = 0; i<navbarItems.length; i++) {
+
+      // get the item
+      var item = navbarItems[i];
+
+      // determine the container
+      var container = null;
+      if (item.align === "left")
+        container = navbarLeft;
+      else
+        container = navbarRight;
+
+      // navbar menu if we have multiple items
+      if (item.items) {
+        var menu = navbarMenu(null, item.icon, item.title, container);
+        for (var j = 0; j<item.items.length; j++) {
+          var subItem = item.items[j];
+          var li = $('<li></li>');
+          li.append(navbarLink(subItem.icon, subItem.title, subItem.href, subItem.target));
+          menu.append(li);
+        }
+      } else {
+        var li = $('<li></li>');
+        li.append(navbarLink(item.icon, item.title, item.href, item.target));
+        container.append(li);
+      }
+    }
+  }
+
+  // create or get a reference to an existing dropdown menu
+  function navbarMenu(id, icon, title, container) {
+    var existingMenu = [];
+    if (id)
+      existingMenu = container.children('#' + id);
+    if (existingMenu.length > 0) {
+      return existingMenu.children('ul');
+    } else {
+      var li = $('<li></li>');
+      if (id)
+        li.attr('id', id);
+      li.addClass('dropdown');
+      // auto add "Share" title on mobile if necessary
+      if (!title && icon && (icon === "fa-share-alt") && isMobilePhone())
+        title = "Share";
+      if (title) {
+        title = title + ' <span class="caret"></span>';
+      }
+      var a = navbarLink(icon, title, "#");
+      a.addClass('dropdown-toggle');
+      a.attr('data-toggle', 'dropdown');
+      a.attr('role', 'button');
+      a.attr('aria-expanded', 'false');
+      li.append(a);
+      var ul = $('<ul class="dropdown-menu"></ul>');
+      ul.attr('role', 'menu');
+      li.append(ul);
+      container.append(li);
+      return ul;
+    }
+  }
+
+  function addToNavbar(page, active) {
+
+    // capture the id and data-icon attribute (if any)
+    var id = page.attr('id');
+    var icon = page.attr('data-icon');
+    var navmenu = page.attr('data-navmenu');
+
+    // get hidden state (transfer this to navbar)
+    var hidden = page.hasClass('hidden');
+    page.removeClass('hidden');
+
+    // sanitize the id for use with bootstrap tabs
+    id = id.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_');
+    page.attr('id', id);
+
+    // get the wrapper
+    var wrapper = page.closest('.dashboard-page-wrapper');
+
+    // move the id to the wrapper
+    page.removeAttr('id');
+    wrapper.attr('id', id);
+
+    // add the tab-pane class to the wrapper
+    wrapper.addClass('tab-pane');
+    if (active)
+      wrapper.addClass('active');
+
+    // get a reference to the h1, discover its inner contens, then detach it
+    var h1 = wrapper.find('h1').first();
+    var title = h1.contents();
+    h1.detach();
+
+    // create a navbar item
+    var li = $('<li></li>');
+    var a = navbarLink(icon, title, '#' + id);
+    a.attr('data-toggle', 'tab');
+    li.append(a);
+
+    // add it to the navbar (or navbar menu if specified)
+    var container = $('ul.navbar-left');
+    if (navmenu) {
+      var menuId = navmenu.replace(/\s+/g, '');
+      var menu = navbarMenu(menuId, null, navmenu, container);
+      menu.append(li);
+    } else {
+      container.append(li);
+    }
+
+    // hide it if requested
+    if (hidden)
+      li.addClass('hidden');
+  }
+
+  function navbarLink(icon, title, href, target) {
+
+    var a = $('<a></a>');
+    if (icon) {
+
+      // get the name of the icon set and icon
+      var dashPos = icon.indexOf("-");
+      var iconSet = null;
+      var iconSplit = icon.split(" ");
+      if (iconSplit.length > 1) {
+        iconSet = iconSplit[0];
+        icon = iconSplit.slice(1).join(" ");
+      } else {
+        iconSet = icon.substring(0, dashPos);
+      }
+      var iconName = icon.substring(dashPos + 1);
+
+      // create the icon
+      var iconElement = $('<span class="' + iconSet + ' ' + icon + '"></span>');
+      if (title)
+        iconElement.css('margin-right', '7px');
+      a.append(iconElement);
+      // if href is null see if we can auto-generate based on icon (e.g. social)
+      if (!href)
+        maybeGenerateLinkFromIcon(iconName, a);
+    }
+    if (title)
+      a.append(title);
+
+    // add the href.
+    if (href) {
+      if (href === "source_embed") {
+        a.attr('href', '#');
+        a.attr('data-featherlight', "#flexdashboard-source-code");
+        a.featherlight({
+            beforeOpen: function(event){
+              $('body').addClass('unselectable');
+            },
+            afterClose: function(event){
+              $('body').removeClass('unselectable');
+            }
+        });
+      } else {
+        a.attr('href', href);
+      }
+    }
+
+    // add the arget
+    if (target)
+      a.attr('target', target);
+
+    return a;
+  }
+
+  // auto generate a link from an icon name (e.g. twitter) when possible
+  function maybeGenerateLinkFromIcon(iconName, a) {
+
+     var serviceLinks = {
+      "twitter": "https://twitter.com/share?text=" + encodeURIComponent(document.title) + "&url="+encodeURIComponent(location.href),
+      "facebook": "https://www.facebook.com/sharer/sharer.php?s=100&p[url]="+encodeURIComponent(location.href),
+      "google-plus": "https://plus.google.com/share?url="+encodeURIComponent(location.href),
+      "linkedin": "https://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href) + "&title=" + encodeURIComponent(document.title),
+      "pinterest": "https://pinterest.com/pin/create/link/?url="+encodeURIComponent(location.href) + "&description=" + encodeURIComponent(document.title)
+    };
+
+    var makeSocialLink = function(a, href) {
+      a.attr('href', '#');
+      a.on('click', function(e) {
+        e.preventDefault();
+        window.open(href);
+      });
+    };
+
+    $.each(serviceLinks, function(key, value) {
+      if (iconName.indexOf(key) !== -1)
+        makeSocialLink(a, value);
+    });
+  }
+
+  // layout a dashboard page
+  function layoutDashboardPage(page) {
+
+    // use a page wrapper so that free form content above the
+    // dashboard appears at the top rather than the side (as it
+    // would without the wrapper in a column orientation)
+    var wrapper = $('<div class="dashboard-page-wrapper"></div>');
+    page.wrap(wrapper);
+
+    // if there are no level2 or level3 headers synthesize a level3
+    // header to contain the (e.g. frame it, scroll container, etc.)
+    var headers = page.find('h2,h3');
+    if (headers.length === 0)
+      page.wrapInner('<div class="section level3"></div>');
+
+    // hoist up any content before level 2 or level 3 headers
+    var children = page.children();
+    children.each(function(index) {
+      if ($(this).hasClass('level2') || $(this).hasClass('level3'))
+        return false;
+      $(this).insertBefore(page);
+    });
+
+    // determine orientation and fillPage behavior for distinct media
+    var orientation, fillPage, storyboard;
+
+    // media: mobile phone
+    if (isMobilePhone()) {
+
+      // if there is a sidebar we need to ensure it's content
+      // is properly framed as an h3
+      var sidebar = page.find('.section.sidebar');
+      sidebar.removeClass('sidebar');
+      sidebar.wrapInner('<div class="section level3"></div>');
+      var h2 = sidebar.find('h2');
+      var h3 = $('<h3></h3>');
+      h3.append(h2.contents());
+      h3.insertBefore(h2);
+      h2.detach();
+
+      // wipeout h2 elements then enclose them in a single h2
+      var level2 = page.find('div.section.level2');
+      level2.each(function() {
+        level2.children('h2').remove();
+        level2.children().unwrap();
+      });
+      page.wrapInner('<div class="section level2"></div>');
+
+      // substitute mobile images
+      if (isPortrait()) {
+        var mobileFigures = $('img.mobile-figure');
+        mobileFigures.each(function() {
+          // get the src (might be base64 encoded)
+          var src = $(this).attr('src');
+
+          // find it's peer
+          var id = $(this).attr('data-mobile-figure-id');
+          var img = $('img[data-figure-id=' + id + "]");
+          img.attr('src', src)
+             .attr('width', _options.defaultFigWidthMobile)
+             .attr('height', _options.defaultFigHeightMobile);
+        });
+      }
+
+      // hoist storyboard commentary into it's own section
+      if (page.hasClass('storyboard')) {
+        var commentaryHR = page.find('div.section.level3 hr');
+        commentaryHR.each(function() {
+          var commentary = $(this).nextAll().detach();
+          var commentarySection = $('<div class="section level3"></div>');
+          commentarySection.append(commentary);
+          commentarySection.insertAfter($(this).closest('div.section.level3'));
+          $(this).remove();
+        });
+      }
+
+      // force a non full screen layout by columns
+      orientation = _options.orientation = 'columns';
+      fillPage = _options.fillPage = false;
+      storyboard = _options.storyboard = false;
+
+    // media: desktop
+    } else {
+
+      // determine orientation
+      orientation = page.attr('data-orientation');
+      if (orientation !== 'rows' && orientation != 'columns')
+        orientation = _options.orientation;
+
+      // determine storyboard mode
+      storyboard = page.hasClass('storyboard');
+
+      // fillPage based on options (force for storyboard)
+      fillPage = _options.fillPage || storyboard;
+
+      // handle sidebar
+      var sidebar = page.find('.section.level2.sidebar');
+      if (sidebar.length > 0)
+        layoutSidebar(sidebar, page);
+    }
+
+    // give it and it's parent divs height: 100% if we are in fillPage mode
+    if (fillPage) {
+      page.addClass('vertical-layout-fill');
+      page.css('height', '100%');
+      page.parents('div').css('height', '100%');
+    } else {
+      page.addClass('vertical-layout-scroll');
+    }
+
+    // perform the layout
+    if (storyboard)
+      layoutPageAsStoryboard(page);
+    else if (orientation === 'rows')
+      layoutPageByRows(page, fillPage);
+    else if (orientation === 'columns')
+      layoutPageByColumns(page, fillPage);
+  }
+
+  function layoutSidebar(sidebar, content) {
+
+    // get it out of the header hierarchy
+    sidebar = sidebar.first();
+    if (sidebar.hasClass('level1')) {
+      sidebar.removeClass('level1');
+      sidebar.children('h1').remove();
+    } else if (sidebar.hasClass('level2')) {
+      sidebar.removeClass('level2');
+      sidebar.children('h2').remove();
+    }
+
+    // determine width
+    var sidebarWidth = isTablet() ? 220 : 250;
+    var dataWidth = parseInt(sidebar.attr('data-width'));
+    if (dataWidth)
+      sidebarWidth = dataWidth;
+
+    // set the width and shift the page right to accomodate the sidebar
+    sidebar.css('width', sidebarWidth + 'px');
+    content.css('padding-left', sidebarWidth + 'px');
+
+    // wrap it's contents in a form
+    sidebar.wrapInner($('<form></form>'));
+  }
+
+  function layoutPageAsStoryboard(page) {
+
+    // create storyboard navigation
+    var nav = $('<div class="storyboard-nav"></div>');
+
+    // add navigation buttons
+    var prev = $('<button class="sbprev"><i class="fa fa-angle-left"></i></button>');
+    nav.append(prev);
+    var next= $('<button class="sbnext"><i class="fa fa-angle-right"></i></button>');
+    nav.append(next);
+
+    // add navigation frame
+    var frameList = $('<div class="sbframelist"></div>');
+    nav.append(frameList);
+    var ul = $('<ul></ul>');
+    frameList.append(ul);
+
+     // find all the level3 sections (those are the storyboard frames)
+    var frames = page.find('div.section.level3');
+    frames.each(function() {
+
+      // mark it
+      $(this).addClass('sbframe');
+
+      // divide it into chart content and (optional) commentary
+      $(this).addClass('dashboard-column-orientation');
+
+      // stuff the chart into it's own div w/ flex
+      $(this).wrapInner('<div class="sbframe-component"></div>');
+      setFlex($(this), 1);
+      var frame = $(this).children('.sbframe-component');
+
+      // extract the title from the h3
+      var li = $('<li></li>');
+      var h3 = frame.children('h3');
+      li.append(h3.contents());
+      h3.detach();
+      ul.append(li);
+
+      // extract commentary
+      var hr = frame.children('hr');
+      if (hr.length) {
+        var commentary = hr.nextAll().detach();
+        hr.remove();
+        var commentaryFrame = $('<div class="sbframe-commentary"></div>');
+        commentaryFrame.addClass('flowing-content-shim');
+        commentaryFrame.addClass('flowing-content-container');
+        commentaryFrame.append(commentary);
+        $(this).append(commentaryFrame);
+
+        // look for a data-commentary-width attribute
+        var commentaryWidth = $(this).attr('data-commentary-width');
+        if (commentaryWidth)
+          commentaryFrame.css('width', commentaryWidth + 'px');
+      }
+
+      // layout the chart (force flex)
+      var result = layoutChart(frame, true);
+
+      // ice the notes if there are none
+      if (!result.notes)
+        frame.find('.chart-notes').remove();
+
+      // set flex on chart
+      setFlex(frame, 1);
+    });
+
+    // create a div to hold all the frames
+    var frameContent = $('<div class="sbframe-content"></div>');
+    frameContent.addClass('dashboard-row-orientation');
+    frameContent.append(frames.detach());
+
+    // row orientation to stack nav and frame content
+    page.addClass('dashboard-row-orientation');
+    page.append(nav);
+    page.append(frameContent);
+    setFlex(frameContent, 1);
+
+    // initialize sly
+    var sly = new Sly(frameList, {
+    		horizontal: true,
+    		itemNav: 'basic',
+    		smart: true,
+    		activateOn: 'click',
+    		startAt: 0,
+    		scrollBy: 1,
+    		activatePageOn: 'click',
+    		speed: 200,
+    		moveBy: 600,
+    		dragHandle: true,
+    		dynamicHandle: true,
+    		clickBar: true,
+    		keyboardNavBy: 'items',
+    		next: next,
+    		prev: prev
+    	}).init();
+
+    // make first frame active
+    frames.removeClass('active');
+    frames.first().addClass('active');
+
+    // subscribe to frame changed events
+    sly.on('active', function (eventName, itemIndex) {
+      frames.removeClass('active');
+      frames.eq(itemIndex).addClass('active')
+                          .trigger('shown');
+    });
+  }
+
+  function layoutPageByRows(page, fillPage) {
+
+    // row orientation
+    page.addClass('dashboard-row-orientation');
+
+    // find all the level2 sections (those are the rows)
+    var rows = page.find('div.section.level2');
+
+    // if there are no level2 sections then treat the
+    // entire page as if it's a level 2 section
+    if (rows.length === 0) {
+      page.wrapInner('<div class="section level2"></div>');
+      rows = page.find('div.section.level2');
+    }
+
+    rows.each(function () {
+
+      // flags
+      var haveNotes = false;
+      var haveFlexHeight = true;
+
+      // remove the h2
+      $(this).children('h2').remove();
+
+      // check for a tabset
+      var isTabset = $(this).hasClass('tabset');
+      if (isTabset)
+        layoutTabset($(this));
+
+      // give it row layout semantics if it's not a tabset
+      if (!isTabset)
+        $(this).addClass('dashboard-row');
+
+      // find all of the level 3 subheads
+      var columns = $(this).find('div.section.level3');
+
+      // determine figureSizes sizes
+      var figureSizes = chartFigureSizes(columns);
+
+      // fixup the columns
+      columns.each(function(index) {
+
+        // layout the chart (force flex if we are in a tabset)
+        var result = layoutChart($(this), isTabset);
+
+        // update flexHeight state
+        if (!result.flex)
+          haveFlexHeight = false;
+
+        // update state
+        if (result.notes)
+          haveNotes = true;
+
+        // set the column flex based on the figure width
+        // (value boxes will just get the default figure width)
+        var chartWidth = figureSizes[index].width;
+        setFlex($(this), chartWidth + ' ' + chartWidth + ' 0px');
+
+      });
+
+      // remove empty chart note divs
+      if (isTabset)
+        $(this).find('.chart-notes').filter(function() {
+            return $(this).html() === "&nbsp;";
+        }).remove();
+      if (!haveNotes)
+        $(this).find('.chart-notes').remove();
+
+       // make it a flexbox row
+      if (haveFlexHeight)
+        $(this).addClass('dashboard-row-flex');
+
+      // now we can set the height on all the wrappers (based on maximum
+      // figure height + room for title and notes, or data-height on the
+      // container if specified). However, don't do this if there is
+      // no flex on any of the constituent columns
+      var flexHeight = null;
+      var dataHeight = parseInt($(this).attr('data-height'));
+      if (dataHeight)
+        flexHeight = adjustedHeight(dataHeight, columns.first());
+      else if (haveFlexHeight)
+        flexHeight = maxChartHeight(figureSizes, columns);
+      if (flexHeight) {
+        if (fillPage)
+          setFlex($(this), flexHeight + ' ' + flexHeight + ' 0px');
+        else {
+          $(this).css('height', flexHeight + 'px');
+          setFlex($(this), '0 0 ' + flexHeight + 'px');
+        }
+      }
+
+    });
+  }
+
+  function layoutPageByColumns(page, fillPage) {
+
+    // column orientation
+    page.addClass('dashboard-column-orientation');
+
+    // find all the level2 sections (those are the columns)
+    var columns = page.find('div.section.level2');
+
+    // if there are no level2 sections then treat the
+    // entire page as if it's a level 2 section
+    if (columns.length === 0) {
+      page.wrapInner('<div class="section level2"></div>');
+      columns = page.find('div.section.level2');
+    }
+
+    // layout each column
+    columns.each(function (index) {
+
+      // remove the h2
+      $(this).children('h2').remove();
+
+      // make it a flexbox column
+      $(this).addClass('dashboard-column');
+
+      // check for a tabset
+      var isTabset = $(this).hasClass('tabset');
+      if (isTabset)
+        layoutTabset($(this));
+
+      // find all the h3 elements
+      var rows = $(this).find('div.section.level3');
+
+      // get the figure sizes for the rows
+      var figureSizes = chartFigureSizes(rows);
+
+      // column flex is the max row width (or data-width if specified)
+      var flexWidth;
+      var dataWidth = parseInt($(this).attr('data-width'));
+      if (dataWidth)
+        flexWidth = dataWidth;
+      else
+        flexWidth = maxChartWidth(figureSizes);
+      setFlex($(this), flexWidth + ' ' + flexWidth + ' 0px');
+
+      // layout each chart
+      rows.each(function(index) {
+
+        // perform the layout
+        var result = layoutChart($(this), false);
+
+        // ice the notes if there are none
+        if (!result.notes)
+          $(this).find('.chart-notes').remove();
+
+        // set flex height based on figHeight, then adjust
+        if (result.flex) {
+          var chartHeight = figureSizes[index].height;
+          chartHeight = adjustedHeight(chartHeight, $(this));
+          if (fillPage)
+            setFlex($(this), chartHeight + ' ' + chartHeight + ' 0px');
+          else {
+            $(this).css('height', chartHeight + 'px');
+            setFlex($(this), chartHeight + ' ' + chartHeight + ' ' + chartHeight + 'px');
+          }
+        }
+      });
+    });
+  }
+
+  function chartFigureSizes(charts) {
+
+    // sizes
+    var figureSizes = new Array(charts.length);
+
+    // check each chart
+    charts.each(function(index) {
+
+      // start with default
+      figureSizes[index] = {
+        width: _options.defaultFigWidth,
+        height: _options.defaultFigHeight
+      };
+
+      // look for data-height or data-width then knit options
+      var dataWidth = parseInt($(this).attr('data-width'));
+      var dataHeight = parseInt($(this).attr('data-height'));
+      var knitrOptions = $(this).find('.knitr-options:first');
+      var knitrWidth, knitrHeight;
+      if (knitrOptions) {
+        knitrWidth = parseInt(knitrOptions.attr('data-fig-width'));
+        knitrHeight =  parseInt(knitrOptions.attr('data-fig-height'));
+      }
+
+      // width
+      if (dataWidth)
+        figureSizes[index].width = dataWidth;
+      else if (knitrWidth)
+        figureSizes[index].width = knitrWidth;
+
+      // height
+      if (dataHeight)
+        figureSizes[index].height = dataHeight;
+      else if (knitrHeight)
+        figureSizes[index].height = knitrHeight;
+    });
+
+    // return sizes
+    return figureSizes;
+  }
+
+  function maxChartHeight(figureSizes, charts) {
+
+    // first compute the maximum height
+    var maxHeight = _options.defaultFigHeight;
+    for (var i = 0; i<figureSizes.length; i++)
+      if (figureSizes[i].height > maxHeight)
+        maxHeight = figureSizes[i].height;
+
+    // now add offests for chart title and chart notes
+    if (charts.length)
+      maxHeight = adjustedHeight(maxHeight, charts.first());
+
+    return maxHeight;
+  }
+
+  function adjustedHeight(height, chart) {
+    if (chart.length > 0) {
+      var chartTitle = chart.find('.chart-title');
+      if (chartTitle.length)
+        height += chartTitle.first().outerHeight();
+      var chartNotes = chart.find('.chart-notes');
+      if (chartNotes.length)
+        height += chartNotes.first().outerHeight();
+    }
+    return height;
+  }
+
+  function maxChartWidth(figureSizes) {
+    var maxWidth = _options.defaultFigWidth;
+    for (var i = 0; i<figureSizes.length; i++)
+      if (figureSizes[i].width > maxWidth)
+        maxWidth = figureSizes[i].width;
+    return maxWidth;
+  }
+
+  // layout a chart
+  function layoutChart(chart, forceFlex) {
+
+    // state to return
+    var result = {
+      notes: false,
+      flex: false
+    };
+
+    // extract the title
+    var title = extractTitle(chart);
+
+    // find components that apply to this container
+    var components = componentsFind(chart);
+
+    // if it's a custom component then call it and return
+    var customComponents = componentsCustom(components);
+    if (customComponents.length) {
+      componentsLayout(customComponents, title, chart);
+      result.notes = false;
+      result.flex = forceFlex || componentsFlex(customComponents);
+      return result;
+    }
+
+    // put all the content in a chart wrapper div
+    chart.addClass('chart-wrapper');
+    chart.wrapInner('<div class="chart-stage"></div>');
+    var chartContent = chart.children('.chart-stage');
+
+    // flex the content if appropriate
+    result.flex = forceFlex || componentsFlex(components);
+    if (result.flex) {
+      // add flex classes
+      chart.addClass('chart-wrapper-flex');
+      chartContent.addClass('chart-stage-flex');
+
+      // additional shim to break out of flexbox sizing
+      chartContent.wrapInner('<div class="chart-shim"></div>');
+      chartContent = chartContent.children('.chart-shim');
+    }
+
+    // set custom data-padding attribute
+    var pad = chart.attr('data-padding');
+    if (pad) {
+      if (pad === "0")
+        chart.addClass('no-padding');
+      else {
+        pad = pad + 'px';
+        chartContent.css('left', pad)
+                    .css('top', pad)
+                    .css('right', pad)
+                    .css('bottom', pad)
+      }
+    }
+
+    // call compoents
+    componentsLayout(components, title, chartContent);
+
+    // also activate components on shiny output
+    findShinyOutput(chartContent).on('shiny:value',
+      function(event) {
+        var element = $(event.target);
+        setTimeout(function() {
+
+          // see if we opted out of flex based on our output (for shiny
+          // we can't tell what type of output we have until after the
+          // value is bound)
+          var components = componentsFind(element);
+          var flex = forceFlex || componentsFlex(components);
+          if (!flex) {
+            chart.css('height', "");
+            setFlex(chart, "");
+            chart.removeClass('chart-wrapper-flex');
+            chartContent.removeClass('chart-stage-flex');
+            chartContent.children().unwrap();
+          }
+
+          // perform layout
+          componentsLayout(components, title, element.parent());
+        }, 10);
+      });
+
+    // add the title
+    var chartTitle = $('<div class="chart-title"></div>');
+    chartTitle.append(title);
+    chart.prepend(chartTitle);
+
+    // add the notes section
+    var chartNotes = $('<div class="chart-notes"></div>');
+    chartNotes.html('&nbsp;');
+    chart.append(chartNotes);
+
+    // attempt to extract notes if we have a component
+    if (components.length)
+      result.notes = extractChartNotes(chartContent, chartNotes);
+
+    // return result
+    return result;
+  }
+
+  // build a tabset from a section div with the .tabset class
+  function layoutTabset(tabset) {
+
+    // check for fade option
+    var fade = tabset.hasClass("tabset-fade");
+    var navClass = "nav-tabs";
+
+    // determine the heading level of the tabset and tabs
+    var match = tabset.attr('class').match(/level(\d) /);
+    if (match === null)
+      return;
+    var tabsetLevel = Number(match[1]);
+    var tabLevel = tabsetLevel + 1;
+
+    // find all subheadings immediately below
+    var tabs = tabset.find("div.section.level" + tabLevel);
+    if (!tabs.length)
+      return;
+
+    // create tablist and tab-content elements
+    var tabList = $('<ul class="nav ' + navClass + '" role="tablist"></ul>');
+    $(tabs[0]).before(tabList);
+    var tabContent = $('<div class="tab-content"></div>');
+    $(tabs[0]).before(tabContent);
+
+    // build the tabset
+    tabs.each(function(i) {
+
+      // get the tab div
+      var tab = $(tabs[i]);
+
+      // get the id then sanitize it for use with bootstrap tabs
+      var id = tab.attr('id');
+
+      // sanitize the id for use with bootstrap tabs
+      id = id.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_');
+      tab.attr('id', id);
+
+      // get the heading element within it and grab it's text
+      var heading = tab.find('h' + tabLevel + ':first');
+      var headingDom = heading.contents();
+
+      // build and append the tab list item
+      var a = $('<a role="tab" data-toggle="tab"></a>');
+      a.append(headingDom);
+      a.attr('href', '#' + id);
+      a.attr('aria-controls', id);
+      var li = $('<li role="presentation"></li>');
+      li.append(a);
+      if (i === 0)
+        li.attr('class', 'active');
+      tabList.append(li);
+
+      // set it's attributes
+      tab.attr('role', 'tabpanel');
+      tab.addClass('tab-pane');
+      tab.addClass('tabbed-pane');
+      tab.addClass('no-title');
+      if (fade)
+        tab.addClass('fade');
+      if (i === 0) {
+        tab.addClass('active');
+        if (fade)
+          tab.addClass('in');
+      }
+
+      // move it into the tab content div
+      tab.detach().appendTo(tabContent);
+    });
+
+    // add nav-tabs-custom
+    tabset.addClass('nav-tabs-custom');
+
+    // internal layout is dashboard-column with tab-content flexing
+    tabset.addClass('dashboard-column');
+    setFlex(tabContent, 1);
+  }
+
+  // one time global initialization for components
+  function componentsInit(dashboardContainer) {
+    for (var i=0; i<window.FlexDashboardComponents.length; i++) {
+      var component = window.FlexDashboardComponents[i];
+      if (component.init)
+        component.init(dashboardContainer);
+    }
+  }
+
+  // find components that apply within a container
+  function componentsFind(container) {
+
+    // look for components
+    var components = [];
+    for (var i=0; i<window.FlexDashboardComponents.length; i++) {
+      var component = window.FlexDashboardComponents[i];
+      if (component.find(container).length)
+        components.push(component);
+    }
+
+    // if there were none then use a special flowing content component
+    // that just adds a scrollbar in fillPage mode
+    if (components.length == 0) {
+      components.push({
+        find: function(container) {
+          return container;
+        },
+
+        flex: function(fillPage) {
+          return fillPage;
+        },
+
+        layout: function(title, container, element, fillPage) {
+          if (fillPage) {
+            container.addClass('flowing-content-shim');
+            container.addClass('flowing-content-container');
+          }
+        }
+      });
+    }
+
+    return components;
+  }
+
+  // if there is a custom component then pick it out
+  function componentsCustom(components) {
+    var customComponent = [];
+    for (var i=0; i<components.length; i++)
+      if (components[i].type === "custom") {
+        customComponent.push(components[i]);
+        break;
+      }
+    return customComponent;
+  }
+
+  // query all components for flex
+  function componentsFlex(components) {
+
+    // no components at all means no flex
+    if (components.length === 0)
+      return false;
+
+    // otherwise query components (assume true unless we see false)
+    var isMobile = isMobilePhone();
+    for (var i=0; i<components.length; i++)
+      if (components[i].flex && !components[i].flex(_options.fillPage))
+        return false;
+    return true;
+  }
+
+  // layout all components
+  function componentsLayout(components, title, container) {
+    var isMobile = isMobilePhone();
+    for (var i=0; i<components.length; i++) {
+      var element = components[i].find(container);
+      if (components[i].layout) {
+        // call layout (don't call other components if it returns false)
+        var result = components[i].layout(title, container, element, _options.fillPage);
+        if (result === false)
+          return;
+      }
+    }
+  }
+
+  // get a reference to the h3, discover it's inner html, and remove it
+  function extractTitle(container) {
+    var h3 = container.children('h3').first();
+    var title = '';
+    if (!container.hasClass('no-title'))
+      title = h3.contents();
+    h3.detach();
+    return title;
+  }
+
+  // extract chart notes
+  function extractChartNotes(chartContent, chartNotes) {
+    // look for a terminating blockquote or image caption
+    var blockquote = chartContent.children('blockquote:last-child');
+    var caption = chartContent.children('div.image-container')
+                              .children('p.caption');
+    if (blockquote.length) {
+      chartNotes.empty().append(blockquote.children('p:first-child').contents());
+      blockquote.remove();
+      return true;
+    } else if (caption.length) {
+      chartNotes.empty().append(caption.contents());
+      caption.remove();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function findShinyOutput(chartContent) {
+    return chartContent.find('.shiny-text-output, .shiny-html-output');
+  }
+
+  // safely detect rendering on a mobile phone
+  function isMobilePhone() {
+    try
+    {
+      return ! window.matchMedia("only screen and (min-width: 768px)").matches;
+    }
+    catch(e) {
+      return false;
+    }
+  }
+
+  function isFillPage() {
+    return _options.fillPage;
+  }
+
+  // detect portrait mode
+  function isPortrait() {
+    return ($(window).width() < $(window).height());
+  }
+
+  // safely detect rendering on a tablet
+  function isTablet() {
+    try
+    {
+      return window.matchMedia("only screen and (min-width: 769px) and (max-width: 992px)").matches;
+    }
+    catch(e) {
+      return false;
+    }
+  }
+
+  // test whether this is a shiny doc
+  function isShinyDoc() {
+    return (typeof(window.Shiny) !== "undefined" && !!window.Shiny.outputBindings);
+  }
+
+  // set flex using vendor specific prefixes
+  function setFlex(el, flex) {
+    el.css('-webkit-box-flex', flex)
+      .css('-webkit-flex', flex)
+      .css('-ms-flex', flex)
+      .css('flex', flex);
+  }
+
+  // support bookmarking of pages
+  function handleLocationHash() {
+
+    // restore tab/page from bookmark
+    var hash = window.decodeURIComponent(window.location.hash);
+    if (hash.length > 0)
+      $('ul.nav a[href="' + hash + '"]').tab('show');
+    FlexDashboardUtils.manageActiveNavbarMenu();
+
+    // navigate to a tab when the history changes
+    window.addEventListener("popstate", function(e) {
+      var hash = window.decodeURIComponent(window.location.hash);
+      var activeTab = $('ul.nav a[href="' + hash + '"]');
+      if (activeTab.length) {
+        activeTab.tab('show');
+      } else {
+        $('ul.nav a:first').tab('show');
+      }
+      FlexDashboardUtils.manageActiveNavbarMenu();
+    });
+
+    // add a hash to the URL when the user clicks on a tab/page
+    $('.navbar-nav a[data-toggle="tab"]').on('click', function(e) {
+      var baseUrl = FlexDashboardUtils.urlWithoutHash(window.location.href);
+      var hash = FlexDashboardUtils.urlHash($(this).attr('href'));
+      var href = baseUrl + hash;
+      FlexDashboardUtils.setLocation(href);
+    });
+
+    // handle clicks of other links that should activate pages
+    var navPages = $('ul.navbar-nav li a[data-toggle=tab]');
+    navPages.each(function() {
+      var href =  $(this).attr('href');
+      var links = $('a[href="' + href + '"][data-toggle!=tab]');
+      links.each(function() {
+        $(this).on('click', function(e) {
+          window.FlexDashboardUtils.showPage(href);
+        });
+      });
+    });
+  }
+
+  // tweak Prism highlighting
+  function initPrismHighlighting() {
+
+    if (window.Prism) {
+      Prism.languages.insertBefore('r', 'comment', {
+        'heading': [
+          {
+            // title 1
+        	  // =======
+
+        	  // title 2
+        	  // -------
+        	  pattern: /\w+.*(?:\r?\n|\r)(?:====+|----+)/,
+            alias: 'operator'
+          },
+          {
+            // ### title 3
+            pattern: /(^\s*)###[^#].+/m,
+            lookbehind: true,
+            alias: 'operator'
+          }
+        ]
+      });
+
+      // prism highlight
+      Prism.highlightAll();
+    }
+  }
+
+
+  // get theme color
+  var themeColors = {
+    bootstrap: {
+      primary: "rgba(51, 122, 183, 0.4)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    cerulean: {
+      primary: "rgb(47, 164, 231)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    journal: {
+      primary: "rgba(235, 104, 100, 0.70)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    flatly: {
+      primary: "rgba(44, 62, 80, 0.70)",
+      info: "rgba(52, 152, 219, 0.70)",
+      success: "rgba(24, 188, 156, 0.70)",
+      warning: "rgba(243, 156, 18, 0.70)",
+      danger: "rgba(231, 76, 60, 0.70)"
+    },
+    readable: {
+      primary: "rgba(69, 130, 236, 0.4)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    spacelab: {
+      primary: "rgba(68, 110, 155, 0.25)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    united: {
+      primary: "rgba(221, 72, 20, 0.30)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    cosmo: {
+      primary: "rgba(39, 128, 227, 0.7)",
+      info: "rgba(153, 84, 187, 0.7)",
+      success: "rgba(63, 182, 24, 0.7)",
+      warning: "rgba(255, 117, 24, 0.7)",
+      danger: "rgba(255, 0, 57, 0.7)"
+    },
+    lumen: {
+      primary: "rgba(21, 140, 186, 0.70)",
+      info: "rgba(117, 202, 235, 0.90)",
+      success: "rgba(40, 182, 44, 0.70)",
+      warning: "rgba(255, 133, 27, 0.70)",
+      danger: "rgba(255, 65, 54, 0.70)"
+    },
+    paper: {
+      primary: "rgba(33, 150, 243, 0.35)",
+      info: "rgb(225, 190, 231)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(255, 224, 178)",
+      danger: "rgb(249, 189, 187)"
+    },
+    sandstone: {
+      primary: "rgba(50, 93, 136, 0.3)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    simplex: {
+      primary: "rgba(217, 35, 15, 0.25)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    yeti: {
+      primary: "rgba(0, 140, 186, 0.298039)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    }
+  }
+  function themeColor(color) {
+    return themeColors[_options.theme][color];
+  }
+
+  FlexDashboard.prototype = {
+    constructor: FlexDashboard,
+    init: init,
+    isMobilePhone: isMobilePhone,
+    isFillPage: isFillPage,
+    themeColor: themeColor
+  };
+
+  return FlexDashboard;
+
+})();
+
+// utils
+window.FlexDashboardUtils = {
+  resizableImage: function(img) {
+    var src = img.attr('src');
+    var url = 'url("' + src + '")';
+    img.parent().css('background', url)
+                .css('background-size', 'contain')
+                .css('background-repeat', 'no-repeat')
+                .css('background-position', 'center')
+                .addClass('image-container');
+  },
+  setLocation: function(href) {
+    if (history && history.pushState) {
+      history.pushState(null, null, href);
+    } else {
+      window.location.replace(href);
+    }
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 10);
+    this.manageActiveNavbarMenu();
+  },
+  showPage: function(href) {
+    $('ul.navbar-nav li a[href="' + href + '"]').tab('show');
+    var baseUrl = this.urlWithoutHash(window.location.href);
+    var loc = baseUrl + href;
+    this.setLocation(loc);
+  },
+  showLinkedValue: function(href) {
+    // check for a page link
+    if ($('ul.navbar-nav li a[data-toggle=tab][href="' + href + '"]').length > 0)
+      this.showPage(href);
+    else
+      window.open(href);
+  },
+  urlWithoutHash: function(url) {
+    var hashLoc = url.indexOf('#');
+    if (hashLoc != -1)
+      return url.substring(0, hashLoc);
+    else
+      return url;
+  },
+  urlHash: function(url) {
+    var hashLoc = url.indexOf('#');
+    if (hashLoc != -1)
+      return url.substring(hashLoc);
+    else
+      return "";
+  },
+  manageActiveNavbarMenu: function () {
+    // remove active from anyone currently active
+    $('.navbar ul.nav').find('li').removeClass('active');
+    // find the active tab
+    var activeTab = $('.dashboard-page-wrapper.tab-pane.active');
+    if (activeTab.length > 0) {
+      var tabId = activeTab.attr('id');
+      if (tabId)
+        $(".navbar ul.nav a[href='#" + tabId + "']").parents('li').addClass('active');
+    }
+  }
+};
+
+window.FlexDashboard = new FlexDashboard();
+
+// empty content
+window.FlexDashboardComponents.push({
+  find: function(container) {
+    if (container.find('p').length == 0)
+      return container;
+    else
+      return $();
+  }
+})
+
+// plot image
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('p')
+                    .children('img:only-child');
+  },
+
+  layout: function(title, container, element, fillPage) {
+    FlexDashboardUtils.resizableImage(element);
+  }
+});
+
+// plot image (figure style)
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('div.figure').children('img');
+  },
+
+  layout: function(title, container, element, fillPage) {
+    FlexDashboardUtils.resizableImage(element);
+  }
+});
+
+// htmlwidget
+window.FlexDashboardComponents.push({
+
+  init: function(dashboardContainer) {
+    // trigger "shown" after initial layout to force static htmlwidgets
+    // in runtime: shiny to be resized after the dom has been transformed
+    dashboardContainer.on('flexdashboard:layoutcomplete', function(event) {
+      setTimeout(function() {
+        dashboardContainer.trigger('shown');
+      }, 200);
+    });
+  },
+
+  find: function(container) {
+    return container.children('div[id^="htmlwidget-"],div.html-widget');
+  }
+});
+
+// gauge
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('div.html-widget.gauge');
+  },
+
+  flex: function(fillPage) {
+    return false;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+
+  }
+
+});
+
+// shiny output
+window.FlexDashboardComponents.push({
+  find: function(container) {
+    return container.children('div[class^="shiny-"]');
+  }
+});
+
+// datatables
+window.FlexDashboardComponents.push({
+  find: function(container) {
+    return container.find('.datatables');
+  },
+  flex: function(fillPage) {
+    return fillPage;
+  }
+});
+
+// bootstrap table
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    var bsTable = container.find('table.table');
+    if (bsTable.length !== 0)
+      return bsTable;
+    else
+      return container.find('tr.header').parent('thead').parent('table');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+    // alias variables
+    var bsTable = element;
+
+    // fixup xtable generated tables with a proper thead
+    var headerRow = bsTable.find('tbody > tr:first-child > th').parent();
+    if (headerRow.length > 0) {
+      var thead = $('<thead></thead>');
+      bsTable.prepend(thead);
+      headerRow.detach().appendTo(thead);
+    }
+
+    // improve appearance
+    container.addClass('bootstrap-table');
+
+    // for fill page provide scrolling w/ sticky headers
+    if (fillPage) {
+      // force scrollbar on overflow
+      container.addClass('flowing-content-shim');
+
+      // stable table headers when scrolling
+      bsTable.stickyTableHeaders({
+        scrollableArea: container
+      });
+    }
+  }
+});
+
+// embedded shiny app
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.find('iframe.shiny-frame');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+    if (fillPage) {
+      element.attr('height', '100%');
+    } else {
+      // provide default height if necessary
+      var height = element.get(0).style.height;
+      if (!height)
+        height = element.attr('height');
+      if (!height)
+        element.attr('height', 500);
+    }
+  }
+});
+
+// shiny fillRow or fillCol
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.find('.flexfill-container');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+    if (fillPage)
+      element.css('height', '100%');
+    else {
+      // provide default height if necessary
+      var height = element.get(0).style.height;
+      if (height === "100%" || height === "auto" || height === "initial" ||
+          height === "inherit" || !height) {
+        element.css('height', 500);
+      }
+    }
+  }
+});
+
+// valueBox
+window.FlexDashboardComponents.push({
+
+  type: "custom",
+
+  find: function(container) {
+    if (container.find('span.value-output, .shiny-valuebox-output').length)
+      return container;
+    else
+      return $();
+  },
+
+  flex: function(fillPage) {
+    return false;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+    // alias variables
+    var chartTitle = title;
+    var valueBox = element;
+
+    // add value-box class to container
+    container.addClass('value-box');
+
+    // value paragraph
+    var value = $('<p class="value"></p>');
+
+    // if we have shiny-text-output then just move it in
+    var valueOutputSpan = [];
+    var shinyOutput = valueBox.find('.shiny-valuebox-output').detach();
+    if (shinyOutput.length) {
+      valueBox.children().remove();
+      shinyOutput.html("&mdash;");
+      value.append(shinyOutput);
+    } else {
+      // extract the value (remove leading vector index)
+      var chartValue = valueBox.text().trim();
+      chartValue = chartValue.replace("[1] ", "");
+      valueOutputSpan = valueBox.find('span.value-output').detach();
+      valueBox.children().remove();
+      value.text(chartValue);
+    }
+
+    // caption
+    var caption = $('<p class="caption"></p>');
+    caption.append(chartTitle);
+
+    // build inner div for value box and add it
+    var inner = $('<div class="inner"></div>');
+    inner.append(value);
+    inner.append(caption);
+    valueBox.append(inner);
+
+    // add icon if specified
+    var icon = $('<div class="icon"><i></i></div>');
+    valueBox.append(icon);
+    function setIcon(chartIcon) {
+      var iconLib = "";
+      var iconSplit = chartIcon.split(" ");
+      if (iconSplit.length > 1) {
+        iconLib = iconSplit[0];
+        chartIcon = iconSplit.slice(1).join(" ");
+      } else {
+        var components = chartIcon.split("-");
+        if (components.length > 1)
+          iconLib = components[0];
+      }
+      icon.children('i').attr('class', iconLib + ' ' + chartIcon);
+    }
+    var chartIcon = valueBox.attr('data-icon');
+    if (chartIcon)
+      setIcon(chartIcon);
+
+    // set color based on data-background if necessary
+    var dataBackground = valueBox.attr('data-background');
+    if (dataBackground)
+      valueBox.css('background-color', bgColor);
+    else {
+      // default to bg-primary if no other background is specified
+      if (!valueBox.hasClass('bg-primary') &&
+          !valueBox.hasClass('bg-info') &&
+          !valueBox.hasClass('bg-warning') &&
+          !valueBox.hasClass('bg-success') &&
+          !valueBox.hasClass('bg-danger')) {
+        valueBox.addClass('bg-primary');
+      }
+    }
+
+    // handle data attributes in valueOutputSpan
+    function handleValueOutput(valueOutput) {
+
+      // caption
+      var dataCaption = valueOutput.attr('data-caption');
+      if (dataCaption)
+        caption.html(dataCaption);
+
+      // icon
+      var dataIcon = valueOutput.attr('data-icon');
+      if (dataIcon)
+        setIcon(dataIcon);
+
+      // color
+      var dataColor = valueOutput.attr('data-color');
+      if (dataColor) {
+        if (dataColor.indexOf('bg-') === 0) {
+          valueBox.css('background-color', '');
+          if (!valueBox.hasClass(dataColor)) {
+             valueBox.removeClass('bg-primary bg-info bg-warning bg-danger bg-success');
+             valueBox.addClass(dataColor);
+          }
+        } else {
+          valueBox.removeClass('bg-primary bg-info bg-warning bg-danger bg-success');
+          valueBox.css('background-color', dataColor);
+        }
+      }
+
+      // url
+      var dataHref = valueOutput.attr('data-href');
+      if (dataHref) {
+        valueBox.addClass('linked-value');
+        valueBox.off('click.value-box');
+        valueBox.on('click.value-box', function(e) {
+          window.FlexDashboardUtils.showLinkedValue(dataHref);
+        });
+      }
+    }
+
+    // check for a valueOutputSpan
+    if (valueOutputSpan.length > 0) {
+      handleValueOutput(valueOutputSpan);
+    }
+
+    // if we have a shinyOutput then bind a listener to handle
+    // new valueOutputSpan values
+    shinyOutput.on('shiny:value',
+      function(event) {
+        var element = $(event.target);
+        setTimeout(function() {
+          var valueOutputSpan = element.find('span.value-output');
+          if (valueOutputSpan.length > 0)
+            handleValueOutput(valueOutputSpan);
+        }, 10);
+      }
+    );
+  }
+});
+</script>
+
+<div id="dashboard-container" class="desktop-layout" style="height: 100%; visibility: visible;"><div class="tab-content" style="height: 100%;">
+
+<div class="dashboard-page-wrapper tab-pane" id="section-socioeconomic" style="height: 100%;"><div class="section level1 vertical-layout-fill dashboard-column-orientation" data-vertical_layout="fill" style="padding-left: 250px; height: 100%;">
+
+<div id="section-column" class="section sidebar" style="width: 250px; visibility: visible;"><form>
+
+<p>To compare COVID-19 cases with a socioeconomic variable, select a variable bellow:</p>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="form-group shiny-input-container">
+<label class="control-label" id="Variables-label" for="Variables-selectized">Variables to compare with COVID-19 cases</label>
+<div>
+<select id="Variables" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"><option value="Rate of tourists" selected="selected">Rate of tourists</option></select><div class="selectize-control single plugin-selectize-plugin-a11y"><div class="selectize-input items full has-options has-items"><div class="item" data-value="Rate of tourists">Rate of tourists</div><input type="text" autocomplete="off" tabindex="" id="Variables-selectized" role="combobox" aria-expanded="false" haspopup="listbox" aria-owns="iltgnkbigo" style="width: 4px;"></div><div class="selectize-dropdown single plugin-selectize-plugin-a11y" style="display: none;"><div class="selectize-dropdown-content" role="listbox" id="iltgnkbigo"></div></div></div>
+<script type="application/json" data-for="Variables" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+It is interesting in terms of information that can be visualized, when considering country groups, while comparing the rate of COVID-19 cases with socioeconomic variables. Considering country groups allow to verify if the rate of COVID-19 cases in a country can be explained by the group to which it belongs. To select a type of country group, click bellow:
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="form-group shiny-input-container">
+<label class="control-label" id="Groups-label" for="Groups-selectized">Groups of countries</label>
+<div>
+<select id="Groups" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"><option value="Region" selected="selected">Region</option></select><div class="selectize-control single plugin-selectize-plugin-a11y"><div class="selectize-input items full has-options has-items"><div class="item" data-value="Region">Region</div><input type="text" autocomplete="off" tabindex="" id="Groups-selectized" role="combobox" aria-expanded="false" haspopup="listbox" aria-owns="5mxiuzumvk" style="width: 4px;"></div><div class="selectize-dropdown single plugin-selectize-plugin-a11y" style="display: none;"><div class="selectize-dropdown-content" role="listbox" id="5mxiuzumvk"></div></div></div>
+<script type="application/json" data-for="Groups" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+</form></div>
+<div id="section-column-1" class="section level2 dashboard-column" data-width="150" style="flex: 150 150 0px;">
+
+<div id="section-rate-of-covid-19-cases-compared-to-pib-per-capita-current-usd" class="section level3 chart-wrapper chart-wrapper-flex" style="flex: 489 489 0px;"><div class="chart-title">Rate of COVID-19 cases, compared to PIB per capita (current USD)</div><div class="chart-stage chart-stage-flex"><div class="chart-shim">
+
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<p></p><div id="out69b1cccf117f6f38" style="width: 100%; height: 400px; visibility: inherit;" class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme shiny-bound-output js-plotly-plot" aria-live="polite"><div class="plot-container plotly"><div class="user-select-none svg-container" style="position: relative; width: 991px; height: 579px;"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="991" height="579" style="background: rgb(255, 255, 255);"><defs id="defs-af27fa"><g class="clips"><clippath id="clipaf27faxyplot" class="plotclip"><rect width="712" height="513"></rect></clippath><clippath class="axesclip" id="clipaf27fax"><rect x="60" y="0" width="712" height="579"></rect></clippath><clippath class="axesclip" id="clipaf27fay"><rect x="0" y="25" width="991" height="513"></rect></clippath><clippath class="axesclip" id="clipaf27faxy"><rect x="60" y="25" width="712" height="513"></rect></clippath></g><g class="gradients"></g></defs><g class="bglayer"></g><g class="draglayer cursor-crosshair"><g class="xy"><rect class="nsewdrag drag" data-subplot="xy" x="60" y="25" width="712" height="513" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect><rect class="nwdrag drag cursor-nw-resize" data-subplot="xy" x="40" y="5" width="20" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect><rect class="nedrag drag cursor-ne-resize" data-subplot="xy" x="772" y="5" width="20" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect><rect class="swdrag drag cursor-sw-resize" data-subplot="xy" x="40" y="538" width="20" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect><rect class="sedrag drag cursor-se-resize" data-subplot="xy" x="772" y="538" width="20" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect><rect class="ewdrag drag cursor-ew-resize" data-subplot="xy" x="131.2" y="538.5" width="569.6" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect><rect class="wdrag drag cursor-w-resize" data-subplot="xy" x="60" y="538.5" width="71.2" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect><rect class="edrag drag cursor-e-resize" data-subplot="xy" x="700.8000000000001" y="538.5" width="71.2" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect><rect class="nsdrag drag cursor-ns-resize" data-subplot="xy" x="39.5" y="76.30000000000001" width="20" height="410.40000000000003" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect><rect class="sdrag drag cursor-s-resize" data-subplot="xy" x="39.5" y="486.7" width="20" height="51.300000000000004" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect><rect class="ndrag drag cursor-n-resize" data-subplot="xy" x="39.5" y="25" width="20" height="51.300000000000004" style="fill: transparent; stroke-width: 0; pointer-events: all;"></rect></g></g><g class="layer-below"><g class="imagelayer"></g><g class="shapelayer"></g></g><g class="cartesianlayer"><g class="subplot xy"><g class="layer-subplot"><g class="shapelayer"></g><g class="imagelayer"></g></g><g class="gridlayer"><g class="x"><path class="xgrid crisp" transform="translate(174.76,0)" d="M0,25v513" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="xgrid crisp" transform="translate(247.67,0)" d="M0,25v513" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="xgrid crisp" transform="translate(320.59,0)" d="M0,25v513" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="xgrid crisp" transform="translate(393.5,0)" d="M0,25v513" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="xgrid crisp" transform="translate(466.41,0)" d="M0,25v513" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="xgrid crisp" transform="translate(539.3199999999999,0)" d="M0,25v513" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="xgrid crisp" transform="translate(612.23,0)" d="M0,25v513" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="xgrid crisp" transform="translate(685.15,0)" d="M0,25v513" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="xgrid crisp" transform="translate(758.06,0)" d="M0,25v513" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path></g><g class="y"><path class="ygrid crisp" transform="translate(0,450.84)" d="M60,0h712" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="ygrid crisp" transform="translate(0,395.57)" d="M60,0h712" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="ygrid crisp" transform="translate(0,340.29)" d="M60,0h712" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="ygrid crisp" transform="translate(0,285.02)" d="M60,0h712" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="ygrid crisp" transform="translate(0,229.74)" d="M60,0h712" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="ygrid crisp" transform="translate(0,174.47)" d="M60,0h712" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="ygrid crisp" transform="translate(0,119.19)" d="M60,0h712" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path><path class="ygrid crisp" transform="translate(0,63.91)" d="M60,0h712" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"></path></g></g><g class="zerolinelayer"><path class="xzl zl crisp" transform="translate(101.85,0)" d="M0,25v513" style="stroke: rgb(68, 68, 68); stroke-opacity: 1; stroke-width: 1px;"></path><path class="yzl zl crisp" transform="translate(0,506.12)" d="M60,0h712" style="stroke: rgb(68, 68, 68); stroke-opacity: 1; stroke-width: 1px;"></path></g><path class="xlines-below"></path><path class="ylines-below"></path><g class="overlines-below"></g><g class="xaxislayer-below"></g><g class="yaxislayer-below"></g><g class="overaxes-below"></g><g class="plot" transform="translate(60, 25)" clip-path="url(&#39;#clipaf27faxyplot&#39;)"><g class="scatterlayer mlayer"><g class="trace scatter trace5b25de" style="stroke-miterlimit: 2; opacity: 1;"><g class="fills"></g><g class="errorbars"></g><g class="lines"></g><g class="points"><path class="point" transform="translate(64.57,436.6)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(77.86,458.29)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(59.53,393)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(89.85,408.98)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(51.49,469.06)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(42.12,31.9)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(45.77,370.8)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(81,428.28)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(87.51,479.36)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(46.14,454.96)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(286.87,480.29)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(45.45,462.85)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(46.59,480.53)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(211.48,476.51)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(49.33,480.91)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(43.54,470.37)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(43.77,480.2)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(43.42,479.81)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(42.35,478.44)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(41.96,481.04)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(42.1,481.1)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(41.89,480.41)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(41.87,480.62)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(41.85,480.97)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(41.85,481.08)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(41.85,480.86)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path><path class="point" transform="translate(41.85,480.86)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path></g><g class="text"></g></g><g class="trace scatter trace6bb701" style="stroke-miterlimit: 2; opacity: 1;"><g class="fills"></g><g class="errorbars"></g><g class="lines"></g><g class="points"><path class="point" transform="translate(255.97,338.1)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(164.05,413.63)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(286.76,217.46)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(314.05,132.41)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(192.42,371.77)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(311.45,236.48)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(213.38,443.23)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(360.88,425.49)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(241.18,445.7)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(358.31,455.3)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(386.94,460.07)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(339.14,433.65)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(334.71,311.43)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(405.71,476.01)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(322.84,448.45)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(296.16,393)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(253.94,446.43)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(116.89,457.58)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(181.21,448.42)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(160.43,387.14)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(343.82,315.23)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(158.74,472.36)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(349.29,459.76)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(200.79,390.18)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(370.78,464.12)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(226.5,450.85)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(464.18,468.12)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(309.82,475.88)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(261.83,477.81)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(309.12,479.02)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(209.53,463.41)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(380.81,464.25)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(270.47,458.06)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(119.2,464.87)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(613.84,474.18)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(51.87,462.46)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(99.53,472.02)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(438.61,478.24)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(245.37,469.74)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(670.15,458.36)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(107.26,475.03)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(587.83,475.85)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(332.97,480.85)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path><path class="point" transform="translate(272.48,480.11)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path></g><g class="text"></g></g><g class="trace scatter tracee53152" style="stroke-miterlimit: 2; opacity: 1;"><g class="fills"></g><g class="errorbars"></g><g class="lines"></g><g class="points"><path class="point" transform="translate(297.15,463.56)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(286.94,460.67)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(252.25,468.6)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(109,211.91)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(245.28,466.54)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(276.35,466.11)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(123.95,475.29)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(355.46,474.22)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(189.05,469.04)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(132.85,460.25)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(227.23,471.81)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(92.37,474.04)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(122.08,474.72)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(256.81,471.5)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(194.25,467.49)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(77.44,469.3)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(81.24,473.82)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(98.84,469.42)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(105.02,480.25)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(46.11,478.52)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(160.22,476.49)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(71.83,479.79)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(408.04,475.72)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(44.96,477.1)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(91.14,478.45)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(270.28,476.7)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(88.1,478.26)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(72.44,474.67)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(68.07,480.28)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(50.68,480.23)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path><path class="point" transform="translate(47.09,479.66)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path></g><g class="text"></g></g><g class="trace scatter trace4c0731" style="stroke-miterlimit: 2; opacity: 1;"><g class="fills"></g><g class="errorbars"></g><g class="lines"></g><g class="points"><path class="point" transform="translate(379.57,467.56)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(300.14,466.3)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(323.26,475.77)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(238.58,421.55)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(93.06,444.89)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(86.67,425.03)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(139.78,455.06)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(283.69,457.45)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(309.9,475.21)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(186.8,471.43)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(445.87,450.55)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(52.27,474.56)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(262,471.39)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path><path class="point" transform="translate(46.77,474.42)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path></g><g class="text"></g></g><g class="trace scatter trace9951c8" style="stroke-miterlimit: 2; opacity: 1;"><g class="fills"></g><g class="errorbars"></g><g class="lines"></g><g class="points"><path class="point" transform="translate(162.43,391.49)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(166, 216, 84); fill-opacity: 1;"></path><path class="point" transform="translate(179.99,478.89)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(166, 216, 84); fill-opacity: 1;"></path></g><g class="text"></g></g><g class="trace scatter tracec1a204" style="stroke-miterlimit: 2; opacity: 1;"><g class="fills"></g><g class="errorbars"></g><g class="lines"></g><g class="points"><path class="point" transform="translate(96.98,431.61)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 217, 47); fill-opacity: 1;"></path><path class="point" transform="translate(58.97,480.22)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 217, 47); fill-opacity: 1;"></path><path class="point" transform="translate(86.58,477.81)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 217, 47); fill-opacity: 1;"></path><path class="point" transform="translate(61.18,475.51)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 217, 47); fill-opacity: 1;"></path><path class="point" transform="translate(261.09,476.41)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 217, 47); fill-opacity: 1;"></path><path class="point" transform="translate(47.27,480.24)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 217, 47); fill-opacity: 1;"></path></g><g class="text"></g></g><g class="trace scatter trace7bac37" style="stroke-miterlimit: 2; opacity: 1;"><g class="fills"></g><g class="errorbars"></g><g class="lines"></g><g class="points"><path class="point" transform="translate(140.6,440.22)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(50.29,478.87)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(53.01,475.45)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(60.59,477.62)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(50.26,475.5)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(113.76,476.55)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(51.39,474.78)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(46.99,479.77)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(44.98,480.51)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(49.17,476.6)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(205.87,479.02)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(100.47,477.73)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(44.44,480.52)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(44.24,480.72)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(47.73,478.7)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(60.26,477.96)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(44.29,480.19)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(279.84,479.93)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(42.68,480.59)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(43.75,480.92)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(58.63,480.99)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(48.94,480.97)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path><path class="point" transform="translate(45.42,477.2)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path></g><g class="text"></g></g></g></g><g class="overplot"></g><path class="xlines-above crisp" d="M0,0" style="fill: none;"></path><path class="ylines-above crisp" d="M0,0" style="fill: none;"></path><g class="overlines-above"></g><g class="xaxislayer-above"><g class="xtick"><text text-anchor="middle" x="0" y="551" data-unformatted="0" data-math="N" transform="translate(101.85,0)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0</text></g><g class="xtick"><text text-anchor="middle" x="0" y="551" data-unformatted="0.02" data-math="N" transform="translate(174.76,0)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0.02</text></g><g class="xtick"><text text-anchor="middle" x="0" y="551" data-unformatted="0.04" data-math="N" transform="translate(247.67,0)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0.04</text></g><g class="xtick"><text text-anchor="middle" x="0" y="551" data-unformatted="0.06" data-math="N" transform="translate(320.59,0)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0.06</text></g><g class="xtick"><text text-anchor="middle" x="0" y="551" data-unformatted="0.08" data-math="N" transform="translate(393.5,0)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0.08</text></g><g class="xtick"><text text-anchor="middle" x="0" y="551" data-unformatted="0.1" data-math="N" transform="translate(466.41,0)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0.1</text></g><g class="xtick"><text text-anchor="middle" x="0" y="551" data-unformatted="0.12" data-math="N" transform="translate(539.3199999999999,0)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0.12</text></g><g class="xtick"><text text-anchor="middle" x="0" y="551" data-unformatted="0.14" data-math="N" transform="translate(612.23,0)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0.14</text></g><g class="xtick"><text text-anchor="middle" x="0" y="551" data-unformatted="0.16" data-math="N" transform="translate(685.15,0)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0.16</text></g><g class="xtick"><text text-anchor="middle" x="0" y="551" data-unformatted="0.18" data-math="N" transform="translate(758.06,0)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0.18</text></g></g><g class="yaxislayer-above"><g class="ytick"><text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="0" data-math="N" transform="translate(0,506.12)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">0</text></g><g class="ytick"><text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="20M" data-math="N" transform="translate(0,450.84)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">20M</text></g><g class="ytick"><text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="40M" data-math="N" transform="translate(0,395.57)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">40M</text></g><g class="ytick"><text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="60M" data-math="N" transform="translate(0,340.29)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">60M</text></g><g class="ytick"><text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="80M" data-math="N" transform="translate(0,285.02)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">80M</text></g><g class="ytick"><text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="100M" data-math="N" transform="translate(0,229.74)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">100M</text></g><g class="ytick"><text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="120M" data-math="N" transform="translate(0,174.47)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">120M</text></g><g class="ytick"><text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="140M" data-math="N" transform="translate(0,119.19)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">140M</text></g><g class="ytick"><text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="160M" data-math="N" transform="translate(0,63.91)" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">160M</text></g></g><g class="overaxes-above"></g></g></g><g class="polarlayer"></g><g class="ternarylayer"></g><g class="geolayer"></g><g class="funnelarealayer"></g><g class="pielayer"></g><g class="treemaplayer"></g><g class="sunburstlayer"></g><g class="glimages"></g></svg><div class="gl-container"></div><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="991" height="579"><defs id="topdefs-af27fa"><g class="clips"></g><clippath id="legendaf27fa"><rect width="195" height="143" x="0" y="0"></rect></clippath></defs><g class="indicatorlayer"></g><g class="layer-above"><g class="imagelayer"></g><g class="shapelayer"></g></g><g class="infolayer"><g class="legend" pointer-events="all" transform="translate(786.24, 25)"><rect class="bg" shape-rendering="crispEdges" style="stroke: rgb(68, 68, 68); stroke-opacity: 1; fill: rgb(255, 255, 255); fill-opacity: 1; stroke-width: 0px;" width="195" height="143" x="0" y="0"></rect><g class="scrollbox" transform="translate(0, 0)" clip-path="url(&#39;#legendaf27fa&#39;)"><g class="groups"><g class="traces" transform="translate(0, 14.5)" style="opacity: 1;"><text class="legendtext" text-anchor="start" x="40" y="4.680000000000001" data-unformatted="East Asia &amp; Pacific" data-math="N" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">East Asia &amp; Pacific</text><g class="layers" style="opacity: 1;"><g class="legendfill"></g><g class="legendlines"></g><g class="legendsymbols"><g class="legendpoints"><path class="scatterpts" transform="translate(20,0)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(102, 194, 165); fill-opacity: 1;"></path></g></g></g><rect class="legendtoggle" pointer-events="all" x="0" y="-9.5" width="190" height="19" style="cursor: pointer; fill: rgb(0, 0, 0); fill-opacity: 0;"></rect></g><g class="traces" transform="translate(0, 33.5)" style="opacity: 1;"><text class="legendtext" text-anchor="start" x="40" y="4.680000000000001" data-unformatted="Europe &amp; Central Asia" data-math="N" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">Europe &amp; Central Asia</text><g class="layers" style="opacity: 1;"><g class="legendfill"></g><g class="legendlines"></g><g class="legendsymbols"><g class="legendpoints"><path class="scatterpts" transform="translate(20,0)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(252, 141, 98); fill-opacity: 1;"></path></g></g></g><rect class="legendtoggle" pointer-events="all" x="0" y="-9.5" width="190" height="19" style="cursor: pointer; fill: rgb(0, 0, 0); fill-opacity: 0;"></rect></g><g class="traces" transform="translate(0, 52.5)" style="opacity: 1;"><text class="legendtext" text-anchor="start" x="40" y="4.680000000000001" data-unformatted="Latin America &amp; Caribbean" data-math="N" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">Latin America &amp; Caribbean</text><g class="layers" style="opacity: 1;"><g class="legendfill"></g><g class="legendlines"></g><g class="legendsymbols"><g class="legendpoints"><path class="scatterpts" transform="translate(20,0)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(141, 160, 203); fill-opacity: 1;"></path></g></g></g><rect class="legendtoggle" pointer-events="all" x="0" y="-9.5" width="190" height="19" style="cursor: pointer; fill: rgb(0, 0, 0); fill-opacity: 0;"></rect></g><g class="traces" transform="translate(0, 71.5)" style="opacity: 1;"><text class="legendtext" text-anchor="start" x="40" y="4.680000000000001" data-unformatted="Middle East &amp; North Africa" data-math="N" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">Middle East &amp; North Africa</text><g class="layers" style="opacity: 1;"><g class="legendfill"></g><g class="legendlines"></g><g class="legendsymbols"><g class="legendpoints"><path class="scatterpts" transform="translate(20,0)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(231, 138, 195); fill-opacity: 1;"></path></g></g></g><rect class="legendtoggle" pointer-events="all" x="0" y="-9.5" width="190" height="19" style="cursor: pointer; fill: rgb(0, 0, 0); fill-opacity: 0;"></rect></g><g class="traces" transform="translate(0, 90.5)" style="opacity: 1;"><text class="legendtext" text-anchor="start" x="40" y="4.680000000000001" data-unformatted="North America" data-math="N" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">North America</text><g class="layers" style="opacity: 1;"><g class="legendfill"></g><g class="legendlines"></g><g class="legendsymbols"><g class="legendpoints"><path class="scatterpts" transform="translate(20,0)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(166, 216, 84); fill-opacity: 1;"></path></g></g></g><rect class="legendtoggle" pointer-events="all" x="0" y="-9.5" width="190" height="19" style="cursor: pointer; fill: rgb(0, 0, 0); fill-opacity: 0;"></rect></g><g class="traces" transform="translate(0, 109.5)" style="opacity: 1;"><text class="legendtext" text-anchor="start" x="40" y="4.680000000000001" data-unformatted="South Asia" data-math="N" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">South Asia</text><g class="layers" style="opacity: 1;"><g class="legendfill"></g><g class="legendlines"></g><g class="legendsymbols"><g class="legendpoints"><path class="scatterpts" transform="translate(20,0)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 217, 47); fill-opacity: 1;"></path></g></g></g><rect class="legendtoggle" pointer-events="all" x="0" y="-9.5" width="190" height="19" style="cursor: pointer; fill: rgb(0, 0, 0); fill-opacity: 0;"></rect></g><g class="traces" transform="translate(0, 128.5)" style="opacity: 1;"><text class="legendtext" text-anchor="start" x="40" y="4.680000000000001" data-unformatted="Sub-Saharan Africa" data-math="N" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;">Sub-Saharan Africa</text><g class="layers" style="opacity: 1;"><g class="legendfill"></g><g class="legendlines"></g><g class="legendsymbols"><g class="legendpoints"><path class="scatterpts" transform="translate(20,0)" d="M5,0A5,5 0 1,1 0,-5A5,5 0 0,1 5,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(229, 196, 148); fill-opacity: 1;"></path></g></g></g><rect class="legendtoggle" pointer-events="all" x="0" y="-9.5" width="190" height="19" style="cursor: pointer; fill: rgb(0, 0, 0); fill-opacity: 0;"></rect></g></g></g><rect class="scrollbar" rx="20" ry="3" width="0" height="0" style="fill: rgb(128, 139, 164); fill-opacity: 1;" x="0" y="0"></rect></g><g class="g-gtitle"><text class="gtitle" x="495.5" y="12.5" text-anchor="middle" dy="0em" data-unformatted="Rate of COVID-19 cases, compared to Rate of tourists" data-math="N" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 17px; fill: rgb(68, 68, 68); opacity: 1; font-weight: normal; white-space: pre;">Rate of COVID-19 cases, compared to Rate of tourists</text></g><g class="g-xtitle" transform="translate(0,-15)"><text class="xtitle" x="416" y="590" text-anchor="middle" data-unformatted="Rate of COVID-19 cases" data-math="N" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 14px; fill: rgb(68, 68, 68); opacity: 1; font-weight: normal; white-space: pre;">Rate of COVID-19 cases</text></g><g class="g-ytitle" transform="translate(-1,0)"><text class="ytitle" transform="rotate(-90,22,281.5)" x="22" y="281.5" text-anchor="middle" data-unformatted="Rate of tourists" data-math="N" style="font-family: &quot;Open Sans&quot;, verdana, arial, sans-serif; font-size: 14px; fill: rgb(68, 68, 68); opacity: 1; font-weight: normal; white-space: pre;">Rate of tourists</text></g></g><g class="menulayer"></g><g class="zoomlayer"></g></svg><div class="modebar-container" style="position: absolute; top: 0px; right: 0px; width: 100%;"><div id="modebar-af27fa" class="modebar modebar--hover ease-bg"><div class="modebar-group"><a rel="tooltip" class="modebar-btn" data-title="Download plot as a png" data-toggle="false" data-gravity="n"><svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"><path d="m500 450c-83 0-150-67-150-150 0-83 67-150 150-150 83 0 150 67 150 150 0 83-67 150-150 150z m400 150h-120c-16 0-34 13-39 29l-31 93c-6 15-23 28-40 28h-340c-16 0-34-13-39-28l-31-94c-6-15-23-28-40-28h-120c-55 0-100-45-100-100v-450c0-55 45-100 100-100h800c55 0 100 45 100 100v450c0 55-45 100-100 100z m-400-550c-138 0-250 112-250 250 0 138 112 250 250 250 138 0 250-112 250-250 0-138-112-250-250-250z m365 380c-19 0-35 16-35 35 0 19 16 35 35 35 19 0 35-16 35-35 0-19-16-35-35-35z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a></div><div class="modebar-group"><a rel="tooltip" class="modebar-btn active" data-title="Zoom" data-attr="dragmode" data-val="zoom" data-toggle="false" data-gravity="n"><svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"><path d="m1000-25l-250 251c40 63 63 138 63 218 0 224-182 406-407 406-224 0-406-182-406-406s183-406 407-406c80 0 155 22 218 62l250-250 125 125z m-812 250l0 438 437 0 0-438-437 0z m62 375l313 0 0-312-313 0 0 312z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a><a rel="tooltip" class="modebar-btn" data-title="Pan" data-attr="dragmode" data-val="pan" data-toggle="false" data-gravity="n"><svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"><path d="m1000 350l-187 188 0-125-250 0 0 250 125 0-188 187-187-187 125 0 0-250-250 0 0 125-188-188 186-187 0 125 252 0 0-250-125 0 187-188 188 188-125 0 0 250 250 0 0-126 187 188z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a><a rel="tooltip" class="modebar-btn" data-title="Box Select" data-attr="dragmode" data-val="select" data-toggle="false" data-gravity="n"><svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"><path d="m0 850l0-143 143 0 0 143-143 0z m286 0l0-143 143 0 0 143-143 0z m285 0l0-143 143 0 0 143-143 0z m286 0l0-143 143 0 0 143-143 0z m-857-286l0-143 143 0 0 143-143 0z m857 0l0-143 143 0 0 143-143 0z m-857-285l0-143 143 0 0 143-143 0z m857 0l0-143 143 0 0 143-143 0z m-857-286l0-143 143 0 0 143-143 0z m286 0l0-143 143 0 0 143-143 0z m285 0l0-143 143 0 0 143-143 0z m286 0l0-143 143 0 0 143-143 0z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a><a rel="tooltip" class="modebar-btn" data-title="Lasso Select" data-attr="dragmode" data-val="lasso" data-toggle="false" data-gravity="n"><svg viewBox="0 0 1031 1000" class="icon" height="1em" width="1em"><path d="m1018 538c-36 207-290 336-568 286-277-48-473-256-436-463 10-57 36-108 76-151-13-66 11-137 68-183 34-28 75-41 114-42l-55-70 0 0c-2-1-3-2-4-3-10-14-8-34 5-45 14-11 34-8 45 4 1 1 2 3 2 5l0 0 113 140c16 11 31 24 45 40 4 3 6 7 8 11 48-3 100 0 151 9 278 48 473 255 436 462z m-624-379c-80 14-149 48-197 96 42 42 109 47 156 9 33-26 47-66 41-105z m-187-74c-19 16-33 37-39 60 50-32 109-55 174-68-42-25-95-24-135 8z m360 75c-34-7-69-9-102-8 8 62-16 128-68 170-73 59-175 54-244-5-9 20-16 40-20 61-28 159 121 317 333 354s407-60 434-217c28-159-121-318-333-355z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a></div><div class="modebar-group"><a rel="tooltip" class="modebar-btn" data-title="Zoom in" data-attr="zoom" data-val="in" data-toggle="false" data-gravity="n"><svg viewBox="0 0 875 1000" class="icon" height="1em" width="1em"><path d="m1 787l0-875 875 0 0 875-875 0z m687-500l-187 0 0-187-125 0 0 187-188 0 0 125 188 0 0 187 125 0 0-187 187 0 0-125z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a><a rel="tooltip" class="modebar-btn" data-title="Zoom out" data-attr="zoom" data-val="out" data-toggle="false" data-gravity="n"><svg viewBox="0 0 875 1000" class="icon" height="1em" width="1em"><path d="m0 788l0-876 875 0 0 876-875 0z m688-500l-500 0 0 125 500 0 0-125z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a><a rel="tooltip" class="modebar-btn" data-title="Autoscale" data-attr="zoom" data-val="auto" data-toggle="false" data-gravity="n"><svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"><path d="m250 850l-187 0-63 0 0-62 0-188 63 0 0 188 187 0 0 62z m688 0l-188 0 0-62 188 0 0-188 62 0 0 188 0 62-62 0z m-875-938l0 188-63 0 0-188 0-62 63 0 187 0 0 62-187 0z m875 188l0-188-188 0 0-62 188 0 62 0 0 62 0 188-62 0z m-125 188l-1 0-93-94-156 156 156 156 92-93 2 0 0 250-250 0 0-2 93-92-156-156-156 156 94 92 0 2-250 0 0-250 0 0 93 93 157-156-157-156-93 94 0 0 0-250 250 0 0 0-94 93 156 157 156-157-93-93 0 0 250 0 0 250z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a><a rel="tooltip" class="modebar-btn" data-title="Reset axes" data-attr="zoom" data-val="reset" data-toggle="false" data-gravity="n"><svg viewBox="0 0 928.6 1000" class="icon" height="1em" width="1em"><path d="m786 296v-267q0-15-11-26t-25-10h-214v214h-143v-214h-214q-15 0-25 10t-11 26v267q0 1 0 2t0 2l321 264 321-264q1-1 1-4z m124 39l-34-41q-5-5-12-6h-2q-7 0-12 3l-386 322-386-322q-7-4-13-4-7 2-12 7l-35 41q-4 5-3 13t6 12l401 334q18 15 42 15t43-15l136-114v109q0 8 5 13t13 5h107q8 0 13-5t5-13v-227l122-102q5-5 6-12t-4-13z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a></div><div class="modebar-group"><a rel="tooltip" class="modebar-btn" data-title="Toggle Spike Lines" data-attr="_cartesianSpikesEnabled" data-val="on" data-toggle="false" data-gravity="n"><svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"><path d="M512 409c0-57-46-104-103-104-57 0-104 47-104 104 0 57 47 103 104 103 57 0 103-46 103-103z m-327-39l92 0 0 92-92 0z m-185 0l92 0 0 92-92 0z m370-186l92 0 0 93-92 0z m0-184l92 0 0 92-92 0z" transform="matrix(1.5 0 0 -1.5 0 850)"></path></svg></a><a rel="tooltip" class="modebar-btn active" data-title="Show closest data on hover" data-attr="hovermode" data-val="closest" data-toggle="false" data-gravity="ne"><svg viewBox="0 0 1500 1000" class="icon" height="1em" width="1em"><path d="m375 725l0 0-375-375 375-374 0-1 1125 0 0 750-1125 0z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a><a rel="tooltip" class="modebar-btn" data-title="Compare data on hover" data-attr="hovermode" data-val="x" data-toggle="false" data-gravity="ne"><svg viewBox="0 0 1125 1000" class="icon" height="1em" width="1em"><path d="m187 786l0 2-187-188 188-187 0 0 937 0 0 373-938 0z m0-499l0 1-187-188 188-188 0 0 937 0 0 376-938-1z" transform="matrix(1 0 0 -1 0 850)"></path></svg></a></div><div class="modebar-group"><a href="https://plotly.com/" target="_blank" data-title="Produced with Plotly" class="modebar-btn plotlyjsicon modebar-btn--logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 132" height="1em" width="1em"><defs><style>.cls-1 {fill: #3f4f75;} .cls-2 {fill: #80cfbe;} .cls-3 {fill: #fff;}</style></defs><title>plotly-logomark</title><g id="symbol"><rect class="cls-1" width="132" height="132" rx="6" ry="6"></rect><circle class="cls-2" cx="78" cy="54" r="6"></circle><circle class="cls-2" cx="102" cy="30" r="6"></circle><circle class="cls-2" cx="78" cy="30" r="6"></circle><circle class="cls-2" cx="54" cy="30" r="6"></circle><circle class="cls-2" cx="30" cy="30" r="6"></circle><circle class="cls-2" cx="30" cy="54" r="6"></circle><path class="cls-3" d="M30,72a6,6,0,0,0-6,6v24a6,6,0,0,0,12,0V78A6,6,0,0,0,30,72Z"></path><path class="cls-3" d="M78,72a6,6,0,0,0-6,6v24a6,6,0,0,0,12,0V78A6,6,0,0,0,78,72Z"></path><path class="cls-3" d="M54,48a6,6,0,0,0-6,6v48a6,6,0,0,0,12,0V54A6,6,0,0,0,54,48Z"></path><path class="cls-3" d="M102,48a6,6,0,0,0-6,6v48a6,6,0,0,0,12,0V54A6,6,0,0,0,102,48Z"></path></g></svg></a></div></div></div><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="991" height="579"><g class="hoverlayer"></g></svg></div></div></div><p></p>
+</div></div></div>
+</div>
+</div></div>
+<div class="dashboard-page-wrapper tab-pane active" id="section-page-2" style="height: 100%;"><div class="section level1 vertical-layout-fill dashboard-column-orientation" data-vertical_layout="scroll" style="height: 100%;"><div class="section level2 dashboard-column" style="flex: 576 576 0px;"><div class="section level3 chart-wrapper chart-wrapper-flex" style="flex: 472 472 0px;"><div class="chart-title" style=""></div><div class="chart-stage chart-stage-flex"><div class="chart-shim">
+
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="form-group shiny-input-container">
+<label class="control-label" id="countries-label" for="countries-selectized">Country</label>
+<div>
+<select id="countries" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"><option value="Ecuador" selected="selected">Ecuador</option></select><div class="selectize-control single plugin-selectize-plugin-a11y"><div class="selectize-input items has-options full has-items"><div class="item" data-value="Ecuador">Ecuador</div><input type="text" autocomplete="off" tabindex="" id="countries-selectized" role="combobox" aria-expanded="false" haspopup="listbox" aria-owns="rf6cazxyo0" aria-activedescendant="fmbexsm9cd" style="width: 4px; opacity: 0; position: absolute; left: -10000px;"></div><div class="selectize-dropdown single plugin-selectize-plugin-a11y" style="display: none; visibility: visible; width: 300px; top: 34px; left: 0px;"><div class="selectize-dropdown-content" role="listbox" id="rf6cazxyo0"><div class="option selected" data-selectable="" data-value="Afghanistan" role="option" id="bygo454tt4">Afghanistan</div><div class="option" data-selectable="" data-value="Africa" role="option" id="ld72pqblar">Africa</div><div class="option" data-selectable="" data-value="Albania" role="option" id="1q28i7kukk">Albania</div><div class="option" data-selectable="" data-value="Algeria" role="option" id="geiwni4xua">Algeria</div><div class="option" data-selectable="" data-value="Andorra" role="option" id="g74od4hpfd">Andorra</div><div class="option" data-selectable="" data-value="Angola" role="option" id="amkdxd6bxn">Angola</div><div class="option" data-selectable="" data-value="Anguilla" role="option" id="l53vkmvo6d">Anguilla</div><div class="option" data-selectable="" data-value="Antigua and Barbuda" role="option" id="rfl4u5zcgx">Antigua and Barbuda</div><div class="option" data-selectable="" data-value="Argentina" role="option" id="i9fqhvadom">Argentina</div><div class="option" data-selectable="" data-value="Armenia" role="option" id="5dmitzvgzp">Armenia</div><div class="option" data-selectable="" data-value="Aruba" role="option" id="96qg8sbcji">Aruba</div><div class="option" data-selectable="" data-value="Asia" role="option" id="3hlcmkk0ty">Asia</div><div class="option" data-selectable="" data-value="Australia" role="option" id="c5gdy502k3">Australia</div><div class="option" data-selectable="" data-value="Austria" role="option" id="1e7xagggfq">Austria</div><div class="option" data-selectable="" data-value="Azerbaijan" role="option" id="8srpj8vppa">Azerbaijan</div><div class="option" data-selectable="" data-value="Bahamas" role="option" id="5lkr8wouq1">Bahamas</div><div class="option" data-selectable="" data-value="Bahrain" role="option" id="5t2q1h41yz">Bahrain</div><div class="option" data-selectable="" data-value="Bangladesh" role="option" id="04opjslwo3">Bangladesh</div><div class="option" data-selectable="" data-value="Barbados" role="option" id="vwt470kl7z">Barbados</div><div class="option" data-selectable="" data-value="Belarus" role="option" id="qetx1ojmux">Belarus</div><div class="option" data-selectable="" data-value="Belgium" role="option" id="wwtqi9p6di">Belgium</div><div class="option" data-selectable="" data-value="Belize" role="option" id="7pljq2a813">Belize</div><div class="option" data-selectable="" data-value="Benin" role="option" id="185su0q7nc">Benin</div><div class="option" data-selectable="" data-value="Bermuda" role="option" id="895uoubi63">Bermuda</div><div class="option" data-selectable="" data-value="Bhutan" role="option" id="v4n7fu2ap5">Bhutan</div><div class="option" data-selectable="" data-value="Bolivia" role="option" id="x1cg382dj9">Bolivia</div><div class="option" data-selectable="" data-value="Bosnia and Herzegovina" role="option" id="571kfx6767">Bosnia and Herzegovina</div><div class="option" data-selectable="" data-value="Botswana" role="option" id="apuqzvtdnf">Botswana</div><div class="option" data-selectable="" data-value="Brazil" role="option" id="2c0rz1ones">Brazil</div><div class="option" data-selectable="" data-value="Brunei" role="option" id="j2u5724yk4">Brunei</div><div class="option" data-selectable="" data-value="Bulgaria" role="option" id="mmtvjn1zz4">Bulgaria</div><div class="option" data-selectable="" data-value="Burkina Faso" role="option" id="qw1bkku78w">Burkina Faso</div><div class="option" data-selectable="" data-value="Burundi" role="option" id="7api7rtx4m">Burundi</div><div class="option" data-selectable="" data-value="Cambodia" role="option" id="6xzye8c43y">Cambodia</div><div class="option" data-selectable="" data-value="Cameroon" role="option" id="76ywuq4yke">Cameroon</div><div class="option" data-selectable="" data-value="Canada" role="option" id="zs0os7fn13">Canada</div><div class="option" data-selectable="" data-value="Cape Verde" role="option" id="rw9oo21ivj">Cape Verde</div><div class="option" data-selectable="" data-value="Cayman Islands" role="option" id="oeebmxkl9z">Cayman Islands</div><div class="option" data-selectable="" data-value="Central African Republic" role="option" id="pamxdp4o46">Central African Republic</div><div class="option" data-selectable="" data-value="Chad" role="option" id="zdatdec32e">Chad</div><div class="option" data-selectable="" data-value="Chile" role="option" id="khyovsr2nt">Chile</div><div class="option" data-selectable="" data-value="China" role="option" id="7xcpckzyrm">China</div><div class="option" data-selectable="" data-value="Colombia" role="option" id="my80asue2h">Colombia</div><div class="option" data-selectable="" data-value="Comoros" role="option" id="d7hqb88zz6">Comoros</div><div class="option" data-selectable="" data-value="Congo" role="option" id="7vdbjcc9p1">Congo</div><div class="option" data-selectable="" data-value="Costa Rica" role="option" id="6evkan0tof">Costa Rica</div><div class="option" data-selectable="" data-value="Cote d&#39;Ivoire" role="option" id="7srkz08mqr">Cote d'Ivoire</div><div class="option" data-selectable="" data-value="Croatia" role="option" id="hsxxwr5tef">Croatia</div><div class="option" data-selectable="" data-value="Cuba" role="option" id="exy33qynic">Cuba</div><div class="option" data-selectable="" data-value="Curacao" role="option" id="myv97d1xbw">Curacao</div><div class="option" data-selectable="" data-value="Cyprus" role="option" id="rj8hhqpaxw">Cyprus</div><div class="option" data-selectable="" data-value="Czechia" role="option" id="avgm8j8a0q">Czechia</div><div class="option" data-selectable="" data-value="Democratic Republic of Congo" role="option" id="7jepbzq4k5">Democratic Republic of Congo</div><div class="option" data-selectable="" data-value="Denmark" role="option" id="807inq2mpt">Denmark</div><div class="option" data-selectable="" data-value="Djibouti" role="option" id="pznmxwrap4">Djibouti</div><div class="option" data-selectable="" data-value="Dominica" role="option" id="7obuogn6k4">Dominica</div><div class="option selected" data-selectable="" data-value="Dominican Republic" role="option" id="nrnyk6rb6m">Dominican Republic</div><div class="option selected active" data-selectable="" data-value="Ecuador" role="option" id="fmbexsm9cd">Ecuador</div><div class="option" data-selectable="" data-value="Egypt" role="option" id="w1gr2vprpf">Egypt</div><div class="option" data-selectable="" data-value="El Salvador" role="option" id="rfeakuc5s3">El Salvador</div><div class="option" data-selectable="" data-value="Equatorial Guinea" role="option" id="4vocv3csoi">Equatorial Guinea</div><div class="option" data-selectable="" data-value="Eritrea" role="option" id="jwjx81fotm">Eritrea</div><div class="option" data-selectable="" data-value="Estonia" role="option" id="dsoclq8luf">Estonia</div><div class="option" data-selectable="" data-value="Eswatini" role="option" id="4h77pzdwyo">Eswatini</div><div class="option" data-selectable="" data-value="Ethiopia" role="option" id="z25uajsxup">Ethiopia</div><div class="option" data-selectable="" data-value="Europe" role="option" id="gm78rmcyvy">Europe</div><div class="option" data-selectable="" data-value="European Union" role="option" id="if3q6zd8yp">European Union</div><div class="option" data-selectable="" data-value="Faeroe Islands" role="option" id="m1u3iwnr8z">Faeroe Islands</div><div class="option" data-selectable="" data-value="Falkland Islands" role="option" id="18uojt8ldx">Falkland Islands</div><div class="option" data-selectable="" data-value="Fiji" role="option" id="kk1154nvp1">Fiji</div><div class="option" data-selectable="" data-value="Finland" role="option" id="tjojfqh8yy">Finland</div><div class="option" data-selectable="" data-value="France" role="option" id="o2v461yy78">France</div><div class="option" data-selectable="" data-value="Gabon" role="option" id="k75zza36v3">Gabon</div><div class="option" data-selectable="" data-value="Gambia" role="option" id="lsj1f8ft6h">Gambia</div><div class="option" data-selectable="" data-value="Georgia" role="option" id="y358qxtpqx">Georgia</div><div class="option" data-selectable="" data-value="Germany" role="option" id="s3whbm9k0t">Germany</div><div class="option" data-selectable="" data-value="Ghana" role="option" id="fj8wc1vbjy">Ghana</div><div class="option" data-selectable="" data-value="Gibraltar" role="option" id="66glxwxgmj">Gibraltar</div><div class="option" data-selectable="" data-value="Greece" role="option" id="u713sskh4b">Greece</div><div class="option" data-selectable="" data-value="Greenland" role="option" id="r7pbwxqqwq">Greenland</div><div class="option" data-selectable="" data-value="Grenada" role="option" id="qto1p3paz5">Grenada</div><div class="option" data-selectable="" data-value="Guatemala" role="option" id="kcbavjj1ux">Guatemala</div><div class="option" data-selectable="" data-value="Guernsey" role="option" id="7y7v7x0gpm">Guernsey</div><div class="option" data-selectable="" data-value="Guinea" role="option" id="wiuji4r0vm">Guinea</div><div class="option" data-selectable="" data-value="Guinea-Bissau" role="option" id="nc42noo8fi">Guinea-Bissau</div><div class="option" data-selectable="" data-value="Guyana" role="option" id="0xj92dsfct">Guyana</div><div class="option" data-selectable="" data-value="Haiti" role="option" id="3uo6ppena7">Haiti</div><div class="option" data-selectable="" data-value="Honduras" role="option" id="6v91hnbrpv">Honduras</div><div class="option" data-selectable="" data-value="Hong Kong" role="option" id="58yql2yro1">Hong Kong</div><div class="option" data-selectable="" data-value="Hungary" role="option" id="mwr0crx5qp">Hungary</div><div class="option" data-selectable="" data-value="Iceland" role="option" id="fry5x8oof3">Iceland</div><div class="option" data-selectable="" data-value="India" role="option" id="hol1zbqpwp">India</div><div class="option" data-selectable="" data-value="Indonesia" role="option" id="i9fd8bd13l">Indonesia</div><div class="option" data-selectable="" data-value="International" role="option" id="21mz54nqhw">International</div><div class="option" data-selectable="" data-value="Iran" role="option" id="rrc638wjq8">Iran</div><div class="option" data-selectable="" data-value="Iraq" role="option" id="zfl2zblsw9">Iraq</div><div class="option" data-selectable="" data-value="Ireland" role="option" id="nhemad9oyk">Ireland</div><div class="option" data-selectable="" data-value="Isle of Man" role="option" id="n8khgfleue">Isle of Man</div><div class="option" data-selectable="" data-value="Israel" role="option" id="m9q0hbudlc">Israel</div><div class="option" data-selectable="" data-value="Italy" role="option" id="3b1cobgf4o">Italy</div><div class="option" data-selectable="" data-value="Jamaica" role="option" id="knkinv8x5a">Jamaica</div><div class="option" data-selectable="" data-value="Japan" role="option" id="hvgazhq98w">Japan</div><div class="option" data-selectable="" data-value="Jersey" role="option" id="gm5qw6wfw8">Jersey</div><div class="option" data-selectable="" data-value="Jordan" role="option" id="rm6wrz8yzu">Jordan</div><div class="option" data-selectable="" data-value="Kazakhstan" role="option" id="npamjxpe9v">Kazakhstan</div><div class="option" data-selectable="" data-value="Kenya" role="option" id="kvgi98aj0d">Kenya</div><div class="option" data-selectable="" data-value="Kosovo" role="option" id="1mknm64n2l">Kosovo</div><div class="option" data-selectable="" data-value="Kuwait" role="option" id="0jtht95x6l">Kuwait</div><div class="option" data-selectable="" data-value="Kyrgyzstan" role="option" id="8fkv7us3cq">Kyrgyzstan</div><div class="option" data-selectable="" data-value="Laos" role="option" id="ot0qoqui3f">Laos</div><div class="option" data-selectable="" data-value="Latvia" role="option" id="n3nlvo40nd">Latvia</div><div class="option" data-selectable="" data-value="Lebanon" role="option" id="p76z3rciap">Lebanon</div><div class="option" data-selectable="" data-value="Lesotho" role="option" id="n3ethr7cp3">Lesotho</div><div class="option" data-selectable="" data-value="Liberia" role="option" id="zxbqb8abg8">Liberia</div><div class="option" data-selectable="" data-value="Libya" role="option" id="73g80ws3st">Libya</div><div class="option" data-selectable="" data-value="Liechtenstein" role="option" id="hsl940a4pl">Liechtenstein</div><div class="option" data-selectable="" data-value="Lithuania" role="option" id="2z2ew5zhdj">Lithuania</div><div class="option" data-selectable="" data-value="Luxembourg" role="option" id="tk7rxece13">Luxembourg</div><div class="option" data-selectable="" data-value="Macao" role="option" id="3y8oaavim5">Macao</div><div class="option" data-selectable="" data-value="Madagascar" role="option" id="49t2x28qhk">Madagascar</div><div class="option" data-selectable="" data-value="Malawi" role="option" id="dy35rx1j62">Malawi</div><div class="option" data-selectable="" data-value="Malaysia" role="option" id="tmmy3rio1l">Malaysia</div><div class="option" data-selectable="" data-value="Maldives" role="option" id="ghx5t80h8p">Maldives</div><div class="option" data-selectable="" data-value="Mali" role="option" id="9lad0uf9qq">Mali</div><div class="option" data-selectable="" data-value="Malta" role="option" id="p2un1idkeo">Malta</div><div class="option" data-selectable="" data-value="Marshall Islands" role="option" id="hk8suw79zm">Marshall Islands</div><div class="option" data-selectable="" data-value="Mauritania" role="option" id="ornnm8agra">Mauritania</div><div class="option" data-selectable="" data-value="Mauritius" role="option" id="kskok32wpq">Mauritius</div><div class="option" data-selectable="" data-value="Mexico" role="option" id="y24dos913i">Mexico</div><div class="option" data-selectable="" data-value="Micronesia (country)" role="option" id="a7x8judxfv">Micronesia (country)</div><div class="option" data-selectable="" data-value="Moldova" role="option" id="drrkojww3g">Moldova</div><div class="option" data-selectable="" data-value="Monaco" role="option" id="b1j12g8wlu">Monaco</div><div class="option" data-selectable="" data-value="Mongolia" role="option" id="vpoo8oz4vl">Mongolia</div><div class="option" data-selectable="" data-value="Montenegro" role="option" id="ngkemjacig">Montenegro</div><div class="option" data-selectable="" data-value="Montserrat" role="option" id="mymckr2wr6">Montserrat</div><div class="option" data-selectable="" data-value="Morocco" role="option" id="xkkqjhb1fy">Morocco</div><div class="option" data-selectable="" data-value="Mozambique" role="option" id="swqjf9gzqr">Mozambique</div><div class="option" data-selectable="" data-value="Myanmar" role="option" id="oa5wte9ctk">Myanmar</div><div class="option" data-selectable="" data-value="Namibia" role="option" id="vzbxkkg8of">Namibia</div><div class="option" data-selectable="" data-value="Nauru" role="option" id="s9po4nzzzc">Nauru</div><div class="option" data-selectable="" data-value="Nepal" role="option" id="q3ozr4brx2">Nepal</div><div class="option" data-selectable="" data-value="Netherlands" role="option" id="dec1tlmqgd">Netherlands</div><div class="option" data-selectable="" data-value="New Zealand" role="option" id="0k2gpdaczr">New Zealand</div><div class="option" data-selectable="" data-value="Nicaragua" role="option" id="jx4li1p02x">Nicaragua</div><div class="option" data-selectable="" data-value="Niger" role="option" id="1ompn1fh6w">Niger</div><div class="option" data-selectable="" data-value="Nigeria" role="option" id="w6rfzo6tm3">Nigeria</div><div class="option" data-selectable="" data-value="North America" role="option" id="vbwain2hvi">North America</div><div class="option" data-selectable="" data-value="North Macedonia" role="option" id="kuyw8eszx7">North Macedonia</div><div class="option" data-selectable="" data-value="Northern Cyprus" role="option" id="oxhk5okso5">Northern Cyprus</div><div class="option" data-selectable="" data-value="Norway" role="option" id="mkxy112k8n">Norway</div><div class="option" data-selectable="" data-value="Oceania" role="option" id="yfm6uhldmk">Oceania</div><div class="option" data-selectable="" data-value="Oman" role="option" id="fhs25ypzk6">Oman</div><div class="option" data-selectable="" data-value="Pakistan" role="option" id="lbcptup07z">Pakistan</div><div class="option" data-selectable="" data-value="Palestine" role="option" id="cjfaddgt01">Palestine</div><div class="option" data-selectable="" data-value="Panama" role="option" id="gf44512v10">Panama</div><div class="option" data-selectable="" data-value="Papua New Guinea" role="option" id="nrv64es7sa">Papua New Guinea</div><div class="option" data-selectable="" data-value="Paraguay" role="option" id="onld7pqmnv">Paraguay</div><div class="option" data-selectable="" data-value="Peru" role="option" id="g671delkzw">Peru</div><div class="option" data-selectable="" data-value="Philippines" role="option" id="prex9n2bzp">Philippines</div><div class="option" data-selectable="" data-value="Poland" role="option" id="u630jviij5">Poland</div><div class="option" data-selectable="" data-value="Portugal" role="option" id="zklsus92nr">Portugal</div><div class="option" data-selectable="" data-value="Qatar" role="option" id="dgss5doudt">Qatar</div><div class="option" data-selectable="" data-value="Romania" role="option" id="le3g07m23v">Romania</div><div class="option" data-selectable="" data-value="Russia" role="option" id="shfin18f8e">Russia</div><div class="option" data-selectable="" data-value="Rwanda" role="option" id="1ednsw14bd">Rwanda</div><div class="option" data-selectable="" data-value="Saint Helena" role="option" id="5x0d606b7n">Saint Helena</div><div class="option" data-selectable="" data-value="Saint Kitts and Nevis" role="option" id="zxs39zzbaa">Saint Kitts and Nevis</div><div class="option" data-selectable="" data-value="Saint Lucia" role="option" id="7s0e5pfq3n">Saint Lucia</div><div class="option" data-selectable="" data-value="Saint Vincent and the Grenadines" role="option" id="paqw4i2y9i">Saint Vincent and the Grenadines</div><div class="option" data-selectable="" data-value="Samoa" role="option" id="m8cvax86im">Samoa</div><div class="option" data-selectable="" data-value="San Marino" role="option" id="sdjtogl631">San Marino</div><div class="option" data-selectable="" data-value="Sao Tome and Principe" role="option" id="dmdm6t47f5">Sao Tome and Principe</div><div class="option" data-selectable="" data-value="Saudi Arabia" role="option" id="4f17fna44c">Saudi Arabia</div><div class="option" data-selectable="" data-value="Senegal" role="option" id="kfek5v49q7">Senegal</div><div class="option" data-selectable="" data-value="Serbia" role="option" id="pc4iz06dpq">Serbia</div><div class="option" data-selectable="" data-value="Seychelles" role="option" id="s9n5vbx9r7">Seychelles</div><div class="option" data-selectable="" data-value="Sierra Leone" role="option" id="uqhmrtoth6">Sierra Leone</div><div class="option" data-selectable="" data-value="Singapore" role="option" id="ihggnlm62y">Singapore</div><div class="option" data-selectable="" data-value="Slovakia" role="option" id="rjr5qpv4pr">Slovakia</div><div class="option" data-selectable="" data-value="Slovenia" role="option" id="eelakxmkek">Slovenia</div><div class="option" data-selectable="" data-value="Solomon Islands" role="option" id="5l5f64jxwg">Solomon Islands</div><div class="option" data-selectable="" data-value="Somalia" role="option" id="yhzrdstach">Somalia</div><div class="option" data-selectable="" data-value="South Africa" role="option" id="qoxs1ph1xq">South Africa</div><div class="option" data-selectable="" data-value="South America" role="option" id="mls68veitb">South America</div><div class="option" data-selectable="" data-value="South Korea" role="option" id="3ckv66pbbx">South Korea</div><div class="option" data-selectable="" data-value="South Sudan" role="option" id="nv6zgvzhm2">South Sudan</div><div class="option" data-selectable="" data-value="Spain" role="option" id="4qq3ii711w">Spain</div><div class="option" data-selectable="" data-value="Sri Lanka" role="option" id="qxcabtfgsb">Sri Lanka</div><div class="option" data-selectable="" data-value="Sudan" role="option" id="l2g7nd8buk">Sudan</div><div class="option" data-selectable="" data-value="Suriname" role="option" id="7brmhne5fn">Suriname</div><div class="option" data-selectable="" data-value="Sweden" role="option" id="1uuo755t0x">Sweden</div><div class="option" data-selectable="" data-value="Switzerland" role="option" id="y6011dx9yc">Switzerland</div><div class="option" data-selectable="" data-value="Syria" role="option" id="gmjpuz586l">Syria</div><div class="option" data-selectable="" data-value="Taiwan" role="option" id="bzeepj6p7t">Taiwan</div><div class="option" data-selectable="" data-value="Tajikistan" role="option" id="vcpeptpnof">Tajikistan</div><div class="option" data-selectable="" data-value="Tanzania" role="option" id="bggna5dyye">Tanzania</div><div class="option" data-selectable="" data-value="Thailand" role="option" id="y5b6wnzpyr">Thailand</div><div class="option" data-selectable="" data-value="Timor" role="option" id="me2h6l6lwa">Timor</div><div class="option" data-selectable="" data-value="Togo" role="option" id="w5feeyoe3v">Togo</div><div class="option" data-selectable="" data-value="Tonga" role="option" id="2wyk3zj4bu">Tonga</div><div class="option" data-selectable="" data-value="Trinidad and Tobago" role="option" id="fa0754rou7">Trinidad and Tobago</div><div class="option" data-selectable="" data-value="Tunisia" role="option" id="jmm26u5ilk">Tunisia</div><div class="option" data-selectable="" data-value="Turkey" role="option" id="5hd849otv8">Turkey</div><div class="option" data-selectable="" data-value="Turks and Caicos Islands" role="option" id="1re2jsvi5z">Turks and Caicos Islands</div><div class="option" data-selectable="" data-value="Uganda" role="option" id="76msgekv7j">Uganda</div><div class="option" data-selectable="" data-value="Ukraine" role="option" id="rwmgfyhpgo">Ukraine</div><div class="option" data-selectable="" data-value="United Arab Emirates" role="option" id="vlh97f83up">United Arab Emirates</div><div class="option" data-selectable="" data-value="United Kingdom" role="option" id="nsm4awgt6b">United Kingdom</div><div class="option" data-selectable="" data-value="United States" role="option" id="nhv8kfy983">United States</div><div class="option" data-selectable="" data-value="Uruguay" role="option" id="defzxp0icc">Uruguay</div><div class="option" data-selectable="" data-value="Uzbekistan" role="option" id="nssujwq3fp">Uzbekistan</div><div class="option" data-selectable="" data-value="Vanuatu" role="option" id="hzs4z052yk">Vanuatu</div><div class="option" data-selectable="" data-value="Vatican" role="option" id="ihfyfgewzp">Vatican</div><div class="option" data-selectable="" data-value="Venezuela" role="option" id="aqwwjhjfrg">Venezuela</div><div class="option" data-selectable="" data-value="Vietnam" role="option" id="iiq61hxrsp">Vietnam</div><div class="option" data-selectable="" data-value="World" role="option" id="terx0o1ur3">World</div><div class="option" data-selectable="" data-value="Yemen" role="option" id="6fwu6aigbh">Yemen</div><div class="option" data-selectable="" data-value="Zambia" role="option" id="bb70q9sj1l">Zambia</div><div class="option" data-selectable="" data-value="Zimbabwe" role="option" id="t6xy1y9nee">Zimbabwe</div></div></div></div>
+<script type="application/json" data-for="countries" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<p></p><div id="out2db23f46c760051c" class="shiny-plot-output shiny-bound-output" style="width:100%;height:400px;" aria-live="polite"><img src="data:image/png;base64,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" width="1241" height="611" alt="Plot object"></div><p></p>
+</div></div></div></div></div></div>
+
+</div></div>
+
+<script>
+
+$(document).ready(function () {
+
+  // add bootstrap table styles to pandoc tables
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+
+  // initialize mathjax
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+  document.getElementsByTagName("head")[0].appendChild(script);
+
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+  FlexDashboard.init({
+    theme: "cosmo",
+    fillPage: true,
+    orientation: "columns",
+    storyboard: false,
+    defaultFigWidth: 576,
+    defaultFigHeight: 460,
+    defaultFigWidthMobile: 360,
+    defaultFigHeightMobile: 460,
+    resize_reload: true
+  });
+});
+</script>
+
+
+</div>
+  </div>
+
+
+<div aria-live="assertive" role="log" aria-relevant="additions" aria-atomic="true" style="position: absolute; width: 1px; height: 1px; margin-top: -1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;"></div><div aria-live="assertive" role="log" aria-relevant="additions" aria-atomic="true" style="position: absolute; width: 1px; height: 1px; margin-top: -1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;"></div><div aria-live="assertive" role="log" aria-relevant="additions" aria-atomic="true" style="position: absolute; width: 1px; height: 1px; margin-top: -1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;"><div>Ecuador</div></div><svg id="js-plotly-tester" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; left: -10000px; top: -10000px; width: 9000px; height: 9000px; z-index: 1;"><path class="js-reference-point" d="M0,0H1V1H0Z" style="stroke-width: 0; fill: black;"></path></svg></body></html>

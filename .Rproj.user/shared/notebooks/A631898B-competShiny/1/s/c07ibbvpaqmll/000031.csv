@@ -1,0 +1,13 @@
+"0","renderPlot(
+
+covid_co<-covid_ts%>%
+  filter(location==input$countries)%>%
+  select(date,new_cases)%>%
+  plot(type=""l"")
+  
+
+  
+)
+"
+"1","<shiny.render.function> 
+"

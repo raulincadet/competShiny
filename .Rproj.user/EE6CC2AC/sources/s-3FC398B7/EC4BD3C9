@@ -1,0 +1,32 @@
+{
+    "id": "EC4BD3C9",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1620588149388.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "expression": "covid_tsg",
+        "caption": "covid_tsg",
+        "totalObservations": 411,
+        "displayedObservations": 411,
+        "variables": 60,
+        "cacheKey": "C16316AA",
+        "object": "covid_tsg",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=covid_tsg&cache_key=C16316AA&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2968202503800448372,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1620588149388,
+    "read_only": false,
+    "read_only_alternatives": []
+}
