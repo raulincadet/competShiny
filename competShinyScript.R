@@ -1,4 +1,5 @@
 library(tidyverse)
+library(xts)
 covid<-read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
 cases<-covid%>%
   group_by(location)%>%
@@ -84,8 +85,19 @@ ggplot(df, aes(x = Cases_rate, y = Tourists, color = IncomeGroup))+
   xlab("Rate of cases")+ylab("Rate of tourists")+
   theme_light()
 
-############################################
 
 
 
-summary(lm(data = df,Cases_rate~PIBcapita+Tourists))
+#############################################################
+###### Importing Time Series about COVID-19       ##########
+############################################################
+
+covid_ts<-read_csv("owid-covid-data.csv")  # "https://covid.ourworldindata.org/data/owid-covid-data.csv"
+
+covid_tsg<-covid_ts%>%
+  filter(location=="Haiti")
+
+date<-as.Date.character(covid_tsg$date)
+
+Haiti_cases<-xts(covid_tsg$new_cases,order.by = date)
+plot(Haiti_cases)

@@ -24,6 +24,10 @@ population<-read_csv("population.csv")    # Source: WDI - https://data.worldbank
 tourists<-read_csv("tourismarrival.csv") # Tourists arrival - Source: WDI - https://data.worldbank.org/indicator/ST.INT.ARVL
 country_groups<-read_csv("countriesGroups.csv")
 
+covid_ts<-read_csv("owid-covid-data.csv")  # Time series about COVID - "https://covid.ourworldindata.org/data/owid-covid-data.csv"
+
+
+
 ################################################
 ###########    Cleanning Data       #############
 #################################################
@@ -43,15 +47,22 @@ tourists19<-tourists%>%  # Tourists arrival in 2019
   mutate(Tourists=`2019`)%>%
   select(`Country Name`,`Country Code`,Tourists)
 
+hdi<-covid_ts%>%
+  group_by(location)%>%
+  summarise(tail(human_development_index,1))%>%
+  rename("Country Name"="location","HDI"="tail(human_development_index, 1)")
+
+#colnames(hdi)
 ############## Merging tibbles #####################
-df<-inner_join(inner_join(inner_join(inner_join(covid,pib_capita19,by="Country Name"),
+df<-inner_join(inner_join(inner_join(inner_join(inner_join(covid,pib_capita19,by="Country Name"),
                       population19,by="Country Name"),
            tourists19,by="Country Name"),
-           country_groups,by="Country Code")
+           country_groups,by="Country Code"),
+          hdi,by="Country Name")
 
 ######### Eliminating duplicated columns of country codes ##########
 df<-df%>%
-  select(`Country Code`,`Country Name`,Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists)
+  select(`Country Code`,`Country Name`,Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists,HDI)
 
 
 ########################################################
@@ -74,7 +85,7 @@ To compare COVID-19 cases with a socioeconomic variable, select a variable bello
 ```{r}
 
  selectInput("Variables", label = "Variables to compare with COVID-19 cases", 
-    choices =c("Rate of tourists","PIB per capita (current USD)", selected = "PIB per capita (current USD)")
+    choices =c("Rate of tourists","PIB per capita (current USD)","HDI"), selected = "PIB per capita (current USD)"
                )
 ```
 
@@ -101,12 +112,8 @@ Column {data-width=150}
 
 renderPlotly(
 
- plot_ly(data=df,x=~Cases_rate,y=~df[[input$Variables]],color = ~df[[input$Groups]],type = "scatter",marker=list(size=10))%>%
-   #add_markers(size=5)%>%
-   
-   #add_segments(x = 0.05, xend =0.05, y = 0, yend =16000000 ) %>%
-   
-  layout(title = paste("Rate of COVID-19 cases, compared to",colnames(df[,input$Variables])), xaxis = list(title="Rate of COVID-19 cases"),
+ plot_ly(data=df,x=~Cases_rate,y=~df[[input$Variables]],color = ~df[[input$Groups]],type ="scatter",marker=list(size=10))%>%
+   layout(title = paste("Rate of COVID-19 cases, compared to",colnames(df[,input$Variables])), xaxis = list(title="Rate of COVID-19 cases"),
          yaxis =list(title=input$Variables) ))
 #)
 #colnames(df[,"Country Code"])
@@ -121,14 +128,12 @@ renderPlotly(
 
 
 
-Page 2 {data-vertical_layout=scroll}
+Country Profile {data-vertical_layout=scroll}
 =====================================
 
 
 
 ```{r}
-covid_ts<-read_csv("owid-covid-data.csv")  # "https://covid.ourworldindata.org/data/owid-covid-data.csv"
-
 
 
 countries<-covid_ts%>%
@@ -137,30 +142,65 @@ countries<-covid_ts%>%
 ```
 
 
+Column {data-width=150}
+-----------------------------------------------------------------------
+
+
 ```{r}
 selectInput("countries", label = "Country", 
     choices =c(countries$location)#, selected = "Haiti"
+    
+    
                )
 
 ```
 
 
 ```{r}
+#renderDataTable(
+ # covid_co<-covid_ts%>%
+  #  filter(location==input$countries)%>%
+  #select(date,new_cases)
+#)
 
-renderPlot(
-
-covid_co<-covid_ts%>%
-  filter(location==input$countries)%>%
-  select(date,new_cases)%>%
-  plot(type="l",col="blue",ylab = "New cases",main = paste("COVID-19 new cases' curve in",input$countries))
-  
-
-  
-)
-
-
-     
 
 
 ```
 
+
+Column {data-width=150}
+-----------------------------------------------------------------------
+
+
+
+```{r}
+gra_xts<-function(data,country,variable){
+  x<-data%>%
+    filter(location==country)%>%
+    select(date,variable)
+  
+  z<-xts(x[,variable],order.by = as.Date.character(x$date))
+  dygraph(z)
+}
+
+``` 
+
+
+```{r}
+renderDygraph(
+  gra_xts(data=covid_ts,country=input$countries,variable=c('total_cases',"people_vaccinated"))%>%
+    dyRangeSelector()
+)
+```
+
+
+```{r}
+renderDygraph(
+  gra_xts(data=covid_ts,country=input$countries,variable='new_vaccinations')%>%
+    dyRangeSelector()
+)
+#covid_ts$people_vaccinated;covid_ts$total_cases
+covid_ts%>%
+  filter(location=="Haiti")%>%
+  select(human_development_index)
+```
