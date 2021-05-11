@@ -12,14 +12,14 @@
     "properties": {
         "expression": "covid_ts",
         "caption": "covid_ts",
-        "totalObservations": 85998,
-        "displayedObservations": 85998,
-        "variables": 59,
-        "cacheKey": "8078191E",
+        "totalObservations": "85998",
+        "displayedObservations": "85998",
+        "variables": "59",
+        "cacheKey": "DA798FC8",
         "object": "covid_ts",
         "environment": "",
-        "contentUrl": "grid_resource/gridviewer.html?env=&obj=covid_ts&cache_key=8078191E&max_cols=50",
-        "preview": 0
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=covid_ts&cache_key=DA798FC8&max_cols=50",
+        "preview": "0"
     },
     "folds": "",
     "lastKnownWriteTime": 2114184735032,

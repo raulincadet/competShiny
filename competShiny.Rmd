@@ -47,10 +47,19 @@ tourists19<-tourists%>%  # Tourists arrival in 2019
   mutate(Tourists=`2019`)%>%
   select(`Country Name`,`Country Code`,Tourists)
 
-hdi<-covid_ts%>%
+#hdi<-covid_ts%>% # Human Development Index (HDI)
+ # group_by(location)%>%
+  #summarise(tail(human_development_index,1))%>%
+  #rename("Country Name"="location","HDI"="tail(human_development_index, 1)")
+
+##############3
+dfts<-covid_ts%>% # Human Development Index (HDI)
   group_by(location)%>%
-  summarise(tail(human_development_index,1))%>%
-  rename("Country Name"="location","HDI"="tail(human_development_index, 1)")
+  summarise(HDI=tail(human_development_index,1),New_cases=tail(new_cases,1),
+            New_deaths=tail(new_deaths,1))%>%
+  rename("Country Name"="location")
+
+
 
 #colnames(hdi)
 ############## Merging tibbles #####################
@@ -58,11 +67,11 @@ df<-inner_join(inner_join(inner_join(inner_join(inner_join(covid,pib_capita19,by
                       population19,by="Country Name"),
            tourists19,by="Country Name"),
            country_groups,by="Country Code"),
-          hdi,by="Country Name")
+          dfts,by="Country Name")
 
 ######### Eliminating duplicated columns of country codes ##########
 df<-df%>%
-  select(`Country Code`,`Country Name`,Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists,HDI)
+  select(`Country Code`,`Country Name`,Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists,HDI,New_cases,New_deaths)
 
 
 ########################################################
@@ -141,31 +150,20 @@ countries<-covid_ts%>%
   count(location)
 ```
 
-
-Column {data-width=150}
+Column {.sidebar}
 -----------------------------------------------------------------------
 
+This page present the profile of each country regarding COVID-19. To choose a country, you have to select it bellow.
 
 ```{r}
 selectInput("countries", label = "Country", 
     choices =c(countries$location)#, selected = "Haiti"
-    
-    
-               )
-
-```
-
-
-```{r}
-#renderDataTable(
- # covid_co<-covid_ts%>%
-  #  filter(location==input$countries)%>%
-  #select(date,new_cases)
-#)
+                   )
 
 
 
 ```
+
 
 
 Column {data-width=150}
@@ -174,33 +172,67 @@ Column {data-width=150}
 
 
 ```{r}
-gra_xts<-function(data,country,variable){
+gra_xts<-function(data,country,variable,...){
   x<-data%>%
     filter(location==country)%>%
     select(date,variable)
   
   z<-xts(x[,variable],order.by = as.Date.character(x$date))
-  dygraph(z)
+  dygraph(z,...)
 }
 
 ``` 
 
 
-```{r}
-renderDygraph(
-  gra_xts(data=covid_ts,country=input$countries,variable=c('total_cases',"people_vaccinated"))%>%
-    dyRangeSelector()
-)
-```
-
 
 ```{r}
 renderDygraph(
-  gra_xts(data=covid_ts,country=input$countries,variable='new_vaccinations')%>%
+  gra_xts(data=covid_ts,country=input$countries,variable='new_cases',main=paste("Total cases in",input$countries))%>%
     dyRangeSelector()
+    
 )
 #covid_ts$people_vaccinated;covid_ts$total_cases
-covid_ts%>%
-  filter(location=="Haiti")%>%
-  select(human_development_index)
+
 ```
+
+
+```{r}
+renderDygraph(
+  gra_xts(data=covid_ts,country=input$countries,variable=c('total_cases',"people_vaccinated"),main=paste("Total cases, compared to people vaccinated in",input$countries))%>%
+    dyOptions(fillGraph = T)%>%
+    dyRangeSelector()
+)
+```
+
+Column {data-width=150}
+-----------------------------------------------------------------------
+
+```{r}
+tot<-covid_ts%>%
+  group_by(date)%>%
+  summarise(tot_new_cases=sum(new_cases,na.rm = T),
+            tot_people_vaccinated=sum(people_vaccinated,na.rm = T),
+            tot_total_cases=sum(total_cases,na.rm = T))
+
+
+```
+
+```{r}
+totnewcases<-xts(tot$tot_new_cases,order.by = as.Date.character(tot$date))
+dygraph(totnewcases,main = "Total of cases worldwide")%>%
+  dyRangeSelector()
+```
+
+```{r}
+totcases<-xts(tot$tot_total_cases,order.by = as.Date.character(tot$date))
+totpeoplevacc<-xts(tot$tot_people_vaccinated,order.by = as.Date.character(tot$date))
+
+
+  dygraph(cbind(Cases=totcases,`People vaccinated`=totpeoplevacc),main = "Total cases worldwide, compared to people vaccinated")%>%
+  dyRangeSelector()%>%
+    dyOptions(fillGraph = T)
+    
+```
+
+
+

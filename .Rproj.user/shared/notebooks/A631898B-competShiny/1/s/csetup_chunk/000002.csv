@@ -1,0 +1,13 @@
+"0","##############3
+dfts<-covid_ts%>% # Human Development Index (HDI)
+  group_by(location)%>%
+  summarise(HDI=tail(human_development_index,1),New_cases=tail(new_cases,1),
+            New_deaths=tail(New_deaths,1))%>%
+  rename(""Country Name""=""location"")
+"
+"2","Error: Problem with `summarise()` input `New_deaths`.
+[31mx[39m object 'New_deaths' not found
+[34mi[39m Input `New_deaths` is `tail(New_deaths, 1)`.
+[34mi[39m The error occurred in group 1: location = ""Afghanistan"".
+[90mRun `rlang::last_error()` to see where the error occurred.[39m
+"
