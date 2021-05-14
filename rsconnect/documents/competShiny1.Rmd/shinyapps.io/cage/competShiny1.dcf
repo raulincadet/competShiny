@@ -5,11 +5,10 @@ account: cage
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4129517
-bundleId: 4597952
+bundleId: 4598381
 url: https://cage.shinyapps.io/competShiny1/
-when: 1620993457.46548
-lastSyncTime: 1620993457.46548
+when: 1621000856.44582
+lastSyncTime: 1621000856.44582
 asMultiple: TRUE
 asStatic: FALSE
-additionalFiles: .RData
 ignoredFiles: try.Rmd

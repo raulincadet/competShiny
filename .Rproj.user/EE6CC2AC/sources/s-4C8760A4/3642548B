@@ -3,7 +3,7 @@
     "path": "~/Raul/GitHub/competShiny/competShiny.Rmd",
     "project_path": "competShiny.Rmd",
     "type": "r_markdown",
-    "hash": "1058578293",
+    "hash": "276617446",
     "contents": "",
     "dirty": false,
     "created": 1620985638197.0,
@@ -11,16 +11,16 @@
     "relative_order": 10,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "140,69",
-        "scrollLine": "127",
+        "cursorPosition": "122,29",
+        "scrollLine": "114",
         "last_setup_crc32": "4C8760A4fe0437ca"
     },
     "folds": "",
-    "lastKnownWriteTime": 1620985999,
+    "lastKnownWriteTime": 1621003062,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1620985999360,
+    "last_content_update": 1621003062805,
     "read_only": false,
     "read_only_alternatives": []
 }

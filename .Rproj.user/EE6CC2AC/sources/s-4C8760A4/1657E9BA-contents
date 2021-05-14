@@ -17,7 +17,10 @@ library(dygraphs)
 library(plotly)
 library(tmap)
 library(shiny)
+```
 
+
+```{r global}
 #################################################
 ###########    Importing Data       #############
 #################################################
@@ -34,9 +37,9 @@ covid_ts<-read_csv("owid-covid-data.csv")  # Time series about COVID - "https://
 ################################################
 ###########    Cleanning Data       #############
 #################################################
-covid<-covid_who%>% # selecting needed variables and changing their names
-  select(Name,`Cases - cumulative total`, `Deaths - cumulative total`)%>%
-  transmute(`Country Name`=Name,Cases=`Cases - cumulative total`, Deaths=`Deaths - cumulative total`)
+#covid<-covid_who%>% # selecting needed variables and changing their names
+ # select(Name,`Cases - cumulative total`, `Deaths - cumulative total`)%>%
+#  transmute(`Country Name`=Name,Cases=`Cases - cumulative total`, Deaths=`Deaths - cumulative total`)
 
 
 
@@ -63,11 +66,11 @@ dfts<-covid_ts%>% # Variables from a data frame of time series
 
 ####################################################
 ############## Merging tibbles #####################
-df1<-inner_join(inner_join(inner_join(inner_join(inner_join(covid,pib_capita19,by="Country Name"),
-                      population19,by="Country Code"),
-           tourists19,by="Country Code"),
-           country_groups,by="Country Code"),
-          dfts,by="Country Name")
+#df1<-inner_join(inner_join(inner_join(inner_join(inner_join(covid,pib_capita19,by="Country Name"),
+ #                     population19,by="Country Code"),
+  #         tourists19,by="Country Code"),
+   #        country_groups,by="Country Code"),
+    #      dfts,by="Country Name")
 
 df<-inner_join(inner_join(inner_join(inner_join(dfts,pib_capita19,by="Country Name"),
                       population19,by="Country Code"),
