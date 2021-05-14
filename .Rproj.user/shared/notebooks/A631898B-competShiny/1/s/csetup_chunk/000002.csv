@@ -1,0 +1,16 @@
+"0","library(tidyverse)
+"
+"2","Warning messages:
+"
+"2","1: "
+"2","In grepl(paste(""\\Q"", search, ""\\E"", sep = """"), column, perl = TRUE,  :"
+"2","
+ "
+"2"," input string 192 is invalid UTF-8
+"
+"2","2: "
+"2","In grepl(paste(""\\Q"", search, ""\\E"", sep = """"), column, perl = TRUE,  :"
+"2","
+ "
+"2"," input string 192 is invalid UTF-8
+"

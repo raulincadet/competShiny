@@ -1,0 +1,32 @@
+{
+    "id": "DD3DD9F5",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1621023868032.0,
+    "source_on_save": false,
+    "relative_order": 15,
+    "properties": {
+        "expression": "df_wdi",
+        "caption": "df_wdi",
+        "totalObservations": 253,
+        "displayedObservations": 253,
+        "variables": 11,
+        "cacheKey": "D7F5240B",
+        "object": "df_wdi",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=df_wdi&cache_key=D7F5240B&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 7503124940912336997,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1621023868032,
+    "read_only": false,
+    "read_only_alternatives": []
+}

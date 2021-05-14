@@ -2,7 +2,7 @@
 title: "Is COVID-19 the desease of Rich countries"
 output:
   flexdashboard::flex_dashboard:
-    orientation: columns
+    orientation: rows
     vertical_layout: fill
 runtime: shiny
 resource_files:
@@ -59,6 +59,8 @@ tourists19<-tourists%>%  # Tourists arrival in 2019
 dfts<-covid_ts%>% # Variables from a data frame of time series
   group_by(location)%>%
   summarise(HDI=tail(human_development_index,1),
+            `Population older than 65 years (%)`=tail(aged_65_older,1),
+            `Population older than 70 years (%)`=tail(aged_70_older,1),
             Vaccinated_people=sum(people_vaccinated,na.rm = TRUE),Cases=tail(total_cases,1),Deaths=tail(total_deaths,1))%>%
   rename("Country Name"="location")
 #####################################################################
@@ -66,11 +68,7 @@ dfts<-covid_ts%>% # Variables from a data frame of time series
 
 ####################################################
 ############## Merging tibbles #####################
-#df1<-inner_join(inner_join(inner_join(inner_join(inner_join(covid,pib_capita19,by="Country Name"),
- #                     population19,by="Country Code"),
-  #         tourists19,by="Country Code"),
-   #        country_groups,by="Country Code"),
-    #      dfts,by="Country Name")
+
 
 df<-inner_join(inner_join(inner_join(inner_join(dfts,pib_capita19,by="Country Name"),
                       population19,by="Country Code"),
@@ -79,7 +77,7 @@ df<-inner_join(inner_join(inner_join(inner_join(dfts,pib_capita19,by="Country Na
 #colnames(df)
 ######### Eliminating duplicated columns of country codes ##########
 df<-df%>%
-  select(`Country Code`,`Country Name`,Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists,HDI,Vaccinated_people)
+  select(`Country Code`,`Country Name`,Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists,HDI,Vaccinated_people,`Population older than 65 years (%)`,`Population older than 70 years (%)`)
 
 
 ########################################################
@@ -120,7 +118,7 @@ To compare COVID-19 cases with a socioeconomic variable, select a variable bello
 ```{r}
 
  selectInput("Variables", label = "Variables to compare with COVID-19 cases", 
-    choices =c("Rate of tourists","PIB per capita (current USD)","HDI"), selected = "PIB per capita (current USD)"
+    choices =c("Tourists rate","PIB per capita (current USD)","HDI","Population older than 65 years (%)","Population older than 70 years (%)"), selected = "PIB per capita (current USD)"
                )
 ```
 
@@ -136,20 +134,47 @@ selectInput("Groups", label = "Groups of countries",
 
 
 
-column {data-wdth=750}
+Row {data-height=350}
 ----------------------------------
 
 ### Figure 1
 
-```{r}
 
+
+```{r}
+#tmap_options(bg.color = "black", legend.text.color = "white")
 renderTmap(
-  qtm(df_world, fill = input$Covid, fill.pallete = "RdYlGn")
+  qtm(df_world, fill = input$Covid,fill.palette="Blues")+tmap_style("white")#"RdYlGn"
+  
+
+#tm_shape(df_world) +
+#    tm_polygons(input$Covid, palette="-Blues", contrast=.7)+
+ # tm_bubbles(input$Variables,
+  #           border.col = "black", border.alpha = .5, 
+   #            style="fixed", breaks=c(-Inf, seq(0, 6, by=2), Inf),
+    #           palette="-RdYlBu", contrast=1)#+
+  #tm_compass(type="radar",position="top") #+ tm_scale_bar()
+  #tm_style_gray()+
+  #tm_format_World_wide()
+  #tmap_options(bg.color = "black", legend.text.color = "white")
     )
 
 
 
 ```
+
+
+ 
+### Table 1 - Selected data
+```{r}
+options(digits = 5)
+renderTable(
+  as.tibble(df_world)%>%
+    select(`Country Name`,input$Groups,input$Covid,input$Variables)
+)
+
+```
+
 
 
 Row {data-height=350}
@@ -168,6 +193,7 @@ renderPlot(
  geom_point(aes(color = get(input$Groups)),size=5)+#
   geom_smooth(method='lm',se=F,size=1.5)+
   xlab(colnames(df[,input$Covid]))+ylab(input$Variables)+
+  ggtitle(paste("COVID-19",input$Covid,"compared to",input$Variables))+
    
   theme_classic()+
    theme(legend.position = "top",legend.title = element_blank())
@@ -184,7 +210,7 @@ renderPlot(
 renderPlotly(
   df%>%
     group_by(get(input$Groups))%>%
-    summarise(Mean=as.numeric(mean(na.omit(get(input$Variables)),na.rm=T)))%>%
+    summarise(Mean=as.numeric(mean(na.omit(get(input$Covid)),na.rm=T)))%>%
   mutate(id=1:length(Mean))%>%
   filter(id<max(id))%>%
     plot_ly(y=~Mean,
@@ -192,7 +218,7 @@ renderPlotly(
             color=~as_vector(as.data.frame(table(df[[input$Groups]]))[,1]),
             type = "bar"   )%>%hide_legend()%>%
   
-   layout(title = paste("Mean of",colnames(df[,input$Variables]),"by",colnames(df[,input$Groups])), 
+   layout(title = paste("Mean of",colnames(df[,input$Covid]),"by",colnames(df[,input$Groups])), 
           xaxis = list(title=colnames(df[,input$Groups])),
           yaxis =list(title="Mean") )
   
@@ -236,10 +262,8 @@ selectInput("countries", label = "Country",
 
 
 
-Column {data-width=150}
+Column {data-width=250}
 -----------------------------------------------------------------------
-
-
 
 ```{r}
 gra_xts<-function(data,country,variable,...){
@@ -276,7 +300,7 @@ renderDygraph(
 
 ```
 
-Column {data-width=150}
+Column {data-width=250}
 -----------------------------------------------------------------------
 
 ```{r}
@@ -302,10 +326,10 @@ totpeoplevacc<-xts(tot$tot_people_vaccinated,order.by = as.Date.character(tot$da
 
 
   dygraph(cbind(Cases=totcases,`People vaccinated`=totpeoplevacc),ylab="Total cases",xlab="Days",main = "Total cases of COVID-19, compared to people vaccinated, around the world")%>%
+    #dySeries(`People vaccinated`, label = "People vaccinated") %>%
   dyRangeSelector()%>%
     dyOptions(fillGraph = T,colors=c("blue","green"))
     
 ```
-
 
 

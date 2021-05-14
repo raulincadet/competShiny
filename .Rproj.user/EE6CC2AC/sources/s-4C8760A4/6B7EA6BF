@@ -1,0 +1,32 @@
+{
+    "id": "6B7EA6BF",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1621011497376.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "expression": "dfts",
+        "caption": "dfts",
+        "totalObservations": "219",
+        "displayedObservations": "219",
+        "variables": "7",
+        "cacheKey": "D64E29A6",
+        "object": "dfts",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=dfts&cache_key=D64E29A6&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 847043841767552,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1621011497376,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,32 @@
+{
+    "id": "621C57A9",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1621021377929.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "expression": "df_world",
+        "caption": "df_world",
+        "totalObservations": "148",
+        "displayedObservations": "148",
+        "variables": "32",
+        "cacheKey": "23852A68",
+        "object": "df_world",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=df_world&cache_key=23852A68&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8296228785919887916,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1621021377929,
+    "read_only": false,
+    "read_only_alternatives": []
+}

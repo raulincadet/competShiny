@@ -1,0 +1,9 @@
+"0","######### Eliminating duplicated columns of country codes ##########
+df<-df%>%
+  rename(`Country Name`=`Country Name.x`)%>%
+  select(`Country Code`,`Country Name`, Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists,HDI,Vaccinated_people,`Population older than 65 years (%)`,`Population older than 70 years (%)`)
+"
+"2","Error: Can't rename columns that don't exist.
+[31mx[39m Column `Country Name.x` doesn't exist.
+[90mRun `rlang::last_error()` to see where the error occurred.[39m
+"
