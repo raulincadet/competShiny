@@ -101,3 +101,6 @@ date<-as.Date.character(covid_tsg$date)
 
 Haiti_cases<-xts(covid_tsg$new_cases,order.by = date)
 plot(Haiti_cases)
+
+stoM<-storms%>%
+  group_by()

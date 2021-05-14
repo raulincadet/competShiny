@@ -1,0 +1,4 @@
+"0","plot_ly(~df,x=~wind,color = ~status)
+"
+"2","Error: First argument, `data`, must be a data frame or shared data.
+"

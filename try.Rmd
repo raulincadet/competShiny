@@ -1,0 +1,84 @@
+---
+title: "Un rapport d'essaie"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(shiny)
+library(tidyverse)
+library(plotly)
+```
+
+Préambule
+===============
+
+Je suis content de vous apprendre à utiliser Flexdashboard. Je suis content de vous apprendre à utiliser Flexdashboard. Je suis content de vous apprendre à utiliser Flexdashboard. Je suis content de vous apprendre à utiliser Flexdashboard.
+
+
+Analyse
+==================================
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+df<-storms
+```
+
+
+```{r}
+selectInput("var",label="Liste des variables",
+            choices = c("wind","pressure"),selected = "wind")
+```
+
+
+
+```{r}
+renderPlotly(
+  plot_ly(df,x=~df[[input$var]],color = ~status)
+)
+```
+
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+
+### Chart AA
+
+```{r}
+plot_ly(df,x=~pressure,color = ~status)
+```
+
+Nuage de points
+===================
+
+
+column{.sidebar}
+------------------------------
+
+Sélectionner la variable qui vous intéresse, ci-dessous.
+
+```{r}
+selectInput("var2","Liste des variables",
+            choices = c("pressure","wind"))
+```
+
+column{data-width=150}
+--------------------------
+
+```{r}
+
+renderPlotly(
+  plot_ly(df,x=~lat,y=~df[[input$var2]],color=~status)
+)
+```

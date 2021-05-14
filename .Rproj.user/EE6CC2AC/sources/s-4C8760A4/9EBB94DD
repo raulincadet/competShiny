@@ -1,0 +1,32 @@
+{
+    "id": "9EBB94DD",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1620945722947.0,
+    "source_on_save": false,
+    "relative_order": 11,
+    "properties": {
+        "expression": "dfworld",
+        "caption": "dfworld",
+        "totalObservations": 177,
+        "displayedObservations": 177,
+        "variables": 16,
+        "cacheKey": "D1D6E13F",
+        "object": "dfworld",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=dfworld&cache_key=D1D6E13F&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2314885530450145326,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1620945722947,
+    "read_only": false,
+    "read_only_alternatives": []
+}

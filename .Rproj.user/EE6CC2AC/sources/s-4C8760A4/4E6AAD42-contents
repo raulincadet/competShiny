@@ -1,0 +1,270 @@
+library(tidyverse)
+library(xts)
+covid<-read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
+cases<-covid%>%
+  group_by(location)%>%
+  summarise(cases=tail(total_cases,1),deaths=tail(total_deaths,1),tests=tail(total_tests,1))
+
+#################################################
+###########    Importing Data       #############
+#################################################
+covid_who<-read_csv("covid_WHO.csv")# read_csv("https://covid19.who.int/WHO-COVID-19-global-table-data.csv") # Source: World Health Organization - https://covid19.who.int/table
+pib_capita<-read_csv("pib_percapita.csv") # Source: World Development Indicators - https://data.worldbank.org/indicator/NY.GDP.PCAP.CD
+population<-read_csv("population.csv")    # Source: WDI - https://data.worldbank.org/indicator/SP.POP.TOTL
+tourists<-read_csv("tourismarrival.csv") # Tourists arrival - Source: WDI - https://data.worldbank.org/indicator/ST.INT.ARVL
+country_groups<-read_csv("countriesGroups.csv")
+str(covid_who)
+str(tourists)
+################################################
+###########    Cleanning Data       #############
+#################################################
+covid<-covid_who%>% # selecting needed variables and changing their names
+  select(Name,`Cases - cumulative total`, `Deaths - cumulative total`)%>%
+  transmute(`Country Name`=Name,Cases=`Cases - cumulative total`, Deaths=`Deaths - cumulative total`)
+
+pib_capita19<-pib_capita%>%  # PIB per capita in 2019
+  mutate(PIBcapita=`2019`)%>%
+  select(`Country Name`,`Country Code`,PIBcapita)
+
+population19<-population%>%  # Population in 2019
+  mutate(Population=`2019`)%>%
+  select(`Country Name`,`Country Code`,Population)
+
+tourists19<-tourists%>%  # Tourists arrival in 2019
+  mutate(Tourists=`2019`)%>%
+  select(`Country Name`,`Country Code`,Tourists)
+
+####################################################
+############## Merging tibbles #####################
+
+df<-inner_join(inner_join(inner_join(inner_join(covid,pib_capita19,by="Country Name"),
+                      population19,by="Country Name"),
+           tourists19,by="Country Name"),
+           country_groups,by="Country Code")
+
+######### Eliminating duplicated columns of country codes ##########
+df<-df%>%
+  select(`Country Code`,`Country Name`,Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists)
+
+
+########################################################
+######## Creating new variables #######################
+df<-df%>%
+  mutate(Cases_rate=Cases/Population,Tourists_rate=Tourists/Population)
+
+
+################################################################
+##################### DATA ANALYSIS ###########################
+###############################################################
+
+ggplot(df, aes(x = Cases_rate, y = PIBcapita))+
+ geom_point(aes(color = Region))+#,size=4,shape=1
+  geom_smooth(method='loess')+
+  xlab("Rate of cases")+ylab("USD")+
+  theme_light()
+
+
+ggplot(df, aes(x = Cases_rate, y = PIBcapita, color = IncomeGroup))+
+  geom_point(size=4,shape=1)+
+  geom_smooth(method = "lm")+
+  xlab("Rate of cases")+ylab("USD")+
+  theme_light()
+
+#############################################################
+
+ggplot(df, aes(x = Cases_rate, y = Tourists, color = Region))+
+  geom_point(size=4,shape=1)+
+  #geom_smooth(method='loess')+
+  xlab("Rate of cases")+ylab("Rate of tourists")+
+  theme_light()
+
+
+ggplot(df, aes(x = Cases_rate, y = Tourists, color = IncomeGroup))+
+  geom_point(size=4,shape=1)+
+  #geom_smooth(method = "lm")+
+  xlab("Rate of cases")+ylab("Rate of tourists")+
+  theme_light()
+
+
+
+
+#############################################################
+###### Importing Time Series about COVID-19       ##########
+############################################################
+
+covid_ts<-read_csv("owid-covid-data.csv")  # "https://covid.ourworldindata.org/data/owid-covid-data.csv"
+
+covid_tsg<-covid_ts%>%
+  filter(location=="Haiti")
+
+date<-as.Date.character(covid_tsg$date)
+
+Haiti_cases<-xts(covid_tsg$new_cases,order.by = date)
+plot(Haiti_cases)
+
+stoM<-storms%>%
+  group_by()
+
+######################################################################3333
+renderPlotly(
+  
+  plot_ly(data=df,x=~Cases_rate,y=~df[[input$Variables]],color = ~df[[input$Groups]],type ="scatter",marker=list(size=10))%>%
+    
+    layout(title = paste("Rate of COVID-19 cases, compared to",colnames(df[,input$Variables])), xaxis = list(title="Rate of COVID-19 cases"),
+           yaxis =list(title=input$Variables) ))
+
+##############################
+
+renderPlotly(
+  df%>%
+    group_by(get(input$Groups))%>%
+    summarise(Mean=as.integer(mean(get(input$Variables),na.rm=T)))%>%
+    plot_ly(y=~Mean,
+            x=~as_vector(as.data.frame(table(df[[input$Groups]]))[,1]),
+            color=~as_vector(as.data.frame(table(df[[input$Groups]]))[,1]),
+            type = "bar"   )%>%hide_legend()%>%
+    
+    layout(title = paste("Mean of",colnames(df[,input$Variables]),"by",colnames(df[,input$Groups])), 
+           xaxis = list(title=colnames(df[,input$Groups])),
+           yaxis =list(title="Mean") )
+  
+  
+  
+)
+
+
+#############################333
+dd<-df%>%
+  group_by(`Income level`)%>%
+  summarise(Mean=mean(as.numeric(`Cases rate`),na.rm = T))%>%
+  mutate(id=1:length(Mean))%>%
+  filter(id<max(id))%>%
+  plot_ly(y=~Mean,
+          #x=~as_vector(as.data.frame(table(df[[input$Groups]]))[,1]),
+          #color=~as_vector(as.data.frame(table(df[[input$Groups]]))[,1]),
+          x=~names(table(na.omit(df$`Income level`))),
+          #color=~names(table(na.omit(df$Region))),
+          type = "bar"   )
+
+###########################################
+
+### Figure 3
+```{r}
+renderDataTable(
+  
+  df%>%
+    group_by_(input$Groups)%>%
+    summarise_(Mean=~mean(input$Covid,na.rm=T))
+  
+)
+```
+
+```{r}
+renderPlotly(
+  df%>%
+    group_by_(input$Groups)%>%
+    summarise_(Mean=(~mean(input$Covid,na.rm=T)))%>%
+    plot_ly(y=~Mean,
+            #x=~as_vector(as.data.frame(table(df[[input$Groups]]))[,1]),
+            #color=~as_vector(as.data.frame(table(df[[input$Groups]]))[,1]),
+            x=~names(table(na.omit(input$Groups))),
+            color=~names(table(na.omit(input$Groups))),
+            type = "bar"   )%>%hide_legend()#%>%
+  
+  #layout(title = paste("Mean of",colnames(df[,input$Covid]),"by",colnames(df[,input$Groups])), 
+  #  xaxis = list(title=colnames(df[,input$Groups])),
+  # yaxis =list(title="Mean") )
+  
+  
+  
+)
+
+```
+
+```{r}
+df_gg<-function(data,group){
+  require(dplyr)
+  y=data%>%
+    group_by_(group)%>%
+    summarise_(Mean=(~mean(input$Covid,na.rm=T)))%>%as.tibble()%>%
+    ggplot(aes(x = get(input$Groups), y = Mean))+
+    geom_bar(stat = "identity")+#,aes(color = get(input$Groups)
+    theme_classic()
+  return(y)
+}
+
+```
+
+```{r}
+renderPlot(
+  df_gg(data=df,group = input$Groups)#%>%
+  #df%>%
+  # group_by(df[input$Groups])%>%
+  #summarise(Mean=as.numeric(mean(get(input$Covid),na.rm=T)))%>%as.tibble()%>%
+  #ggplot(aes(x = get(input$Groups), y = Mean))+
+  # geom_bar(stat = "identity")+#,aes(color = get(input$Groups)
+  
+  #geom_smooth(method='lm',se=F,size=1.5)+
+  #xlab(colnames(df[,input$Groups]))+
+  #ylab(input$Covid)+
+  
+  #theme_classic()+
+  #theme(legend.position = "top",legend.title = element_blank())
+)
+
+```
+
+
+
+##################
+```{r}
+library(tidyverse)
+#df$Region<-as_factor(df$)
+
+
+
+#mainPanel(
+renderPlotly(
+  dd<-df%>%
+    group_by(get(input$Groups))%>%
+    summarise(Mean=as.numeric(mean(get(input$Covid),na.rm=T)))%>%
+    plot_ly(y=~Mean,
+            #x=~as_vector(as.data.frame(table(df[[input$Groups]]))[,1]),
+            #color=~as_vector(as.data.frame(table(df[[input$Groups]]))[,1]),
+            x=~names(table(na.omit(input$Groups))),
+            color=~names(table(na.omit(input$Groups))),
+            type = "bar"   )%>%hide_legend()%>%
+    
+    layout(title = paste("Mean of",colnames(df[,input$Covid]),"by",colnames(df[,input$Groups])), 
+           xaxis = list(title=colnames(df[,input$Groups])),
+           yaxis =list(title="Mean") )
+  
+  
+  
+)
+#)
+
+
+######################333333
+
+df%>%
+  group_by(Region)%>%
+  summarise(Mean=as.numeric(mean(get(input$Covid),na.rm=T)))%>%as.tibble()%>%
+  ggplot(aes(x = df[,input$Groups], y = df[,input$Covid]))+
+  geom_bar(stat = "identity")+#,aes(color = get(input$Groups)
+  #geom_smooth(method='lm',se=F,size=1.5)+
+  xlab(colnames(df[,input$Groups]))+
+  ylab(input$Covid)+
+  
+  theme_classic()+
+  theme(legend.position = "top",legend.title = element_blank())
+
+######################################################
+library(tidyverse)
+data("World")
+df_world<-World
+df_world<-df_world%>%
+  rename(`Country Name`=name)
+  
+World_df<-inner_join(df_world,df,by="Country Name")
+str(World_df)

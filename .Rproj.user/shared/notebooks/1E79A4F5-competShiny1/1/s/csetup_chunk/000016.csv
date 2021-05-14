@@ -1,0 +1,10 @@
+"0","########################################################
+######## Creating new variables #######################
+df<-df%>%
+  mutate(`Cases rate`=Cases/Population,`Deaths rate`=Deaths/Population,`Tourists rate`=Tourists/Population,`Rate of vaccinated people`=Vaccinated_people/Population)%>%
+  rename(`PIB per capita (current USD)`=PIBcapita,`Income level`=IncomeGroup)
+"
+"2","Error: Can't rename columns that don't exist.
+[31mx[39m Column `PIBcapita` doesn't exist.
+[90mRun `rlang::last_error()` to see where the error occurred.[39m
+"
