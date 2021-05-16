@@ -37,9 +37,10 @@ covid_ts<-read_csv("owid-covid-data.csv")  # Time series about COVID - "https://
 ################################################
 ###########    Cleanning Data       #############
 #################################################
-#covid<-covid_who%>% # selecting needed variables and changing their names
- # select(Name,`Cases - cumulative total`, `Deaths - cumulative total`)%>%
-#  transmute(`Country Name`=Name,Cases=`Cases - cumulative total`, Deaths=`Deaths - cumulative total`)
+population[population == "Russian Federation"] <- "Russia"
+tourists[tourists == "Russian Federation"] <- "Russia"
+country_groups[country_groups == "Russian Federation"] <- "Russia"
+pib_capita[pib_capita == "Russian Federation"] <- "Russia"
 
 
 
@@ -55,6 +56,9 @@ tourists19<-tourists%>%  # Tourists arrival in 2019
   mutate(Tourists=`2019`)%>%
   select(`Country Name`,`Country Code`,Tourists)
 
+country_groups<-country_groups%>%
+  rename(`Country Name`=TableName)
+
 
 dfts<-covid_ts%>% # Variables from a data frame of time series
   group_by(location)%>%
@@ -68,16 +72,18 @@ dfts<-covid_ts%>% # Variables from a data frame of time series
 
 ####################################################
 ############## Merging tibbles #####################
-
+df_wdi<-inner_join(inner_join(inner_join(pib_capita19,population19,by="Country Name"),tourists19,by="Country Name"),country_groups,by="Country Name")
 
 df<-inner_join(inner_join(inner_join(inner_join(dfts,pib_capita19,by="Country Name"),
                       population19,by="Country Code"),
            tourists19,by="Country Code"),
            country_groups,by="Country Code")
-#colnames(df)
+
+
 ######### Eliminating duplicated columns of country codes ##########
 df<-df%>%
-  select(`Country Code`,`Country Name`,Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists,HDI,Vaccinated_people,`Population older than 65 years (%)`,`Population older than 70 years (%)`)
+  rename(`Country Name`=`Country Name.x`)%>%
+  select(`Country Code`,`Country Name`, Region,IncomeGroup,Cases,Deaths,Population,PIBcapita,Tourists,HDI,Vaccinated_people,`Population older than 65 years (%)`,`Population older than 70 years (%)`)
 
 
 ########################################################
@@ -92,9 +98,10 @@ df<-df%>%
 data("World")
 dfworld<-World
 df_world<-dfworld%>%
-  rename(`Country Name`=name)
+  rename(`Country Name`=name,`Country Code`=iso_a3)
   
-df_world<-inner_join(df_world,df,by="Country Name")
+df_world<-inner_join(df_world,df,by="Country Code")%>%
+  rename(`Country Name`=`Country Name.x`)
 
 ```
 
@@ -167,7 +174,7 @@ renderTmap(
  
 ### Table 1 - Selected data
 ```{r}
-options(digits = 5)
+
 renderTable(
   as.tibble(df_world)%>%
     select(`Country Name`,input$Groups,input$Covid,input$Variables)
@@ -255,18 +262,98 @@ This page present the profile of each country regarding COVID-19. To choose a co
 selectInput("countries", label = "Country", 
     choices =c(countries$location)#, selected = "Haiti"
                    )
+```
 
+***
+***
 
+```{r}
+
+renderText(
+ paste("PIB per capita",": ",
+as.tibble(df_world)%>%
+  mutate(log=df_world["Country Name"]==input$countries)%>%
+  filter(log=="TRUE")%>%
+  select("PIB per capita (current USD)")%>%as_vector()%>%round(digits=2),
+"USD"
+)
+)
+```
+
+***
+```{r}
+renderText(
+ paste("Human Development Index",": ",
+as.tibble(df_world)%>%
+  mutate(log=df_world["Country Name"]==input$countries)%>%
+  filter(log=="TRUE")%>%
+  select("HDI")%>%as_vector()%>%round(digits=4)
+)
+)
 
 ```
 
+***
+```{r}
+
+renderText(
+ paste("Population",": ",
+as.tibble(df_world)%>%
+  mutate(log=df_world["Country Name"]==input$countries)%>%
+  filter(log=="TRUE")%>%
+  select("Population")%>%as_vector()%>%round(digits=4)
+)
+)
+
+```
+
+***
+```{r}
+renderText(
+ paste("COVID-19 cases",": ",
+as.tibble(df_world)%>%
+  mutate(log=df_world["Country Name"]==input$countries)%>%
+  filter(log=="TRUE")%>%
+  select("Cases")%>%as_vector()%>%round(digits=4)
+)
+)
+
+```
+
+***
+
+```{r}
+renderText(
+ paste("COVID-19 deaths",": ",
+as.tibble(df_world)%>%
+  mutate(log=df_world["Country Name"]==input$countries)%>%
+  filter(log=="TRUE")%>%
+  select("Deaths")%>%as_vector()%>%round(digits=4)
+)
+)
+
+```
+
+***
+
+```{r}
+renderText(
+ paste("Vaccinated people",": ",
+as.tibble(df_world)%>%
+  mutate(log=df_world["Country Name"]==input$countries)%>%
+  filter(log=="TRUE")%>%
+  select("Vaccinated_people")%>%as_vector()%>%round(digits=4)
+)
+)
+
+```
 
 
 Column {data-width=250}
 -----------------------------------------------------------------------
 
 ```{r}
-gra_xts<-function(data,country,variable,...){
+gra_xts<-function(data,country,variable,...){ # function for creating dygraph graphics
   x<-data%>%
     filter(location==country)%>%
     select(date,variable)
@@ -286,7 +373,6 @@ renderDygraph(
     dyRangeSelector()
     
 )
-#covid_ts$people_vaccinated;covid_ts$total_cases
 
 ```
 
@@ -326,10 +412,8 @@ totpeoplevacc<-xts(tot$tot_people_vaccinated,order.by = as.Date.character(tot$da
 
 
   dygraph(cbind(Cases=totcases,`People vaccinated`=totpeoplevacc),ylab="Total cases",xlab="Days",main = "Total cases of COVID-19, compared to people vaccinated, around the world")%>%
-    #dySeries(`People vaccinated`, label = "People vaccinated") %>%
-  dyRangeSelector()%>%
+    dyRangeSelector()%>%
     dyOptions(fillGraph = T,colors=c("blue","green"))
     
 ```
-
 
